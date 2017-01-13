@@ -55,7 +55,7 @@ public class Lostd {
             System.out.println("Connected persoon");
             Statement stmt = (Statement) conn.createStatement();
 
-            ResultSet rs5 = stmt.executeQuery("SELECT COUNT(*) AS total FROM persoon where zip = '" + persoon[3] + "' and country = '" + persoon[4] + "'");
+            ResultSet rs5 = stmt.executeQuery("SELECT COUNT(*) AS total FROM persoon where name = '" + persoon[0] + "'and zip = '" + persoon[3] + "' and country = '" + persoon[4] + "'");
 
             while (rs5.next()) {
                 count5 = rs5.getInt("total");
@@ -150,7 +150,7 @@ public class Lostd {
             conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
             Statement st = conn.createStatement();
 
-            String query = "INSERT INTO lugage (Lugagelnr, Lugagetype, Lugagebrand, Lugagecol, Lugeweight, Lugagewespef, Unr,Pnr, LFDM) VALUES (" + '"' + Unr + '"' + "," + '"' + lostbagage[0] + '"' + "," + '"' + lostbagage[1] + '"' + "," + '"'
+            String query = "INSERT INTO luggage (Luggagelnr, Luggagetype, Luggagebrand, Luggagecol, Luggeweight, Luggagewespef, Unr,Pnr, LFDM) VALUES (" + '"' + Unr + '"' + "," + '"' + lostbagage[0] + '"' + "," + '"' + lostbagage[1] + '"' + "," + '"'
                     + lostbagage[2] + '"' + "," + '"' + lostbagage[3] + '"' + "," + '"' + lostbagage[4] + '"' + "," + '"' + Unr + '"' + "," + '"' + Pnr + '"' + ",'L'" + " )";
 
             st.executeUpdate(query);
