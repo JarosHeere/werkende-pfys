@@ -21,7 +21,9 @@ public class Lostd {
     private String[] date;
     private String[] label;
     private String[] persoon;
-    
+    private String labelC;
+
+   
     
 
     public void setLostbagage(String[] lostbagage) {
@@ -38,6 +40,7 @@ public class Lostd {
 
     public void setLabel(String[] label) {
         this.label = label;
+        this.labelC = label[0];
     }
 
     
@@ -210,7 +213,7 @@ public class Lostd {
 
     }
 
-  /* public void zoeken(int unr) {
+   public void zoeken(int unr) {
 
         Connection conn;                                                            //making connection to database
 
@@ -222,14 +225,14 @@ public class Lostd {
         try {
             conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
             Statement stm = conn.createStatement();
-            ResultSet rs5 = stm.executeQuery("SELECT COUNT(*) AS total FROM flight where lablenr = '" + labelnr + "';");
+            ResultSet rs5 = stm.executeQuery("SELECT COUNT(*) AS total FROM flight where lablenr = '" + labelC + "';");
 
             while (rs5.next()) {
                 count = rs5.getInt("total");
             }
 
             if (count > 1) {
-                ResultSet rs6 = stm.executeQuery("SELECT unr from label where lablenr = '" + labelnr + "' and unr != '" + unr + "'");
+                ResultSet rs6 = stm.executeQuery("SELECT unr from label where lablenr = '" + labelC + "' and unr != '" + unr + "'");
 
                 while (rs6.next()) {
                     gevonden = rs6.getString("unr");
@@ -241,5 +244,5 @@ public class Lostd {
         } catch (SQLException ed) {
             System.err.println(ed);
         }
-    }*/
+    }
 }
