@@ -464,7 +464,7 @@ public class pyfs extends Application {
                 lostbagage[3] = lost1.getTextlugweight();
                 lostbagage[4] = lost1.getTextLugspef();
 
-                lostd.getLuggage(lostbagage);
+               lostd.setLostbagage(lostbagage);
 
                 thestage.setScene(lost4);
 
@@ -490,6 +490,7 @@ public class pyfs extends Application {
                 lostd.getLabel(vlucht);
                 int unr = lostd.Unr();
                 int pnr = lostd.invullenP();
+                 lostd.getLuggage(unr, pnr);
                 //lostd.zoeken(labelnr);
 
                 thestage.setScene(lostfinal);

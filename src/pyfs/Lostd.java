@@ -15,11 +15,14 @@ public class Lostd {
 
     mysql Mysql = new mysql();
     Lost lost1 = new Lost();
-    
 
     private String name;
-    int count6;
+    private String[] lostbagage;
     private String[] persoon;
+
+    public void setLostbagage(String[] lostbagage) {
+        this.lostbagage = lostbagage;
+    }
 
     public void setP(String[] persoon) {
         this.persoon = persoon;
@@ -33,7 +36,7 @@ public class Lostd {
 
         Connection conn;
         int count5 = 0;
-        count6 = 0;
+        int count6 = 0;
         try {
 
             conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
@@ -66,9 +69,9 @@ public class Lostd {
                 while (rs7.next()) {
                     count6 = rs7.getInt("total");
                     count6++;
-                      
+
                     System.out.println(count6);
-                
+
                 }
 
                 conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
@@ -130,7 +133,7 @@ public class Lostd {
             System.out.println("Connected persoon");
             Statement stmt = (Statement) conn.createStatement();
 
-            ResultSet rs5 = stmt.executeQuery("SELECT COUNT(*) AS total FROM Unr");
+            ResultSet rs5 = stmt.executeQuery("SELECT COUNT(*) AS total FROM lugage");
 
             while (rs5.next()) {
                 count7 = rs5.getInt("total");
@@ -145,7 +148,7 @@ public class Lostd {
         return count7;
     }
 
-    public void getLuggage(String[] lostbagage) {
+    public void getLuggage(int Unr, int Pnr) {
 
         Connection conn;                                                            //making connection to database
 
@@ -153,20 +156,13 @@ public class Lostd {
         final String PASSWORD = Mysql.password();
         final String CONN_STRING = Mysql.urlmysql();
 
-        
-        
-        int Pnr = 7;
-        int Unr = 6;
-        int Lugagenr = 6;
- 
-        
         try {
 
             conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
             Statement st = conn.createStatement();
 
-            String query = "INSERT INTO lugage (Lugagelnr, Lugagetype, Lugagebrand, Lugagecol, Lugeweight, Lugagewespef, Unr,Pnr, LFDM) VALUES (" + '"' + Lugagenr + '"' + "," + '"' + lostbagage[0] + '"' + "," + '"' + lostbagage[1] + '"' + "," + '"'
-                    + lostbagage[2] + '"' + "," + '"' + lostbagage[3] + '"' + "," + '"' + lostbagage[4] + '"' + "," + '"' + Unr + '"' + "," + '"' + Pnr + '"' + ",'L'"+" )";
+            String query = "INSERT INTO lugage (Lugagelnr, Lugagetype, Lugagebrand, Lugagecol, Lugeweight, Lugagewespef, Unr,Pnr, LFDM) VALUES (" + '"' + Unr + '"' + "," + '"' + lostbagage[0] + '"' + "," + '"' + lostbagage[1] + '"' + "," + '"'
+                    + lostbagage[2] + '"' + "," + '"' + lostbagage[3] + '"' + "," + '"' + lostbagage[4] + '"' + "," + '"' + Unr + '"' + "," + '"' + Pnr + '"' + ",'L'" + " )";
 
             st.executeUpdate(query);
 
