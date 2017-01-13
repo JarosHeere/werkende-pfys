@@ -332,6 +332,7 @@ public class pyfs extends Application {
                 new EventHandler<ActionEvent>() {
 
             @Override
+<<<<<<< HEAD
             public void handle(ActionEvent event
             ) {
 
@@ -343,6 +344,9 @@ public class pyfs extends Application {
                 date[2] = lost1.getAirport();
                 System.out.println(date[0]);
                 lostd.setLostdate(date);
+=======
+            public void handle(ActionEvent event) {
+>>>>>>> origin/master
 
                 thestage.setScene(lost2);
 
@@ -395,15 +399,7 @@ public class pyfs extends Application {
             ) {
 
                 String[] persoon = new String[7];
-                persoon[0] = lost1.getTextNaam();
-                persoon[1] = lost1.getTextAdres();
-                persoon[2] = lost1.getCity();
-                persoon[3] = lost1.getTextZip();
-                persoon[4] = lost1.getTextCountry();
-                persoon[5] = lost1.getTextPhone();
-                persoon[6] = lost1.getTextMail();
 
-                lostd.setP(persoon);
                 thestage.setScene(lost3);
 
             }
@@ -454,6 +450,7 @@ public class pyfs extends Application {
             public void handle(ActionEvent event
             ) {
 
+<<<<<<< HEAD
                 String[] lostbagage = new String[5];
                 lostbagage[0] = lost1.getTextLugype();
                 lostbagage[1] = lost1.getTextLygbrand();
@@ -463,6 +460,8 @@ public class pyfs extends Application {
 
                 lostd.setLostbagage(lostbagage);
 
+=======
+>>>>>>> origin/master
                 thestage.setScene(lost4);
 
             }
@@ -488,12 +487,43 @@ public class pyfs extends Application {
             public void handle(ActionEvent event
             ) {
 
+                int unr = lostd.Unr();
+                int pnr = lostd.invullenP();
+
+                String[] date = new String[4];
+                date[0] = lost1.getDate();
+                date[1] = lost1.getTime();
+                date[2] = lost1.getAirport();
+                System.out.println(date[0]);
+                lostd.setLostdate(date);
+
+                String[] persoon = new String[7];
+                persoon[0] = lost1.getTextNaam();
+                persoon[1] = lost1.getTextAdres();
+                persoon[2] = lost1.getCity();
+                persoon[3] = lost1.getTextZip();
+                persoon[4] = lost1.getTextCountry();
+                persoon[5] = lost1.getTextPhone();
+                persoon[6] = lost1.getTextMail();
+
+                lostd.setP(persoon);
+
+                String[] lostbagage = new String[5];
+                lostbagage[0] = lost1.getTextLugype();
+                lostbagage[1] = lost1.getTextLygbrand();
+                lostbagage[2] = lost1.getTextLugcolor();
+                lostbagage[3] = lost1.getTextlugweight();
+                lostbagage[4] = lost1.getTextLugspef();
+
+                lostd.setLostbagage(lostbagage);
+
                 String[] vlucht = new String[3];
                 vlucht[0] = lost1.getTextLabelnr();
                 vlucht[1] = lost1.getTextFlightnr();
                 vlucht[2] = lost1.getTextDestin();
                 lostd.setLabel(vlucht);
 
+<<<<<<< HEAD
                 int unr = lostd.Unr();
                 int pnr = lostd.invullenP();
 
@@ -502,6 +532,13 @@ public class pyfs extends Application {
 
                 lost1.Clear();
 
+=======
+                lostd.getLabel(unr);
+                lostd.getLuggage(unr, pnr);
+                lostd.getDate(unr);
+                lost1.Clear();
+
+>>>>>>> origin/master
                 //lostd.zoeken(labelnr);
                 thestage.setScene(lostfinal);
             }
