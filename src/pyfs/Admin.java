@@ -22,14 +22,14 @@ public class Admin {
 
     mysql Mysql = new mysql();
     TextField username, usernameRemove, usernameUpdate, usernameCurrentUpdate, password, passwordRemove, passwordUpdate, toegang, toegangRemove, toegangUpdate;
-    TextField lugagenr;
+    TextField luggagenr;
 
     final String USERNAME = Mysql.username();
     final String PASSWORD = Mysql.password();
     final String CONN_STRING = Mysql.urlmysql();
 
-    private ObservableList<ObservableList> data, lugagedata;
-    private TableView tableview, lugage;
+    private ObservableList<ObservableList> data, luggagedata;
+    private TableView tableview, luggage;
 
     public Admin() {
     }
@@ -243,14 +243,14 @@ public class Admin {
         return usernameCurrentUpdate.getText();
     }
     
-     public void buildDataLugage() {
+     public void buildDataLuggage() {
         Connection c;
 
-        lugagedata = FXCollections.observableArrayList();
+        luggagedata = FXCollections.observableArrayList();
         try {
             c = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
             //SQL FOR SELECTING ALL OF CUSTOMER
-            String SQL = "SELECT * FROM lugage";
+            String SQL = "SELECT * FROM luggage";
             //ResultSet
             ResultSet rs = c.createStatement().executeQuery(SQL);
 
@@ -269,7 +269,7 @@ public class Admin {
                     }
                 });
 
-                lugage.getColumns().addAll(col);
+                luggage.getColumns().addAll(col);
                 System.out.println("Column [" + i + "] ");
             }
 
@@ -286,12 +286,12 @@ public class Admin {
                     row.add(rs.getString(i));
                 }
                 System.out.println("Row [1] added " + row);
-                lugagedata.add(row);
+                luggagedata.add(row);
 
             }
 
             //FINALLY ADDED TO TableView
-            lugage.setItems(lugagedata);
+            luggage.setItems(luggagedata);
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Error on Building Data");
@@ -299,28 +299,28 @@ public class Admin {
 
     }
      
-      TableView adminTableLugage() {
+      TableView adminTableLuggage() {
 
-        lugage = new TableView();
-        buildDataLugage();
+        luggage = new TableView();
+        buildDataLuggage();
 
-        return this.lugage;
+        return this.luggage;
     }
       
-       public TextField lugageNr() {
+       public TextField luggageNr() {
 
-        lugagenr = new TextField();                 //text voor tijd invullen
-        lugagenr.setPromptText("Lugage Nr");
-        lugagenr.setFont(Font.font("Verdana", 20));
-        lugagenr.setMaxWidth(220);
-        lugagenr.setTranslateX(-110);
+        luggagenr = new TextField();                 //text voor tijd invullen
+        luggagenr.setPromptText("UNr");
+        luggagenr.setFont(Font.font("Verdana", 20));
+        luggagenr.setMaxWidth(220);
+        luggagenr.setTranslateX(-110);
 
-        return lugagenr;
+        return luggagenr;
 
     }
 
-    public String getLugageNr() {
-        return lugagenr.getText();
+    public String getLuggageNr() {
+        return luggagenr.getText();
     }
 
 }

@@ -28,24 +28,24 @@ public class Stat {
                 new PieChart.Data("Found & destroyed", 22),
                 new PieChart.Data("Still lost", 30));
         final PieChart chart = new PieChart(pieChartData);
-        chart.setTitle("Lugage over 1 year");
+        chart.setTitle("Luggage past year");
       
               
         
         return chart;
     }
 
-    public PieChart CurrentLugage() {
+    public PieChart CurrentLuggage() {
         
         ObservableList<PieChart.Data> pieChartData =
                 FXCollections.observableArrayList(
                 new PieChart.Data("Lost at the moment", 220),
-                new PieChart.Data("Back to owners", 260),
+                new PieChart.Data("Back to owner's", 260),
                 new PieChart.Data("Found", 195));
                
                
         final PieChart chart2 = new PieChart(pieChartData);
-        chart2.setTitle("Current lugage");
+        chart2.setTitle("Current luggage");
         
         return chart2;
     }

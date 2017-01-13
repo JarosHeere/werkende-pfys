@@ -206,7 +206,7 @@ public class Lost {
     TextField Lugtype() {
 
         lugtype = new TextField();                 //text voor bagage type invullen
-        lugtype.setPromptText("Lugage type");
+        lugtype.setPromptText("Luggage type");
         lugtype.setFont(Font.font("Verdana", 20));
         lugtype.setMaxWidth(300);
         lugtype.setTranslateY(-200);
@@ -216,7 +216,7 @@ public class Lost {
 
     TextField Lugbrand() {
         lugbrand = new TextField();                 //text voor tas merk invullen
-        lugbrand.setPromptText("Lugage brand");
+        lugbrand.setPromptText("Luggage brand");
         lugbrand.setFont(Font.font("Verdana", 20));
         lugbrand.setMaxWidth(300);
         lugbrand.setTranslateY(-150);
@@ -226,7 +226,7 @@ public class Lost {
 
     TextField Lugcolor() {
         lugcolor = new TextField();                 //text voor kleur invullen
-        lugcolor.setPromptText("Lugage color");
+        lugcolor.setPromptText("Luggage color");
         lugcolor.setFont(Font.font("Verdana", 20));
         lugcolor.setMaxWidth(300);
         lugcolor.setTranslateY(-100);
@@ -236,7 +236,7 @@ public class Lost {
 
     TextField Lugweight() {
         lugweight = new TextField();                 //text voor gewicht invullen
-        lugweight.setPromptText("Lugage weight");
+        lugweight.setPromptText("Luggage weight");
         lugweight.setFont(Font.font("Verdana", 20));
         lugweight.setMaxWidth(300);
         lugweight.setTranslateY(-50);
@@ -246,7 +246,7 @@ public class Lost {
 
     TextArea lugspef() {
         lugspef = new TextArea();                   //text voor bijzonderheden tas invullen
-        lugspef.setPromptText("Lugage specifications");
+        lugspef.setPromptText("Luggage specifications");
         lugspef.setFont(Font.font("Verdana", 20));
         lugspef.setMaxSize(300, 160);
         lugspef.setTranslateY(60);

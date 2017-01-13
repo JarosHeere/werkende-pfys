@@ -94,7 +94,7 @@ public class Admind {
 
     }
     
-    public void lugageRemove(String[] remove) {
+    public void luggageRemove(String[] remove) {
       
 
         Connection conn;                                                            //making connection to database
@@ -106,7 +106,7 @@ public class Admind {
         try {
          
             conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
-            String query = "DELETE FROM lugage WHERE lugagelnr = " + "'" + remove[0] + "'";
+            String query = "DELETE FROM luggage WHERE luggagelnr = " + "'" + remove[0] + "'";
             Statement st = conn.createStatement();
             st.executeUpdate(query);
 

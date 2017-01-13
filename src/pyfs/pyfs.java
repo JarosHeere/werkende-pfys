@@ -66,9 +66,9 @@ public class pyfs extends Application {
 
     //Admin
     Button adminterugmenu, userTableBtn;
-    StackPane adminpane, userTablePane, userRemovePane, userUpdatePane, lugageTablePane, lugageRemovePane;
-    Scene admin, userTable, userCreate, userRemove, userUpdate, lugageTable, lugageRemove;
-    Stage userTableStage, userCreateStage, userRemoveStage, userUpdateStage, lugageTableStage, lugageRemoveStage;
+    StackPane adminpane, userTablePane, userRemovePane, userUpdatePane, luggageTablePane, luggageRemovePane;
+    Scene admin, userTable, userCreate, userRemove, userUpdate, luggageTable, luggageRemove;
+    Stage userTableStage, userCreateStage, userRemoveStage, userUpdateStage, luggageTableStage, luggageRemoveStage;
 
     @Override
     public void start(Stage primaryStage) {
@@ -793,7 +793,7 @@ public class pyfs extends Application {
         yearbtn = new Button();
 
         yearbtn.setText(
-                "Over year");                                           //back button
+                "Past year");                                           //back button
         yearbtn.setPrefSize(
                 200, 50);
         yearbtn.setTranslateX(
@@ -807,7 +807,7 @@ public class pyfs extends Application {
             public void handle(ActionEvent event
             ) {
                 yearstage = new Stage();
-                yearstage.setTitle("Over year");
+                yearstage.setTitle("Past year");
                 yearstage.setScene(year);
                 yearstage.setResizable(false);
                 yearstage.show();
@@ -819,7 +819,7 @@ public class pyfs extends Application {
         currentbtn = new Button();
 
         currentbtn.setText(
-                "Current lugage");                                           //back button
+                "Current luggage");                                           //back button
         currentbtn.setPrefSize(
                 200, 50);
         currentbtn.setTranslateX(
@@ -833,7 +833,7 @@ public class pyfs extends Application {
             public void handle(ActionEvent event
             ) {
                 currentstage = new Stage();
-                currentstage.setTitle("Current lugage");
+                currentstage.setTitle("Current luggage");
                 currentstage.setScene(current);
                 currentstage.setResizable(false);
                 currentstage.show();
@@ -899,31 +899,31 @@ public class pyfs extends Application {
         }
         );
 
-        Button LugageTableBtn = new Button();
+        Button LuggageTableBtn = new Button();
 
-        LugageTableBtn.setText(
-                "View Lugage");                                           //back button
-        LugageTableBtn.setPrefSize(
+        LuggageTableBtn.setText(
+                "View Luggage");                                           //back button
+        LuggageTableBtn.setPrefSize(
                 200, 50);
-        LugageTableBtn.setTranslateX(
+        LuggageTableBtn.setTranslateX(
                 -100);
-        LugageTableBtn.setTranslateY(
+        LuggageTableBtn.setTranslateY(
                 -150);
-        LugageTableBtn.setStyle(
+        LuggageTableBtn.setStyle(
                 "-fx-base:darkcyan;-fx-border-color:black");
-        LugageTableBtn.setOnAction(
+        LuggageTableBtn.setOnAction(
                 new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event
             ) {
 
-                lugageTablePane.getChildren().add(admin1.adminTableLugage());
-                lugageTableStage = new Stage();
-                lugageTableStage.setTitle("Lugage");
-                lugageTableStage.setScene(lugageTable);
-                lugageTableStage.setResizable(false);
-                lugageTableStage.show();
+                luggageTablePane.getChildren().add(admin1.adminTableLuggage());
+                luggageTableStage = new Stage();
+                luggageTableStage.setTitle("Luggage");
+                luggageTableStage.setScene(luggageTable);
+                luggageTableStage.setResizable(false);
+                luggageTableStage.show();
             }
 
         }
@@ -1005,7 +1005,7 @@ public class pyfs extends Application {
             ) {
 
                 userRemoveStage = new Stage();
-                userRemoveStage.setTitle("User creation");
+                userRemoveStage.setTitle("Removing User");
                 userRemoveStage.setScene(userRemove);
                 userRemoveStage.setResizable(false);
                 userRemoveStage.show();
@@ -1015,23 +1015,23 @@ public class pyfs extends Application {
         }
         );
 
-        Button removeLugage = new Button();
-        removeLugage.setText("Remove Lugage");                                           //back button
-        removeLugage.setPrefSize(200, 50);
-        removeLugage.setTranslateX(-100);
-        removeLugage.setTranslateY(50);
-        removeLugage.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        removeLugage.setOnAction(new EventHandler<ActionEvent>() {
+        Button removeLuggage = new Button();
+        removeLuggage.setText("Remove Luggage");                                           //back button
+        removeLuggage.setPrefSize(200, 50);
+        removeLuggage.setTranslateX(-100);
+        removeLuggage.setTranslateY(50);
+        removeLuggage.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        removeLuggage.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event
             ) {
 
-                lugageRemoveStage = new Stage();
-                lugageRemoveStage.setTitle("Lugage remove");
-                lugageRemoveStage.setScene(lugageRemove);
-                lugageRemoveStage.setResizable(false);
-                lugageRemoveStage.show();
+                luggageRemoveStage = new Stage();
+                luggageRemoveStage.setTitle("Luggage remove");
+                luggageRemoveStage.setScene(luggageRemove);
+                luggageRemoveStage.setResizable(false);
+                luggageRemoveStage.show();
 
             }
 
@@ -1061,22 +1061,22 @@ public class pyfs extends Application {
         }
         );
 
-        Button deleteLugage = new Button();
-        deleteLugage.setText("Delete");                                           //back button
-        deleteLugage.setPrefSize(150, 50);
-        deleteLugage.setTranslateX(150);
-        deleteLugage.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        deleteLugage.setOnAction(new EventHandler<ActionEvent>() {
+        Button deleteLuggage = new Button();
+        deleteLuggage.setText("Delete");                                           //back button
+        deleteLuggage.setPrefSize(150, 50);
+        deleteLuggage.setTranslateX(150);
+        deleteLuggage.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        deleteLuggage.setOnAction(new EventHandler<ActionEvent>() {
 
             public void handle(ActionEvent event) {
 
-                String[] deleteLugage = new String[1];
+                String[] deleteLuggage = new String[1];
 
-                deleteLugage[0] = admin1.getLugageNr();
+                deleteLuggage[0] = admin1.getLuggageNr();
 
-                admind.lugageRemove(deleteLugage);
+                admind.luggageRemove(deleteLuggage);
 
-                lugageRemoveStage.close();
+                luggageRemoveStage.close();
 
             }
         }
@@ -1260,7 +1260,7 @@ public class pyfs extends Application {
         currentpane = new StackPane();
 
         currentpane.setStyle("-fx-background-color:#FFFFFF");
-        currentpane.getChildren().add(stat1.CurrentLugage());
+        currentpane.getChildren().add(stat1.CurrentLuggage());
 
         adminpane = new StackPane();
 
@@ -1270,8 +1270,8 @@ public class pyfs extends Application {
         adminpane.getChildren().add(createUser);
         adminpane.getChildren().add(removeUser);
         adminpane.getChildren().add(updateUser);
-        adminpane.getChildren().add(LugageTableBtn);
-        adminpane.getChildren().add(removeLugage);
+        adminpane.getChildren().add(LuggageTableBtn);
+        adminpane.getChildren().add(removeLuggage);
 
         userTablePane = new StackPane();
         userTablePane.setStyle("-fx-background-color:#FFFFFF");
@@ -1300,13 +1300,13 @@ public class pyfs extends Application {
         userUpdatePane.getChildren().add(admin1.updateCurrentUsername());
         userUpdatePane.getChildren().add(update2User);
 
-        lugageTablePane = new StackPane();
-        lugageTablePane.setStyle("-fx-background-color:#FFFFFF");
+        luggageTablePane = new StackPane();
+        luggageTablePane.setStyle("-fx-background-color:#FFFFFF");
 
-        lugageRemovePane = new StackPane();
-        lugageRemovePane.setStyle("-fx-background-color:#FFFFFF");
-        lugageRemovePane.getChildren().add(deleteLugage);
-        lugageRemovePane.getChildren().add(admin1.lugageNr());
+        luggageRemovePane = new StackPane();
+        luggageRemovePane.setStyle("-fx-background-color:#FFFFFF");
+        luggageRemovePane.getChildren().add(deleteLuggage);
+        luggageRemovePane.getChildren().add(admin1.luggageNr());
 
         //geeft alle scenes in
         loginscherm = new Scene(inlogschermpane, 1600, 800);
@@ -1328,8 +1328,8 @@ public class pyfs extends Application {
         userCreate = new Scene(userCreatePane, 1000, 100);
         userRemove = new Scene(userRemovePane, 1000, 100);
         userUpdate = new Scene(userUpdatePane, 1300, 100);
-        lugageTable = new Scene(lugageTablePane, 700, 700);
-        lugageRemove = new Scene(lugageRemovePane, 500, 100);
+        luggageTable = new Scene(luggageTablePane, 700, 700);
+        luggageRemove = new Scene(luggageRemovePane, 500, 100);
 
         primaryStage.setTitle("Applicatie naam");
         primaryStage.setScene(admin);
