@@ -331,8 +331,7 @@ public class pyfs extends Application {
         lostnext.setOnAction(
                 new EventHandler<ActionEvent>() {
 
-            @Override
-<<<<<<< HEAD
+      
             public void handle(ActionEvent event
             ) {
 
@@ -344,10 +343,7 @@ public class pyfs extends Application {
                 date[2] = lost1.getAirport();
                 System.out.println(date[0]);
                 lostd.setLostdate(date);
-=======
-            public void handle(ActionEvent event) {
->>>>>>> origin/master
-
+           
                 thestage.setScene(lost2);
 
             }
@@ -450,7 +446,7 @@ public class pyfs extends Application {
             public void handle(ActionEvent event
             ) {
 
-<<<<<<< HEAD
+
                 String[] lostbagage = new String[5];
                 lostbagage[0] = lost1.getTextLugype();
                 lostbagage[1] = lost1.getTextLygbrand();
@@ -460,8 +456,6 @@ public class pyfs extends Application {
 
                 lostd.setLostbagage(lostbagage);
 
-=======
->>>>>>> origin/master
                 thestage.setScene(lost4);
 
             }
@@ -523,22 +517,20 @@ public class pyfs extends Application {
                 vlucht[2] = lost1.getTextDestin();
                 lostd.setLabel(vlucht);
 
-<<<<<<< HEAD
-                int unr = lostd.Unr();
-                int pnr = lostd.invullenP();
+
+               
 
                 lostd.getLabel(unr);
                 lostd.getLuggage(unr, pnr);
 
                 lost1.Clear();
 
-=======
                 lostd.getLabel(unr);
                 lostd.getLuggage(unr, pnr);
                 lostd.getDate(unr);
                 lost1.Clear();
 
->>>>>>> origin/master
+
                 //lostd.zoeken(labelnr);
                 thestage.setScene(lostfinal);
             }
