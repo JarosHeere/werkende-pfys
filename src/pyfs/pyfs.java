@@ -127,6 +127,7 @@ public class pyfs extends Application {
                             if (pass.equals(Password)) {                         // check if passwords are the same
 
                                 thestage.setScene(menu);
+                                login.Clear();
 
                             } else {
 
@@ -134,6 +135,7 @@ public class pyfs extends Application {
                                 alert.setTitle("warning");
                                 alert.setHeaderText("username and/or password are incorrect");
                                 alert.showAndWait();
+                                login.Clear();
 
                             }
 
@@ -145,6 +147,7 @@ public class pyfs extends Application {
                         alert.setTitle("warning");
                         alert.setHeaderText("username and/or password are incorrect");
                         alert.showAndWait();
+                        login.Clear();
 
                     }
 
@@ -154,7 +157,7 @@ public class pyfs extends Application {
                     
 
                 }
-                login.Clear();
+                
             }
 
         });
