@@ -154,7 +154,6 @@ public class pyfs extends Application {
                 } catch (SQLException ed) {
 
                     System.err.println(ed);
-                    
 
                 }
                 
@@ -379,15 +378,6 @@ public class pyfs extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                
-                int Unr = lostd.Unr();
-
-                String[] date = new String[4];
-                date[0] = lost1.getDate();
-                date[1] = lost1.getTime();
-                date[2] = lost1.getAirport();
-                System.out.println(date[0]);
-                lostd.setLostdate(date);
 
                 thestage.setScene(lost2);
 
@@ -422,15 +412,7 @@ public class pyfs extends Application {
             public void handle(ActionEvent event) {
 
                 String[] persoon = new String[7];
-                persoon[0] = lost1.getTextNaam();
-                persoon[1] = lost1.getTextAdres();
-                persoon[2] = lost1.getCity();
-                persoon[3] = lost1.getTextZip();
-                persoon[4] = lost1.getTextCountry();
-                persoon[5] = lost1.getTextPhone();
-                persoon[6] = lost1.getTextMail();
 
-                lostd.setP(persoon);
                 thestage.setScene(lost3);
 
             }
@@ -463,15 +445,6 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event) {
 
-                String[] lostbagage = new String[5];
-                lostbagage[0] = lost1.getTextLugype();
-                lostbagage[1] = lost1.getTextLygbrand();
-                lostbagage[2] = lost1.getTextLugcolor();
-                lostbagage[3] = lost1.getTextlugweight();
-                lostbagage[4] = lost1.getTextLugspef();
-
-               lostd.setLostbagage(lostbagage);
-
                 thestage.setScene(lost4);
 
             }
@@ -488,26 +461,48 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event) {
 
+                int unr = lostd.Unr();
+                int pnr = lostd.invullenP();
+
+                String[] date = new String[4];
+                date[0] = lost1.getDate();
+                date[1] = lost1.getTime();
+                date[2] = lost1.getAirport();
+                System.out.println(date[0]);
+                lostd.setLostdate(date);
+
+                String[] persoon = new String[7];
+                persoon[0] = lost1.getTextNaam();
+                persoon[1] = lost1.getTextAdres();
+                persoon[2] = lost1.getCity();
+                persoon[3] = lost1.getTextZip();
+                persoon[4] = lost1.getTextCountry();
+                persoon[5] = lost1.getTextPhone();
+                persoon[6] = lost1.getTextMail();
+
+                lostd.setP(persoon);
+
+                String[] lostbagage = new String[5];
+                lostbagage[0] = lost1.getTextLugype();
+                lostbagage[1] = lost1.getTextLygbrand();
+                lostbagage[2] = lost1.getTextLugcolor();
+                lostbagage[3] = lost1.getTextlugweight();
+                lostbagage[4] = lost1.getTextLugspef();
+
+                lostd.setLostbagage(lostbagage);
+
                 String[] vlucht = new String[3];
                 vlucht[0] = lost1.getTextLabelnr();
                 vlucht[1] = lost1.getTextFlightnr();
                 vlucht[2] = lost1.getTextDestin();
                 lostd.setLabel(vlucht);
 
-                
-                int unr = lostd.Unr();
-                int pnr = lostd.invullenP();
-               
-                
-                  lostd.getLabel(unr);
-                 lostd.getLuggage(unr, pnr);
-<<<<<<< HEAD
-                 lostd.getDate(unr);
-=======
-                 lost1.Clear();
->>>>>>> origin/master
-                //lostd.zoeken(labelnr);
+                lostd.getLabel(unr);
+                lostd.getLuggage(unr, pnr);
+                lostd.getDate(unr);
+                lost1.Clear();
 
+                //lostd.zoeken(labelnr);
                 thestage.setScene(lostfinal);
             }
 
@@ -1185,7 +1180,7 @@ public class pyfs extends Application {
         lugageRemovePane.getChildren().add(deleteLugage);
         lugageRemovePane.getChildren().add(admin1.lugageNr());
 
-    //geeft alle scenes in
+        //geeft alle scenes in
         loginscherm = new Scene(inlogschermpane, 1600, 800);
         menu = new Scene(menupane, 1600, 800);
         lost = new Scene(lostpane, 1600, 800);
@@ -1207,7 +1202,7 @@ public class pyfs extends Application {
         userUpdate = new Scene(userUpdatePane, 1300, 100);
         lugageTable = new Scene(lugageTablePane, 700, 700);
         lugageRemove = new Scene(lugageRemovePane, 500, 100);
-        
+
         primaryStage.setTitle("Applicatie naam");
         primaryStage.setScene(admin);
         primaryStage.setResizable(false);
