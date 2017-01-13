@@ -52,6 +52,7 @@ CREATE TABLE `flight` (
   `labelnr` varchar(60) DEFAULT NULL,
   `flightnr` varchar(60) DEFAULT NULL,
   `destin` varchar(60) DEFAULT NULL,
+  `owner` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`Unr`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -62,6 +63,7 @@ CREATE TABLE `flight` (
 
 LOCK TABLES `flight` WRITE;
 /*!40000 ALTER TABLE `flight` DISABLE KEYS */;
+INSERT INTO `flight` VALUES (3,'','','',NULL),(100,'','','null',NULL);
 /*!40000 ALTER TABLE `flight` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -86,38 +88,37 @@ CREATE TABLE `login` (
 
 LOCK TABLES `login` WRITE;
 /*!40000 ALTER TABLE `login` DISABLE KEYS */;
-INSERT INTO `login` VALUES ('a','b',3);
+INSERT INTO `login` VALUES ('a','b',3),('d','e',3),('jaros','heere',2);
 /*!40000 ALTER TABLE `login` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `lugage`
+-- Table structure for table `luggage`
 --
 
-DROP TABLE IF EXISTS `lugage`;
+DROP TABLE IF EXISTS `luggage`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `lugage` (
-  `Lugagelnr` varchar(45) NOT NULL,
-  `Lugagetype` varchar(45) NOT NULL,
-  `Lugagebrand` varchar(45) NOT NULL,
-  `Lugagecol` varchar(45) NOT NULL,
-  `Lugeweight` varchar(45) NOT NULL,
-  `Lugagewespef` varchar(45) NOT NULL,
+CREATE TABLE `luggage` (
+  `Luggagetype` varchar(45) NOT NULL,
+  `Luggagebrand` varchar(45) NOT NULL,
+  `Luggagecol` varchar(45) NOT NULL,
+  `Luggeweight` varchar(45) NOT NULL,
+  `Luggagewespef` varchar(45) NOT NULL,
   `Unr` int(250) NOT NULL,
-  `Pnr` int(250) NOT NULL,
-  `LFDM` varchar(1) DEFAULT NULL,
-  PRIMARY KEY (`Lugagelnr`)
+  `Pnr` int(250) DEFAULT NULL,
+  `LFDM` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `lugage`
+-- Dumping data for table `luggage`
 --
 
-LOCK TABLES `lugage` WRITE;
-/*!40000 ALTER TABLE `lugage` DISABLE KEYS */;
-/*!40000 ALTER TABLE `lugage` ENABLE KEYS */;
+LOCK TABLES `luggage` WRITE;
+/*!40000 ALTER TABLE `luggage` DISABLE KEYS */;
+INSERT INTO `luggage` VALUES ('asdf','asdf','asdf','sadf','sadf',1,4,'L'),('','','','','',2,3,'L'),('','','','','',3,1,'L');
+/*!40000 ALTER TABLE `luggage` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -146,7 +147,7 @@ CREATE TABLE `persoon` (
 
 LOCK TABLES `persoon` WRITE;
 /*!40000 ALTER TABLE `persoon` DISABLE KEYS */;
-INSERT INTO `persoon` VALUES (1,'jaros','heere','amsterdam','1433mc','nederland','859632','jaros.lol'),(2,'a','b','c','d','e','f','g');
+INSERT INTO `persoon` VALUES (1,'','','','','','','');
 /*!40000 ALTER TABLE `persoon` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -158,8 +159,8 @@ DROP TABLE IF EXISTS `unr`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `unr` (
-  `Unr` int(250) NOT NULL,
-  PRIMARY KEY (`Unr`)
+  `unr` int(11) NOT NULL,
+  PRIMARY KEY (`unr`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -181,4 +182,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-01-12 13:39:53
+-- Dump completed on 2017-01-13 15:54:14

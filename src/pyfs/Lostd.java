@@ -23,14 +23,11 @@ public class Lostd {
     private String[] persoon;
     private String labelC;
 
-   
-    
-
     public void setLostbagage(String[] lostbagage) {
         this.lostbagage = lostbagage;
     }
-    
-     public void setLostdate(String[] date) {
+
+    public void setLostdate(String[] date) {
         this.date = date;
     }
 
@@ -43,7 +40,6 @@ public class Lostd {
         this.labelC = label[0];
     }
 
-    
     public int invullenP() {
 
         final String USERNAME = Mysql.username();
@@ -59,7 +55,7 @@ public class Lostd {
             System.out.println("Connected persoon");
             Statement stmt = (Statement) conn.createStatement();
 
-            ResultSet rs5 = stmt.executeQuery("SELECT COUNT(*) AS total FROM persoon where zip = '" + persoon[3] + "' and country = '" + persoon[4] + "'");
+            ResultSet rs5 = stmt.executeQuery("SELECT COUNT(*) AS total FROM persoon where name = '" + persoon[0] + "'and zip = '" + persoon[3] + "' and country = '" + persoon[4] + "'");
 
             while (rs5.next()) {
                 count5 = rs5.getInt("total");
@@ -108,7 +104,6 @@ public class Lostd {
         return count6;
     }
 
-   
     public int Unr() {
 
         final String USERNAME = Mysql.username();
@@ -120,15 +115,19 @@ public class Lostd {
         try {
 
             conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
-            System.out.println("Connected persoon");
+            System.out.println("Connected unr");
             Statement stmt = (Statement) conn.createStatement();
 
-            ResultSet rs5 = stmt.executeQuery("SELECT COUNT(*) AS total FROM lugage");
+            ResultSet rs5 = stmt.executeQuery("SELECT COUNT(*) AS total FROM unr");
 
             while (rs5.next()) {
                 count7 = rs5.getInt("total");
             }
             count7++;
+
+            String query = "INSERT INTO Unr (unr) VALUES (" + count7 + ")";
+            Statement st = conn.createStatement();
+            st.executeUpdate(query);
 
         } catch (SQLException ed) {
 
@@ -151,7 +150,7 @@ public class Lostd {
             conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
             Statement st = conn.createStatement();
 
-            String query = "INSERT INTO lugage (Lugagelnr, Lugagetype, Lugagebrand, Lugagecol, Lugeweight, Lugagewespef, Unr,Pnr, LFDM) VALUES (" + '"' + Unr + '"' + "," + '"' + lostbagage[0] + '"' + "," + '"' + lostbagage[1] + '"' + "," + '"'
+            String query = "INSERT INTO luggage (Luggagelnr, Luggagetype, Luggagebrand, Luggagecol, Luggeweight, Luggagewespef, Unr,Pnr, LFDM) VALUES (" + '"' + Unr + '"' + "," + '"' + lostbagage[0] + '"' + "," + '"' + lostbagage[1] + '"' + "," + '"'
                     + lostbagage[2] + '"' + "," + '"' + lostbagage[3] + '"' + "," + '"' + lostbagage[4] + '"' + "," + '"' + Unr + '"' + "," + '"' + Pnr + '"' + ",'L'" + " )";
 
             st.executeUpdate(query);
@@ -177,7 +176,7 @@ public class Lostd {
             conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
             Statement st = conn.createStatement();
 
-            String query = ("INSERT INTO dta (date, time, airport, Unr) VALUES (" + '"' + date[0] + '"' + "," + '"' + date[1] + '"' + "," + '"' + date[2] + '"' + " ," + "'"+ Unr +"'" + ")");
+            String query = ("INSERT INTO dta (date, time, airport, Unr) VALUES (" + '"' + date[0] + '"' + "," + '"' + date[1] + '"' + "," + '"' + date[2] + '"' + " ," + "'" + Unr + "'" + ")");
 
             st.executeUpdate(query);
         } catch (SQLException ed) {
@@ -213,7 +212,7 @@ public class Lostd {
 
     }
 
-   public void zoeken(int unr) {
+    public String zoeken(int unr) {
 
         Connection conn;                                                            //making connection to database
 
@@ -221,7 +220,8 @@ public class Lostd {
         final String PASSWORD = Mysql.password();
         final String CONN_STRING = Mysql.urlmysql();
         int count = 0;
-        String gevonden;
+        String found = " ";
+        String notFound = "nothing";
         try {
             conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
             Statement stm = conn.createStatement();
@@ -235,14 +235,21 @@ public class Lostd {
                 ResultSet rs6 = stm.executeQuery("SELECT unr from label where lablenr = '" + labelC + "' and unr != '" + unr + "'");
 
                 while (rs6.next()) {
-                    gevonden = rs6.getString("unr");
+                    found = rs6.getString("unr");
                 }
-            }else{
-                
+            } else {
+
             }
 
         } catch (SQLException ed) {
             System.err.println(ed);
+        }
+
+        if (count > 1) {
+            return found;
+
+        } else {
+            return notFound;
         }
     }
 }

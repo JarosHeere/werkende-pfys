@@ -56,7 +56,7 @@ public class Foundd {
             Statement st = conn.createStatement();
             
 
-            String query = "INSERT INTO lugage (Lugagelnr, Lugagetype, Lugagebrand, Lugagecol, Lugeweight, Lugagewespef, Unr,Pnr, LFDM) VALUES (" + '"' + Lugagenr + '"' + "," + '"' + foundbagage[0] + '"' + "," + '"' + foundbagage[1] + '"' + "," + '"'
+            String query = "INSERT INTO luggage (Luggagelnr, Luggagetype, Luggagebrand, Luggagecol, Luggeweight, Luggagewespef, Unr,Pnr, LFDM) VALUES (" + '"' + Lugagenr + '"' + "," + '"' + foundbagage[0] + '"' + "," + '"' + foundbagage[1] + '"' + "," + '"'
                     + foundbagage[2] + '"' + "," + '"' + foundbagage[3] + '"' + "," + '"' + foundbagage[4]  +'"' + "," + '"' + Unr  + '"' +  "," + '"' + null  +'"' + ",'F'" + " )";
 
             st.executeUpdate(query);

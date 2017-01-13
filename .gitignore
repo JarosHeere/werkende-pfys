@@ -2,4 +2,11 @@
 *.properties
 *.class
 *.properties*.class
+<<<<<<< HEAD
+=======
+*.class
+build/classes/pyfs/pyfs$12.class
+>>>>>>> origin/master
+*.class
+*.class
 *.class
