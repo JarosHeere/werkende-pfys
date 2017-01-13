@@ -14,11 +14,31 @@ public class Foundd {
 
     mysql Mysql = new mysql();
     Found found1 = new Found();
+    
+    String[] foundbagage;
+   String[] foundDate;
+   String[] foundLabel;
+
+    public void setFoundbagage(String[] foundbagage) {
+        this.foundbagage = foundbagage;
+    }
+
+    public void setFoundDate(String[] foundDate) {
+        this.foundDate = foundDate;
+    }
+
+    public void setFoundLabel(String[] foundLabel) {
+        this.foundLabel = foundLabel;
+    }
+   
+   
+    
+    
 
     public Foundd() {
     }
 
-    public void getLuggage(String [] foundbagage) {
+    public void getLuggage(int Unr) {
 
         Connection conn;                                                            //making connection to database
 
@@ -26,8 +46,7 @@ public class Foundd {
         final String PASSWORD = Mysql.password();
         final String CONN_STRING = Mysql.urlmysql();
         
-        int Pnr = 2;
-        int Unr = 2;
+  
         int Lugagenr = 2;
 
        
@@ -38,7 +57,7 @@ public class Foundd {
             
 
             String query = "INSERT INTO lugage (Lugagelnr, Lugagetype, Lugagebrand, Lugagecol, Lugeweight, Lugagewespef, Unr,Pnr, LFDM) VALUES (" + '"' + Lugagenr + '"' + "," + '"' + foundbagage[0] + '"' + "," + '"' + foundbagage[1] + '"' + "," + '"'
-                    + foundbagage[2] + '"' + "," + '"' + foundbagage[3] + '"' + "," + '"' + foundbagage[4]  +'"' + "," + '"' + Unr  + '"' +  "," + '"' + Pnr  +'"' + ",'F'" + " )";
+                    + foundbagage[2] + '"' + "," + '"' + foundbagage[3] + '"' + "," + '"' + foundbagage[4]  +'"' + "," + '"' + Unr  + '"' +  "," + '"' + null  +'"' + ",'F'" + " )";
 
             st.executeUpdate(query);
 
@@ -50,7 +69,7 @@ public class Foundd {
 
     }
 
-    public void getDate(String[] datex) {
+    public void getDate(int Unr) {
 
         Connection conn;                                                            //making connection to database
 
@@ -66,7 +85,7 @@ public class Foundd {
             
             
 
-            String query = ("INSERT INTO dta (date, time, airport, Unr) VALUES (" + '"' + datex[0] + '"' + "," + '"' + datex[1] + '"' + "," + '"' + datex[2] + '"' + " ,100)");
+            String query = ("INSERT INTO dta (date, time, airport, Unr) VALUES (" + '"' + foundDate[0] + '"' + "," + '"' + foundDate[1] + '"' + "," + '"' + foundDate[2] + '"' + " ," + Unr + ")");
 
             //String query = "INSERT INTO dta (date, time, airport, Unr) VALUES (" + '"' + datex[0] + '"' + "," + '"' + datex[1] + '"' + "," + '"' + datex[2] + '"' + "," + '"' + 100 + '"' + " )";
 
@@ -80,7 +99,7 @@ public class Foundd {
 
     }
 
- public void getLabel(String[] info) {
+ public void getLabel(int Unr) {
 
         Connection conn;                                                            //making connection to database
 
@@ -96,7 +115,7 @@ public class Foundd {
             
             
 
-            String query = ("INSERT INTO flight (Unr, labelnr, flightnr, destin) VALUES (" + '"' + 100 + '"' + "," + "'" + info[0] + "'" + "," + '"' + info[1] + '"' + "," + '"' +  null + '"' + ")");
+            String query = ("INSERT INTO flight (Unr, labelnr, flightnr, destin) VALUES (" + '"' + Unr + '"' + "," + "'" + foundLabel[0] + "'" + "," + '"' + foundLabel[1] + '"' + "," + '"' +  null + '"' + ")");
             //String query2 = ("INSERT into persoon (Pnr, name, adress, city, zip, country, tel, mail) VALUES (25, " + '"' + info[2] + '"' + ", null, null, null, null, null, null)");
 
            
