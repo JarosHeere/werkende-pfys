@@ -18,16 +18,29 @@ public class Lostd {
 
     private String name;
     private String[] lostbagage;
+    private String[] date;
+    private String[] label;
     private String[] persoon;
+    
+    
 
     public void setLostbagage(String[] lostbagage) {
         this.lostbagage = lostbagage;
+    }
+    
+     public void setLostdate(String[] date) {
+        this.date = date;
     }
 
     public void setP(String[] persoon) {
         this.persoon = persoon;
     }
 
+    public void setLabel(String[] label) {
+        this.label = label;
+    }
+
+    
     public int invullenP() {
 
         final String USERNAME = Mysql.username();
@@ -92,33 +105,7 @@ public class Lostd {
         return count6;
     }
 
-    public void invullenb() {
-
-        final String USERNAME = Mysql.username();
-        final String PASSWORD = Mysql.password();
-        final String CONN_STRING = Mysql.urlmysql();
-        Connection conn;
-
-        try {
-
-            conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
-            System.out.println("Connected persoon");
-            Statement stmt = (Statement) conn.createStatement();
-
-            ResultSet rs5 = stmt.executeQuery("SELECT COUNT(*) AS total FROM persoon where name = " + '"' + name + '"');
-
-            while (rs5.next()) {
-                //count5 = rs5.getInt("total");
-            }
-
-        } catch (SQLException ed) {
-
-            System.err.println(ed);
-
-        }
-
-    }
-
+   
     public int Unr() {
 
         final String USERNAME = Mysql.username();
@@ -174,7 +161,7 @@ public class Lostd {
 
     }
 
-    public void getDate(String[] date) {
+    public void getDate(int Unr) {
 
         Connection conn;                                                            //making connection to database
 
@@ -187,7 +174,7 @@ public class Lostd {
             conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
             Statement st = conn.createStatement();
 
-            String query = ("INSERT INTO dta (date, time, airport, Unr) VALUES (" + '"' + date[0] + '"' + "," + '"' + date[1] + '"' + "," + '"' + date[2] + '"' + " ," + "'1'" + ")");
+            String query = ("INSERT INTO dta (date, time, airport, Unr) VALUES (" + '"' + date[0] + '"' + "," + '"' + date[1] + '"' + "," + '"' + date[2] + '"' + " ," + "'"+ Unr +"'" + ")");
 
             st.executeUpdate(query);
         } catch (SQLException ed) {
@@ -198,7 +185,7 @@ public class Lostd {
 
     }
 
-    public void getLabel(String[] label) {
+    public void getLabel(int Unr) {
 
         Connection conn;                                                            //making connection to database
 
@@ -211,7 +198,7 @@ public class Lostd {
             conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
             Statement st = conn.createStatement();
 
-            String query = ("INSERT INTO flight (Unr, labelnr, flightnr, destin) VALUES (" + 12 + "," + '"' + label[0] + '"' + "," + '"' + label[1] + '"' + "," + '"' + label[2] + '"' + ")");
+            String query = ("INSERT INTO flight (Unr, labelnr, flightnr, destin) VALUES (" + Unr + "," + '"' + label[0] + '"' + "," + '"' + label[1] + '"' + "," + '"' + label[2] + '"' + ")");
 
             //String query = "INSERT INTO dta (date, time, airport, Unr) VALUES (" + '"' + datex[0] + '"' + "," + '"' + datex[1] + '"' + "," + '"' + datex[2] + '"' + "," + '"' + 100 + '"' + " )";
             st.executeUpdate(query);
