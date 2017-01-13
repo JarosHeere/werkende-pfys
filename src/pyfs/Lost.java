@@ -285,4 +285,25 @@ public class Lost {
         return destin;
     }
 
+        public void Clear(){
+        time.setText("");
+        city.setText("");
+        naam.setText("");
+        adres.setText("");
+        zip.setText("");
+        country.setText("");
+        phone.setText("");
+        mail.setText("");
+        lugtype.setText("");
+        lugbrand.setText("");
+        lugcolor.setText("");
+        lugweight.setText("");
+        labelnr.setText("");
+        flightnr.setText("");
+        destin.setText("");
+        date.setText("");
+        lugspef.setText("");
+        airport.setText("");
+        
+    }
 }
