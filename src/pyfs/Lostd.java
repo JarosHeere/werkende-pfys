@@ -223,7 +223,7 @@ public class Lostd {
 
     }
 
-   public void zoeken(int unr) {
+  /* public void zoeken(int unr) {
 
         Connection conn;                                                            //making connection to database
 
@@ -242,15 +242,17 @@ public class Lostd {
             }
 
             if (count > 1) {
-                ResultSet rs6 = stm.executeQuery("SELECT lablenr from label where lablenr = '" + labelnr + "' and unr != '" + unr + "'");
+                ResultSet rs6 = stm.executeQuery("SELECT unr from label where lablenr = '" + labelnr + "' and unr != '" + unr + "'");
 
                 while (rs6.next()) {
-                    gevonden = rs6.getString("lablenr");
+                    gevonden = rs6.getString("unr");
                 }
+            }else{
+                
             }
 
         } catch (SQLException ed) {
             System.err.println(ed);
         }
-    }
+    }*/
 }
