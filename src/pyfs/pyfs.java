@@ -83,6 +83,7 @@ public class pyfs extends Application {
         Admin admin1 = new Admin();
         Admind admind = new Admind();
         Foundd foundd = new Foundd();
+        Results results = new Results();
 
         //BEGIN CONTROLS
         //Loginscherm
@@ -243,7 +244,7 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event) {
 
-                if ( toegang >= 2) {
+                if (toegang >= 2) {
                     thestage.setScene(stat);
                 } else {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -331,12 +332,6 @@ public class pyfs extends Application {
         lostnext.setOnAction(
                 new EventHandler<ActionEvent>() {
 
-<<<<<<< HEAD
-            @Override
-
-=======
-      
->>>>>>> origin/master
             public void handle(ActionEvent event
             ) {
 
@@ -348,14 +343,7 @@ public class pyfs extends Application {
                 date[2] = lost1.getAirport();
                 System.out.println(date[0]);
                 lostd.setLostdate(date);
-<<<<<<< HEAD
 
-           
-
-
-=======
-           
->>>>>>> origin/master
                 thestage.setScene(lost2);
 
             }
@@ -407,7 +395,15 @@ public class pyfs extends Application {
             ) {
 
                 String[] persoon = new String[7];
+                persoon[0] = lost1.getTextNaam();
+                persoon[1] = lost1.getTextAdres();
+                persoon[2] = lost1.getCity();
+                persoon[3] = lost1.getTextZip();
+                persoon[4] = lost1.getTextCountry();
+                persoon[5] = lost1.getTextPhone();
+                persoon[6] = lost1.getTextMail();
 
+                lostd.setP(persoon);
                 thestage.setScene(lost3);
 
             }
@@ -458,7 +454,6 @@ public class pyfs extends Application {
             public void handle(ActionEvent event
             ) {
 
-
                 String[] lostbagage = new String[5];
                 lostbagage[0] = lost1.getTextLugype();
                 lostbagage[1] = lost1.getTextLygbrand();
@@ -468,10 +463,6 @@ public class pyfs extends Application {
 
                 lostd.setLostbagage(lostbagage);
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
                 thestage.setScene(lost4);
 
             }
@@ -496,63 +487,20 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event
             ) {
+                
+                String[] label = new String[3];
+                label[0] = lost1.getTextLabelnr();
+                label[1] = lost1.getTextFlightnr();
+                label[2] = lost1.getTextDestin();
+                 
 
                 int unr = lostd.Unr();
                 int pnr = lostd.invullenP();
 
-                String[] date = new String[4];
-                date[0] = lost1.getDate();
-                date[1] = lost1.getTime();
-                date[2] = lost1.getAirport();
-                System.out.println(date[0]);
-                lostd.setLostdate(date);
-
-                String[] persoon = new String[7];
-                persoon[0] = lost1.getTextNaam();
-                persoon[1] = lost1.getTextAdres();
-                persoon[2] = lost1.getCity();
-                persoon[3] = lost1.getTextZip();
-                persoon[4] = lost1.getTextCountry();
-                persoon[5] = lost1.getTextPhone();
-                persoon[6] = lost1.getTextMail();
-
-                lostd.setP(persoon);
-
-                String[] lostbagage = new String[5];
-                lostbagage[0] = lost1.getTextLugype();
-                lostbagage[1] = lost1.getTextLygbrand();
-                lostbagage[2] = lost1.getTextLugcolor();
-                lostbagage[3] = lost1.getTextlugweight();
-                lostbagage[4] = lost1.getTextLugspef();
-
-                lostd.setLostbagage(lostbagage);
-
-                String[] vlucht = new String[3];
-                vlucht[0] = lost1.getTextLabelnr();
-                vlucht[1] = lost1.getTextFlightnr();
-                vlucht[2] = lost1.getTextDestin();
-                lostd.setLabel(vlucht);
-
-<<<<<<< HEAD
-=======
-
-               
-
->>>>>>> origin/master
-                lostd.getLabel(unr);
-                lostd.getLuggage(unr, pnr);
-
-                lost1.Clear();
-
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
                 lostd.getLabel(unr);
                 lostd.getLuggage(unr, pnr);
                 lostd.getDate(unr);
                 lost1.Clear();
-
 
                 //lostd.zoeken(labelnr);
                 thestage.setScene(lostfinal);
@@ -660,7 +608,6 @@ public class pyfs extends Application {
                 datex[2] = found1.getAirport();
                 System.out.println(datex[1]);
                 foundd.setFoundDate(datex);
-              
 
                 thestage.setScene(found2);
 
@@ -720,8 +667,6 @@ public class pyfs extends Application {
                 System.out.println(vlucht[1]);
                 System.out.println(vlucht[2]);
 
-               
-
                 thestage.setScene(found3);
 
             }
@@ -770,9 +715,8 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event
             ) {
-                
+
                 int unr = lostd.Unr();
-              
 
                 String[] foundbagage = new String[5];
                 foundbagage[0] = found1.getLugtype();
@@ -783,10 +727,10 @@ public class pyfs extends Application {
                 foundd.setFoundbagage(foundbagage);
 
                 foundd.getLuggage(unr);
-                 foundd.getLabel(unr);
-                   foundd.getDate(unr);
-                
-                  found1.Clear();
+                foundd.getLabel(unr);
+                foundd.getDate(unr);
+
+                found1.Clear();
                 thestage.setScene(foundfinal);
 
             }
@@ -1262,6 +1206,7 @@ public class pyfs extends Application {
 
         lostfinalpane.setStyle("-fx-background-color:#FFFFFF");
         lostfinalpane.getChildren().add(lostterugfinal);
+        lostfinalpane.getChildren().add(results.ShowTable());
 
         foundpane = new StackPane();
 
