@@ -375,13 +375,15 @@ public class pyfs extends Application {
 
             @Override
             public void handle(ActionEvent event) {
+                
+                int Unr = lostd.Unr();
 
                 String[] date = new String[4];
                 date[0] = lost1.getDate();
                 date[1] = lost1.getTime();
                 date[2] = lost1.getAirport();
                 System.out.println(date[0]);
-                lostd.getDate(date);
+                lostd.setLostdate(date);
 
                 thestage.setScene(lost2);
 
@@ -486,11 +488,16 @@ public class pyfs extends Application {
                 vlucht[0] = lost1.getTextLabelnr();
                 vlucht[1] = lost1.getTextFlightnr();
                 vlucht[2] = lost1.getTextDestin();
+                lostd.setLabel(vlucht);
 
-                lostd.getLabel(vlucht);
+                
                 int unr = lostd.Unr();
                 int pnr = lostd.invullenP();
+               
+                
+                  lostd.getLabel(unr);
                  lostd.getLuggage(unr, pnr);
+                 lostd.getDate(unr);
                 //lostd.zoeken(labelnr);
 
                 thestage.setScene(lostfinal);
