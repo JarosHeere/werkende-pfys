@@ -387,8 +387,7 @@ public class pyfs extends Application {
                 55);
         lostnext2.setStyle(
                 "-fx-base:darkcyan;-fx-border-color:black");
-        lostnext2.setOnAction(
-                new EventHandler<ActionEvent>() {
+        lostnext2.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event
@@ -492,6 +491,7 @@ public class pyfs extends Application {
                 label[0] = lost1.getTextLabelnr();
                 label[1] = lost1.getTextFlightnr();
                 label[2] = lost1.getTextDestin();
+                lostd.setLabel(label);
                  
 
                 int unr = lostd.Unr();
