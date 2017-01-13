@@ -151,9 +151,10 @@ public class pyfs extends Application {
                 } catch (SQLException ed) {
 
                     System.err.println(ed);
+                    
 
                 }
-
+                login.Clear();
             }
 
         });
@@ -497,7 +498,11 @@ public class pyfs extends Application {
                 
                   lostd.getLabel(unr);
                  lostd.getLuggage(unr, pnr);
+<<<<<<< HEAD
                  lostd.getDate(unr);
+=======
+                 lost1.Clear();
+>>>>>>> origin/master
                 //lostd.zoeken(labelnr);
 
                 thestage.setScene(lostfinal);
@@ -641,6 +646,7 @@ public class pyfs extends Application {
 
             @Override
             public void handle(ActionEvent event) {
+                found1.Clear();
                 thestage.setScene(foundfinal);
 
                 String[] foundbagage = new String[5];

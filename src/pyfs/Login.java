@@ -73,4 +73,9 @@ public class Login {
         return password.getText();
     }
 
+    public void Clear(){
+        username.setText("");
+        password.setText("");
+        
+    }
 }

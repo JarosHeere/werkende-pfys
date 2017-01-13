@@ -210,15 +210,15 @@ public class Lostd {
 
     }
 
-    public void zoeken(String labelnr) {
+  /* public void zoeken(int unr) {
 
         Connection conn;                                                            //making connection to database
 
         final String USERNAME = Mysql.username();
         final String PASSWORD = Mysql.password();
         final String CONN_STRING = Mysql.urlmysql();
-        int count;
-
+        int count = 0;
+        String gevonden;
         try {
             conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
             Statement stm = conn.createStatement();
@@ -228,8 +228,18 @@ public class Lostd {
                 count = rs5.getInt("total");
             }
 
+            if (count > 1) {
+                ResultSet rs6 = stm.executeQuery("SELECT unr from label where lablenr = '" + labelnr + "' and unr != '" + unr + "'");
+
+                while (rs6.next()) {
+                    gevonden = rs6.getString("unr");
+                }
+            }else{
+                
+            }
+
         } catch (SQLException ed) {
             System.err.println(ed);
         }
-    }
+    }*/
 }
