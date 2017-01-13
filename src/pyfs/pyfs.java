@@ -334,7 +334,7 @@ public class pyfs extends Application {
             public void handle(ActionEvent event
             ) {
 
-                int Unr = lostd.Unr();
+                
                 
                 
                 String[] date = new String[4];
@@ -343,6 +343,9 @@ public class pyfs extends Application {
                 date[2] = lost1.getAirport();
                 System.out.println(date[0]);
                 lostd.setLostdate(date);
+
+           
+
 
                 thestage.setScene(lost2);
 
@@ -486,8 +489,18 @@ public class pyfs extends Application {
                 vlucht[2] = lost1.getTextDestin();
                 lostd.setLabel(vlucht);
 
+
                 int unr = lostd.Unr();
                 int pnr = lostd.invullenP();
+
+
+               
+
+
+                lostd.getLabel(unr);
+                lostd.getLuggage(unr, pnr);
+
+                lost1.Clear();
 
                 lostd.getLabel(unr);
                 lostd.getLuggage(unr, pnr);
@@ -599,7 +612,8 @@ public class pyfs extends Application {
                 datex[1] = found1.getTime();
                 datex[2] = found1.getAirport();
                 System.out.println(datex[1]);
-                foundd.getDate(datex);
+                foundd.setFoundDate(datex);
+              
 
                 thestage.setScene(found2);
 
@@ -654,11 +668,12 @@ public class pyfs extends Application {
                 vlucht[0] = found1.getLabelnr();
                 vlucht[1] = found1.getFlightnr();
                 vlucht[2] = found1.getNametrav();
+                foundd.setFoundLabel(vlucht);
                 System.out.println(vlucht[0]);
                 System.out.println(vlucht[1]);
                 System.out.println(vlucht[2]);
 
-                foundd.getLabel(vlucht);
+               
 
                 thestage.setScene(found3);
 
@@ -708,8 +723,9 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event
             ) {
-                found1.Clear();
-                thestage.setScene(foundfinal);
+                
+                int unr = lostd.Unr();
+              
 
                 String[] foundbagage = new String[5];
                 foundbagage[0] = found1.getLugtype();
@@ -717,8 +733,14 @@ public class pyfs extends Application {
                 foundbagage[2] = found1.getLugcolor();
                 foundbagage[3] = found1.getLugweight();
                 foundbagage[4] = found1.getLugspef();
+                foundd.setFoundbagage(foundbagage);
 
-                foundd.getLuggage(foundbagage);
+                foundd.getLuggage(unr);
+                 foundd.getLabel(unr);
+                   foundd.getDate(unr);
+                
+                  found1.Clear();
+                thestage.setScene(foundfinal);
 
             }
         }
