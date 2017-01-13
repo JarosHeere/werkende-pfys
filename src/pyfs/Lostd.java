@@ -150,7 +150,7 @@ public class Lostd {
             conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
             Statement st = conn.createStatement();
 
-            String query = "INSERT INTO luggage (Luggagelnr, Luggagetype, Luggagebrand, Luggagecol, Luggeweight, Luggagewespef, Unr,Pnr, LFDM) VALUES (" + '"' + Unr + '"' + "," + '"' + lostbagage[0] + '"' + "," + '"' + lostbagage[1] + '"' + "," + '"'
+            String query = "INSERT INTO luggage (Luggagetype, Luggagebrand, Luggagecol, Luggageweight, Luggagewespef, Unr,Pnr, LFDM) VALUES (" + '"' + lostbagage[0] + '"' + "," + '"' + lostbagage[1] + '"' + "," + '"'
                     + lostbagage[2] + '"' + "," + '"' + lostbagage[3] + '"' + "," + '"' + lostbagage[4] + '"' + "," + '"' + Unr + '"' + "," + '"' + Pnr + '"' + ",'L'" + " )";
 
             st.executeUpdate(query);
@@ -202,7 +202,6 @@ public class Lostd {
 
             String query = ("INSERT INTO flight (Unr, labelnr, flightnr, destin) VALUES (" + Unr + "," + '"' + label[0] + '"' + "," + '"' + label[1] + '"' + "," + '"' + label[2] + '"' + ")");
 
-            //String query = "INSERT INTO dta (date, time, airport, Unr) VALUES (" + '"' + datex[0] + '"' + "," + '"' + datex[1] + '"' + "," + '"' + datex[2] + '"' + "," + '"' + 100 + '"' + " )";
             st.executeUpdate(query);
         } catch (SQLException ed) {
 

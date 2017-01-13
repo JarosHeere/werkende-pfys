@@ -335,8 +335,6 @@ public class pyfs extends Application {
             public void handle(ActionEvent event
             ) {
 
-                int Unr = lostd.Unr();
-
                 String[] date = new String[4];
                 date[0] = lost1.getDate();
                 date[1] = lost1.getTime();
@@ -487,12 +485,12 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event
             ) {
-                
+
                 String[] label = new String[3];
                 label[0] = lost1.getTextLabelnr();
                 label[1] = lost1.getTextFlightnr();
                 label[2] = lost1.getTextDestin();
-                 
+                lostd.setLabel(label);
 
                 int unr = lostd.Unr();
                 int pnr = lostd.invullenP();

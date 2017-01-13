@@ -36,7 +36,7 @@ CREATE TABLE `dta` (
 
 LOCK TABLES `dta` WRITE;
 /*!40000 ALTER TABLE `dta` DISABLE KEYS */;
-INSERT INTO `dta` VALUES ('1999-09-09','','',100),('2001-12-12','','',100),('1999-09-09','','',100);
+INSERT INTO `dta` VALUES ('2017-01-13','16:32','hva',5);
 /*!40000 ALTER TABLE `dta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -63,7 +63,7 @@ CREATE TABLE `flight` (
 
 LOCK TABLES `flight` WRITE;
 /*!40000 ALTER TABLE `flight` DISABLE KEYS */;
-INSERT INTO `flight` VALUES (3,'','','',NULL),(100,'','','null',NULL);
+INSERT INTO `flight` VALUES (5,'54892','2312k','thuis',NULL);
 /*!40000 ALTER TABLE `flight` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -103,8 +103,8 @@ CREATE TABLE `luggage` (
   `Luggagetype` varchar(45) NOT NULL,
   `Luggagebrand` varchar(45) NOT NULL,
   `Luggagecol` varchar(45) NOT NULL,
-  `Luggeweight` varchar(45) NOT NULL,
-  `Luggagewespef` varchar(45) NOT NULL,
+  `Luggageweight` varchar(45) NOT NULL,
+  `Luggagespef` varchar(45) NOT NULL,
   `Unr` int(250) NOT NULL,
   `Pnr` int(250) DEFAULT NULL,
   `LFDM` varchar(45) DEFAULT NULL
@@ -117,7 +117,7 @@ CREATE TABLE `luggage` (
 
 LOCK TABLES `luggage` WRITE;
 /*!40000 ALTER TABLE `luggage` DISABLE KEYS */;
-INSERT INTO `luggage` VALUES ('asdf','asdf','asdf','sadf','sadf',1,4,'L'),('','','','','',2,3,'L'),('','','','','',3,1,'L');
+INSERT INTO `luggage` VALUES ('tas','asdf','rood','10000000','piet piraat',5,1,'L');
 /*!40000 ALTER TABLE `luggage` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -147,7 +147,7 @@ CREATE TABLE `persoon` (
 
 LOCK TABLES `persoon` WRITE;
 /*!40000 ALTER TABLE `persoon` DISABLE KEYS */;
-INSERT INTO `persoon` VALUES (1,'','','','','','','');
+INSERT INTO `persoon` VALUES (1,'jaros','copernusstraat 6','kudelstaart','1433mc','nederland','465234','yolo@yolt');
 /*!40000 ALTER TABLE `persoon` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -170,6 +170,7 @@ CREATE TABLE `unr` (
 
 LOCK TABLES `unr` WRITE;
 /*!40000 ALTER TABLE `unr` DISABLE KEYS */;
+INSERT INTO `unr` VALUES (1),(2),(3),(4),(5);
 /*!40000 ALTER TABLE `unr` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -182,4 +183,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-01-13 15:54:14
+-- Dump completed on 2017-01-13 16:37:02
