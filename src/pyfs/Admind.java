@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javafx.scene.control.Alert;
 
 /**
  *
@@ -30,19 +31,25 @@ public class Admind {
         final String PASSWORD = Mysql.password();
         final String CONN_STRING = Mysql.urlmysql();
 
-        try {
+        if (!Add[1].equals(Add[0])) {
+            try {
 
-            conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
-            String query = "INSERT INTO login (username, password, permission) VALUES (" + '"' + Add[0] + '"' + "," + '"' + Add[1] + '"' + "," + '"' + Add[2] + '"' + " )";
-            Statement st = conn.createStatement();
-            st.executeUpdate(query);
+                conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+                String query = "INSERT INTO login (username, password, permission) VALUES (" + '"' + Add[0] + '"' + "," + '"' + Add[1] + '"' + "," + '"' + Add[2] + '"' + " )";
+                Statement st = conn.createStatement();
+                st.executeUpdate(query);
+            } catch (SQLException ed) {
 
-        } catch (SQLException ed) {
+                System.err.println(ed);
 
-            System.err.println(ed);
+            }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("warning");
+            alert.setHeaderText("username and password can not be the same \nthe account has not been created");
+            alert.showAndWait();
 
         }
-
     }
 
     public void Delete(String[] delete) {
@@ -69,33 +76,36 @@ public class Admind {
     }
 
     public void Update(String[] updateInfo) {
-        
 
         Connection conn;                                                            //making connection to database
 
         final String USERNAME = Mysql.username();
         final String PASSWORD = Mysql.password();
         final String CONN_STRING = Mysql.urlmysql();
+        if (!updateInfo[0].equals(updateInfo[1])) {
+            try {
 
-        try {
-          
-            conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
-            String query = "UPDATE login SET username =" + '"' + updateInfo[0] + '"' + ", password = " + '"' + updateInfo[1] + '"' + ", permission = " + '"' + updateInfo[2] + '"' + "WHERE username =" + '"' + updateInfo[3] + '"';
-            Statement st = conn.createStatement();
-            st.executeUpdate(query);
+                conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+                String query = "UPDATE login SET username =" + '"' + updateInfo[0] + '"' + ", password = " + '"' + updateInfo[1] + '"' + ", permission = " + '"' + updateInfo[2] + '"' + "WHERE username =" + '"' + updateInfo[3] + '"';
+                Statement st = conn.createStatement();
+                st.executeUpdate(query);
 
-        } catch (SQLException ed) {
+            } catch (SQLException ed) {
 
-            System.err.println(ed);
+                System.err.println(ed);
+
+            }
+
+        } else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("warning");
+            alert.setHeaderText("username and password can not be the same \nthe account has not been created");
+            alert.showAndWait();
 
         }
-
-        
-
     }
-    
+
     public void luggageRemove(String[] remove) {
-      
 
         Connection conn;                                                            //making connection to database
 
@@ -104,7 +114,7 @@ public class Admind {
         final String CONN_STRING = Mysql.urlmysql();
 
         try {
-         
+
             conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
             String query = "DELETE FROM luggage WHERE luggagelnr = " + "'" + remove[0] + "'";
             Statement st = conn.createStatement();
@@ -115,8 +125,6 @@ public class Admind {
             System.err.println(ed);
 
         }
-
-     
 
     }
 
