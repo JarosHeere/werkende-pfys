@@ -84,8 +84,8 @@ public class Results {
             
             
             //SQL FOR SELECTING ALL OF CUSTOMER
-            String SQL = "SELECT * FROM luggage where LFDM = 'Found' and Luggagetype =" + "'" + info[0] + "'" + " and Luggagebrand = " + "'" + info[1] + "'" + " and Luggagecol = " + "'" 
-                    + info[2] + "'" + " and Luggageweight = " + "'" + info[3] +"'" + "or Unr = " + "'" + Unr + "'";
+            String SQL = "SELECT * FROM luggage where LFDM = 'Found' and Luggagetype =" + "'" + info[0] + "'" + " or Luggagebrand = " + "'" + info[1] + "'" + " and Luggagecol = " + "'" 
+                    + info[2] + "'" + " or Luggageweight = " + "'" + info[3] +"'" + "or Unr = " + "'" + Unr + "'";
            
             //ResultSet
             
