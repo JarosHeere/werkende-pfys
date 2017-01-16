@@ -191,12 +191,9 @@ public class pyfs extends Application {
         lostbtn = new Button();
 
         lostbtn.setText("Lost");                                           //lost button
-        lostbtn.setPrefSize(
-                200, 50);
-        lostbtn.setTranslateX(
-                -500);
-        lostbtn.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
+        lostbtn.setPrefSize(200, 50);
+        lostbtn.setTranslateX(-500);
+        lostbtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
         lostbtn.setOnAction(
                 new EventHandler<ActionEvent>() {
 
@@ -211,14 +208,10 @@ public class pyfs extends Application {
 
         foundbtn = new Button();
 
-        foundbtn.setText(
-                "Found");                                           //found button
-        foundbtn.setPrefSize(
-                200, 50);
-        foundbtn.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
-        foundbtn.setOnAction(
-                new EventHandler<ActionEvent>() {
+        foundbtn.setText("Found");                                           //found button
+        foundbtn.setPrefSize(200, 50);
+        foundbtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        foundbtn.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event
@@ -231,16 +224,11 @@ public class pyfs extends Application {
 
         statbtn = new Button();
 
-        statbtn.setText(
-                "Statistics");                                           //statistics button
-        statbtn.setPrefSize(
-                200, 50);
-        statbtn.setTranslateX(
-                500);
-        statbtn.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
-        statbtn.setOnAction(
-                new EventHandler<ActionEvent>() {
+        statbtn.setText("Statistics");                                           //statistics button
+        statbtn.setPrefSize(200, 50);
+        statbtn.setTranslateX(500);
+        statbtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        statbtn.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event) {
@@ -260,18 +248,12 @@ public class pyfs extends Application {
 
         adminbtn = new Button();
 
-        adminbtn.setText(
-                "Admin");                                           //statistics button
-        adminbtn.setPrefSize(
-                200, 50);
-        adminbtn.setTranslateY(
-                -370);
-        adminbtn.setTranslateX(
-                -700);
-        adminbtn.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
-        adminbtn.setOnAction(
-                new EventHandler<ActionEvent>() {
+        adminbtn.setText("Admin");                                           //statistics button
+        adminbtn.setPrefSize(200, 50);
+        adminbtn.setTranslateY(-370);
+        adminbtn.setTranslateX(-700);
+        adminbtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        adminbtn.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent eventF) {
@@ -296,18 +278,12 @@ public class pyfs extends Application {
         //lost 1
         lostterugmenu = new Button();
 
-        lostterugmenu.setText(
-                "Back");                                           //back button
-        lostterugmenu.setPrefSize(
-                200, 50);
-        lostterugmenu.setTranslateY(
-                -370);
-        lostterugmenu.setTranslateX(
-                700);
-        lostterugmenu.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
-        lostterugmenu.setOnAction(
-                new EventHandler<ActionEvent>() {
+        lostterugmenu.setText("Back");                                           //back button
+        lostterugmenu.setPrefSize(200, 50);
+        lostterugmenu.setTranslateY(-370);
+        lostterugmenu.setTranslateX(700);
+        lostterugmenu.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        lostterugmenu.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event
@@ -320,18 +296,12 @@ public class pyfs extends Application {
 
         lostnext = new Button();
 
-        lostnext.setText(
-                "Next");                                           //next button
-        lostnext.setPrefSize(
-                120, 50);
-        lostnext.setTranslateY(
-                105);
-        lostnext.setTranslateX(
-                55);
-        lostnext.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
-        lostnext.setOnAction(
-                new EventHandler<ActionEvent>() {
+        lostnext.setText("Next");                                           //next button
+        lostnext.setPrefSize(120, 50);
+        lostnext.setTranslateY(105);
+        lostnext.setTranslateX(55);
+        lostnext.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        lostnext.setOnAction(new EventHandler<ActionEvent>() {
 
             public void handle(ActionEvent event
             ) {
@@ -352,18 +322,12 @@ public class pyfs extends Application {
         //lost 2
         lostback = new Button();
 
-        lostback.setText(
-                "Back");                                           //back button
-        lostback.setPrefSize(
-                200, 50);
-        lostback.setTranslateY(
-                -370);
-        lostback.setTranslateX(
-                700);
-        lostback.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
-        lostback.setOnAction(
-                new EventHandler<ActionEvent>() {
+        lostback.setText("Back");                                           //back button
+        lostback.setPrefSize(200, 50);
+        lostback.setTranslateY(-370);
+        lostback.setTranslateX(700);
+        lostback.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        lostback.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event
@@ -376,18 +340,12 @@ public class pyfs extends Application {
 
         lostnext2 = new Button();
 
-        lostnext2.setText(
-                "Next");                                           //next button
-        lostnext2.setPrefSize(
-                120, 50);
-        lostnext2.setTranslateY(
-                105);
-        lostnext2.setTranslateX(
-                55);
-        lostnext2.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
-        lostnext2.setOnAction(
-                new EventHandler<ActionEvent>() {
+        lostnext2.setText("Next");                                           //next button
+        lostnext2.setPrefSize(120, 50);
+        lostnext2.setTranslateY(105);
+        lostnext2.setTranslateX(55);
+        lostnext2.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        lostnext2.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event
@@ -412,18 +370,12 @@ public class pyfs extends Application {
 
         lostback2 = new Button();
 
-        lostback2.setText(
-                "Back");                                           //back button
-        lostback2.setPrefSize(
-                200, 50);
-        lostback2.setTranslateY(
-                -370);
-        lostback2.setTranslateX(
-                700);
-        lostback2.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
-        lostback2.setOnAction(
-                new EventHandler<ActionEvent>() {
+        lostback2.setText("Back");                                           //back button
+        lostback2.setPrefSize(200, 50);
+        lostback2.setTranslateY(-370);
+        lostback2.setTranslateX(700);
+        lostback2.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        lostback2.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event
@@ -436,18 +388,12 @@ public class pyfs extends Application {
 
         lostnext3 = new Button();
 
-        lostnext3.setText(
-                "Next");                                           //next button
-        lostnext3.setPrefSize(
-                120, 50);
-        lostnext3.setTranslateY(
-                175);
-        lostnext3.setTranslateX(
-                92);
-        lostnext3.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
-        lostnext3.setOnAction(
-                new EventHandler<ActionEvent>() {
+        lostnext3.setText("Next");                                           //next button
+        lostnext3.setPrefSize(120, 50);
+        lostnext3.setTranslateY(175);
+        lostnext3.setTranslateX(92);
+        lostnext3.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        lostnext3.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event
@@ -461,18 +407,12 @@ public class pyfs extends Application {
 
         search = new Button();
 
-        search.setText(
-                "Search");                                           //Search button
-        search.setPrefSize(
-                120, 50);
-        search.setTranslateY(
-                175);
-        search.setTranslateX(
-                92);
-        search.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
-        search.setOnAction(
-                new EventHandler<ActionEvent>() {
+        search.setText("Search");                                           //Search button
+        search.setPrefSize(120, 50);
+        search.setTranslateY(175);
+        search.setTranslateX(92);
+        search.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        search.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event
@@ -515,18 +455,12 @@ public class pyfs extends Application {
 
         lostback3 = new Button();
 
-        lostback3.setText(
-                "Back");                                           //back button
-        lostback3.setPrefSize(
-                200, 50);
-        lostback3.setTranslateY(
-                -370);
-        lostback3.setTranslateX(
-                700);
-        lostback3.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
-        lostback3.setOnAction(
-                new EventHandler<ActionEvent>() {
+        lostback3.setText("Back");                                           //back button
+        lostback3.setPrefSize(200, 50);
+        lostback3.setTranslateY(-370);
+        lostback3.setTranslateX(700);
+        lostback3.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        lostback3.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event
@@ -540,18 +474,12 @@ public class pyfs extends Application {
         //lost final
         lostterugfinal = new Button();
 
-        lostterugfinal.setText(
-                "Menu");                                           //lost terug menu
-        lostterugfinal.setPrefSize(
-                200, 50);
-        lostterugfinal.setTranslateY(
-                -370);
-        lostterugfinal.setTranslateX(
-                700);
-        lostterugfinal.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
-        lostterugfinal.setOnAction(
-                new EventHandler<ActionEvent>() {
+        lostterugfinal.setText("Menu");                                           //lost terug menu
+        lostterugfinal.setPrefSize(200, 50);
+        lostterugfinal.setTranslateY(-370);
+        lostterugfinal.setTranslateX(700);
+        lostterugfinal.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        lostterugfinal.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event
@@ -565,18 +493,12 @@ public class pyfs extends Application {
         //found
         foundterugmenu = new Button();
 
-        foundterugmenu.setText(
-                "Back");                                           //back button
-        foundterugmenu.setPrefSize(
-                200, 50);
-        foundterugmenu.setTranslateY(
-                -370);
-        foundterugmenu.setTranslateX(
-                700);
-        foundterugmenu.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
-        foundterugmenu.setOnAction(
-                new EventHandler<ActionEvent>() {
+        foundterugmenu.setText("Back");                                           //back button
+        foundterugmenu.setPrefSize(200, 50);
+        foundterugmenu.setTranslateY(-370);
+        foundterugmenu.setTranslateX(700);
+        foundterugmenu.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        foundterugmenu.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event
@@ -589,18 +511,12 @@ public class pyfs extends Application {
 
         foundnext = new Button();
 
-        foundnext.setText(
-                "Next");                                           //next button
-        foundnext.setPrefSize(
-                120, 50);
-        foundnext.setTranslateY(
-                105);
-        foundnext.setTranslateX(
-                55);
-        foundnext.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
-        foundnext.setOnAction(
-                new EventHandler<ActionEvent>() {
+        foundnext.setText("Next");                                           //next button
+        foundnext.setPrefSize(120, 50);
+        foundnext.setTranslateY(105);
+        foundnext.setTranslateX(55);
+        foundnext.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        foundnext.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event
@@ -621,18 +537,12 @@ public class pyfs extends Application {
 
         foundback = new Button();
 
-        foundback.setText(
-                "Back");                                           //back button
-        foundback.setPrefSize(
-                200, 50);
-        foundback.setTranslateY(
-                -370);
-        foundback.setTranslateX(
-                700);
-        foundback.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
-        foundback.setOnAction(
-                new EventHandler<ActionEvent>() {
+        foundback.setText("Back");                                           //back button
+        foundback.setPrefSize(200, 50);
+        foundback.setTranslateY(-370);
+        foundback.setTranslateX(700);
+        foundback.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        foundback.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event
@@ -645,18 +555,12 @@ public class pyfs extends Application {
 
         foundnext2 = new Button();
 
-        foundnext2.setText(
-                "Next");                                           //next button
-        foundnext2.setPrefSize(
-                120, 50);
-        foundnext2.setTranslateY(
-                105);
-        foundnext2.setTranslateX(
-                55);
-        foundnext2.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
-        foundnext2.setOnAction(
-                new EventHandler<ActionEvent>() {
+        foundnext2.setText("Next");                                           //next button
+        foundnext2.setPrefSize(120, 50);
+        foundnext2.setTranslateY(105);
+        foundnext2.setTranslateX(55);
+        foundnext2.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        foundnext2.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event
@@ -670,19 +574,12 @@ public class pyfs extends Application {
 
         foundback2 = new Button();
 
-        foundback2.setText(
-                "Back");                                           //back button
-        foundback2.setPrefSize(
-                200, 50);
-        foundback2.setTranslateY(
-                -370);
-        foundback2.setTranslateX(
-                700);
-        foundback2.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
-        foundback2.setOnAction(
-                new EventHandler<ActionEvent>() {
-
+        foundback2.setText("Back");                                           //back button
+        foundback2.setPrefSize(200, 50);
+        foundback2.setTranslateY(-370);
+        foundback2.setTranslateX(700);
+        foundback2.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        foundback2.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event
             ) {
@@ -694,18 +591,12 @@ public class pyfs extends Application {
 
         foundnext3 = new Button();
 
-        foundnext3.setText(
-                "Place");                                           //place button
-        foundnext3.setPrefSize(
-                120, 50);
-        foundnext3.setTranslateY(
-                175);
-        foundnext3.setTranslateX(
-                92);
-        foundnext3.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
-        foundnext3.setOnAction(
-                new EventHandler<ActionEvent>() {
+        foundnext3.setText("Place");                                           //place button
+        foundnext3.setPrefSize(120, 50);
+        foundnext3.setTranslateY(175);
+        foundnext3.setTranslateX(92);
+        foundnext3.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        foundnext3.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event
@@ -747,19 +638,13 @@ public class pyfs extends Application {
         //foundfinal
         foundfinalButton = new Button();
 
-        foundfinalButton.setText(
-                "Menu");                                           //lost terug menu
-        foundfinalButton.setPrefSize(
-                200, 50);
-        foundfinalButton.setTranslateY(
-                -370);
-        foundfinalButton.setTranslateX(
-                700);
+        foundfinalButton.setText("Menu");                                           //lost terug menu
+        foundfinalButton.setPrefSize(200, 50);
+        foundfinalButton.setTranslateY(-370);
+        foundfinalButton.setTranslateX(700);
 
-        foundfinalButton.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
-        foundfinalButton.setOnAction(
-                new EventHandler<ActionEvent>() {
+        foundfinalButton.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        foundfinalButton.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event
@@ -773,19 +658,13 @@ public class pyfs extends Application {
         //stat
         statterugmenu = new Button();
 
-        statterugmenu.setText(
-                "Back");                                           //back button
-        statterugmenu.setPrefSize(
-                200, 50);
-        statterugmenu.setTranslateY(
-                -370);
-        statterugmenu.setTranslateX(
-                700);
-        statterugmenu.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
+        statterugmenu.setText("Back");                                           //back button
+        statterugmenu.setPrefSize(200, 50);
+        statterugmenu.setTranslateY(-370);
+        statterugmenu.setTranslateX(700);
+        statterugmenu.setStyle("-fx-base:darkcyan;-fx-border-color:black");
 
-        statterugmenu.setOnAction(
-                new EventHandler<ActionEvent>() {
+        statterugmenu.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event
@@ -799,16 +678,11 @@ public class pyfs extends Application {
         //stat
         yearbtn = new Button();
 
-        yearbtn.setText(
-                "Past year");                                           //back button
-        yearbtn.setPrefSize(
-                200, 50);
-        yearbtn.setTranslateX(
-                300);
-        yearbtn.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
-        yearbtn.setOnAction(
-                new EventHandler<ActionEvent>() {
+        yearbtn.setText("Past year");                                           //back button
+        yearbtn.setPrefSize(200, 50);
+        yearbtn.setTranslateX(300);
+        yearbtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        yearbtn.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event
@@ -825,16 +699,11 @@ public class pyfs extends Application {
 
         currentbtn = new Button();
 
-        currentbtn.setText(
-                "Current luggage");                                           //back button
-        currentbtn.setPrefSize(
-                200, 50);
-        currentbtn.setTranslateX(
-                -300);
-        currentbtn.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
-        currentbtn.setOnAction(
-                new EventHandler<ActionEvent>() {
+        currentbtn.setText("Current luggage");                                           //back button
+        currentbtn.setPrefSize(200, 50);
+        currentbtn.setTranslateX(-300);
+        currentbtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        currentbtn.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event
@@ -852,19 +721,13 @@ public class pyfs extends Application {
         //admin
         adminterugmenu = new Button();
 
-        adminterugmenu.setText(
-                "Back");                                           //back button
-        adminterugmenu.setPrefSize(
-                200, 50);
-        adminterugmenu.setTranslateY(
-                -370);
-        adminterugmenu.setTranslateX(
-                700);
-        adminterugmenu.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
+        adminterugmenu.setText("Back");                                           //back button
+        adminterugmenu.setPrefSize(200, 50);
+        adminterugmenu.setTranslateY(-370);
+        adminterugmenu.setTranslateX(700);
+        adminterugmenu.setStyle("-fx-base:darkcyan;-fx-border-color:black");
 
-        adminterugmenu.setOnAction(
-                new EventHandler<ActionEvent>() {
+        adminterugmenu.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event
@@ -877,19 +740,13 @@ public class pyfs extends Application {
 
         userTableBtn = new Button();
 
-        userTableBtn.setText(
-                "View Users");                                           //back button
-        userTableBtn.setPrefSize(
-                200, 50);
-        userTableBtn.setTranslateX(
-                -400);
-        userTableBtn.setTranslateY(
-                -150);
-        userTableBtn.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
+        userTableBtn.setText("View Users");                                           //back button
+        userTableBtn.setPrefSize(200, 50);
+        userTableBtn.setTranslateX(-400);
+        userTableBtn.setTranslateY(-150);
+        userTableBtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
 
-        userTableBtn.setOnAction(
-                new EventHandler<ActionEvent>() {
+        userTableBtn.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event
@@ -908,18 +765,12 @@ public class pyfs extends Application {
 
         Button LuggageTableBtn = new Button();
 
-        LuggageTableBtn.setText(
-                "View Luggage");                                           //back button
-        LuggageTableBtn.setPrefSize(
-                200, 50);
-        LuggageTableBtn.setTranslateX(
-                -100);
-        LuggageTableBtn.setTranslateY(
-                -150);
-        LuggageTableBtn.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
-        LuggageTableBtn.setOnAction(
-                new EventHandler<ActionEvent>() {
+        LuggageTableBtn.setText("View Luggage");                                           //back button
+        LuggageTableBtn.setPrefSize(200, 50);
+        LuggageTableBtn.setTranslateX(-100);
+        LuggageTableBtn.setTranslateY(-150);
+        LuggageTableBtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        LuggageTableBtn.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event
@@ -938,18 +789,12 @@ public class pyfs extends Application {
 
         Button createUser = new Button();
 
-        createUser.setText(
-                "Create user");                                           //back button
-        createUser.setPrefSize(
-                200, 50);
-        createUser.setTranslateX(
-                -400);
-        createUser.setTranslateY(
-                -50);
-        createUser.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
-        createUser.setOnAction(
-                new EventHandler<ActionEvent>() {
+        createUser.setText("Create user");                                           //back button
+        createUser.setPrefSize(200, 50);
+        createUser.setTranslateX(-400);
+        createUser.setTranslateY(-50);
+        createUser.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        createUser.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event
@@ -968,14 +813,10 @@ public class pyfs extends Application {
 
         Button addUser = new Button();
 
-        addUser.setText(
-                "Add");                                           //back button
-        addUser.setPrefSize(
-                150, 50);
-        addUser.setTranslateX(
-                350);
-        addUser.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
+        addUser.setText("Add");                                           //back button
+        addUser.setPrefSize(150, 50);
+        addUser.setTranslateX(350);
+        addUser.setStyle("-fx-base:darkcyan;-fx-border-color:black");
 
         addUser.setOnAction(
                 new EventHandler<ActionEvent>() {
