@@ -46,7 +46,6 @@ public class Login {
     ImageView logologin() {
         logologin = new ImageView("download.png");                               // adding corendon logo to login screen
         logologin.setTranslateY(-120);
-
         return logologin;
     }
 
@@ -55,13 +54,11 @@ public class Login {
     }
 
     public String getTextPassword() {                                            // return password
-
         return password.getText();
     }
 
     public void Clear(){                                                         // clear the textfields from login
         username.setText("");
         password.setText("");
-        
     }
 }
