@@ -27,7 +27,7 @@ public class Login {
 
     TextField username() {
 
-        username = new TextField();                 //text die gebruikersnaam print bij inlogscherm
+        username = new TextField();                 //textfield for username
         username.setPromptText("Username");
         username.setFont(Font.font("Verdana", 20));
         username.setTranslateY(-20);
@@ -38,7 +38,7 @@ public class Login {
 
     PasswordField password() {
 
-        password = new PasswordField();        //veld om wachtwoord in te vullen
+        password = new PasswordField();        //texttfield for password
         password.setPromptText("Password");
         password.setMaxWidth(220);
         password.setFont(Font.font("Verdana", 20));
@@ -48,23 +48,23 @@ public class Login {
     }
 
     ImageView logologin() {
-        logologin = new ImageView("download.png");       //voegt corendon logo toe aan loginscherm
+        logologin = new ImageView("download.png");       //adding corendon logo to login screen
         logologin.setTranslateY(-120);
 
         return logologin;
     }
 
-    public String getTextUsername() {
+    public String getTextUsername() { //return username
 
         return username.getText();
     }
 
-    public String getTextPassword() {
+    public String getTextPassword() {//return password
 
         return password.getText();
     }
 
-    public void Clear(){
+    public void Clear(){//clear the textfields from login
         username.setText("");
         password.setText("");
         

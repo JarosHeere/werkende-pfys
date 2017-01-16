@@ -945,11 +945,11 @@ public class pyfs extends Application {
             public void handle(ActionEvent event
             ) {
 
-                luggageUpdateStage = new Stage();
-                luggageUpdateStage.setTitle("Luggage update");
-                luggageUpdateStage.setScene(luggageUpdate);
-                luggageUpdateStage.setResizable(false);
-                luggageUpdateStage.show();
+                userUpdateStage = new Stage();
+                userUpdateStage.setTitle("Update user");
+                userUpdateStage.setScene(userUpdate);
+                userUpdateStage.setResizable(false);
+                userUpdateStage.show();
 
             }
 
@@ -975,10 +975,15 @@ public class pyfs extends Application {
                 updateInfo[3] = admin1.getTextUpdateCurrent();
 
                 admind.Update(updateInfo);
+                userUpdateStage.close();
 
+<<<<<<< HEAD
                 luggageUpdateStage.close();
                 
                 admin1.ClearUpdateUser();
+=======
+                
+>>>>>>> origin/master
 
             }
         }
@@ -1018,9 +1023,7 @@ public class pyfs extends Application {
 
             public void handle(ActionEvent event) {
 
-               
-                
-                     String updateLuggage[] = new String[7];
+                String updateLuggage[] = new String[7];
 
                 updateLuggage[0] = admin1.getLuggageUnr();
                 updateLuggage[1] = admin1.getLuggageType();

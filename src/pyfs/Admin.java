@@ -21,7 +21,7 @@ import javafx.util.Callback;
 public class Admin {
 
     mysql Mysql = new mysql();
-    TextField username, usernameRemove, usernameUpdate, usernameCurrentUpdate, password, passwordRemove, passwordUpdate, toegang, toegangRemove, toegangUpdate;
+    TextField username, usernameRemove, usernameUpdate, usernameCurrentUpdate, password, passwordRemove, passwordUpdate, toegang, toegangUpdate;
     TextField luggagenr, luggageType, luggageBrand, luggageCol, luggageWeight, luggageSpef, luggageUnr, luggageLFDM;
 
     final String USERNAME = Mysql.username();
