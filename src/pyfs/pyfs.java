@@ -552,6 +552,7 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event
             ) {
+<<<<<<< HEAD
                 int unr = lostd.Unr();                                           //
                 String[] foundbagage = new String[5];                            // create a new array from the type string called foundbagage
                 foundbagage[0] = found1.getLugtype();                            //
@@ -576,6 +577,38 @@ public class pyfs extends Application {
                 foundfinalpane.getChildren().add(resultfound.ResultGrid());      //
                 found1.Clear();                                                  // clear the fields
                 thestage.setScene(foundfinal);                                   // go to the next scene
+=======
+
+                int unr = lostd.Unr();
+
+                String[] foundbagage = new String[5];
+                foundbagage[0] = found1.getLugtype();
+                foundbagage[1] = found1.getLugbrand();
+                foundbagage[2] = found1.getLugcolor();
+                foundbagage[3] = found1.getLugweight();
+                foundbagage[4] = found1.getLugspef();
+                foundd.setFoundbagage(foundbagage);
+
+                String[] vlucht = new String[4];
+                vlucht[0] = found1.getLabelnr();
+                vlucht[1] = found1.getFlightnr();
+                vlucht[2] = found1.getNametrav();
+                foundd.setFoundLabel(vlucht);
+
+                foundd.getLuggage(unr);
+                foundd.getLabel(unr);
+                foundd.getDate(unr);
+
+                resultfound.setInfo(foundbagage);
+                resultfound.Label(vlucht);
+
+                foundfinalpane.getChildren().add(resultfound.ResultGrid());
+             
+
+                found1.Clear();
+                thestage.setScene(foundfinal);
+
+>>>>>>> origin/master
             }
         }
         );
@@ -928,6 +961,7 @@ public class pyfs extends Application {
 
         //EINDE CONTROLS
         //PANES
+<<<<<<< HEAD
         StackPane inlogschermpane = new StackPane();                             // create a new stackpane (lays out the children in a back-to-front stack
         inlogschermpane.getChildren().add(loginbtn);                             // add the login button
         inlogschermpane.getChildren().add(login.username());                     // add the username button
@@ -1082,6 +1116,185 @@ public class pyfs extends Application {
         luggageUpdatePane.getChildren().add(admin1.luggageSpef());               // add the textfield luggagespef
         luggageUpdatePane.getChildren().add(admin1.luggageLFDM());               // add the textfield luggagelfdm
         luggageUpdatePane.getChildren().add(update2Luggage);                     // add the update2Luggage button
+=======
+        StackPane inlogschermpane = new StackPane();                                             //toevoegen button
+
+        //Stackpane inlogscherm
+        inlogschermpane.getChildren().add(loginbtn);                        //toevoegen button
+        inlogschermpane.getChildren().add(login.username());                   //toevoegen username text
+        inlogschermpane.getChildren().add(login.password());
+        inlogschermpane.getChildren().add(login.logologin());
+
+        inlogschermpane.setStyle("-fx-background-color:#FFFFFF");
+
+        menupane = new StackPane();
+
+        menupane.getChildren().add(logoutbtn);
+        menupane.getChildren().add(lostbtn);
+        menupane.getChildren().add(foundbtn);
+        menupane.getChildren().add(statbtn);
+        menupane.getChildren().add(adminbtn);
+        menupane.setStyle("-fx-background-color:#FFFFFF");
+
+        lostpane = new StackPane();
+
+        lostpane.setStyle("-fx-background-color:#FFFFFF");
+        lostpane.getChildren().add(lostterugmenu);
+        lostpane.getChildren().add(lost1.date());
+        lostpane.getChildren().add(lost1.Time());
+        lostpane.getChildren().add(lost1.airport());
+        lostpane.getChildren().add(lostnext);
+
+        lost2pane = new StackPane();
+
+        lost2pane.setStyle("-fx-background-color:#FFFFFF");
+        lost2pane.getChildren().add(lostback);
+        lost2pane.getChildren().add(lost1.Naam());
+        lost2pane.getChildren().add(lost1.adres());
+        lost2pane.getChildren().add(lost1.City());
+        lost2pane.getChildren().add(lost1.Zip());
+        lost2pane.getChildren().add(lost1.country());
+        lost2pane.getChildren().add(lost1.Phone());
+        lost2pane.getChildren().add(lost1.Mail());
+        lost2pane.getChildren().add(lostnext2);
+
+        lost3pane = new StackPane();
+
+        lost3pane.setStyle("-fx-background-color:#FFFFFF");
+        lost3pane.getChildren().add(lost1.Lugtype());
+        lost3pane.getChildren().add(lost1.Lugbrand());
+        lost3pane.getChildren().add(lost1.Lugcolor());
+        lost3pane.getChildren().add(lost1.lugspef());
+        lost3pane.getChildren().add(lost1.Lugweight());
+        lost3pane.getChildren().add(lostback2);
+        lost3pane.getChildren().add(lostnext3);
+
+        lost4pane = new StackPane();
+
+        lost4pane.setStyle("-fx-background-color:#FFFFFF");
+
+        lost4pane.getChildren().add(lost1.Labelnr());
+        lost4pane.getChildren().add(lost1.Flightnr());
+        lost4pane.getChildren().add(lost1.Destin());
+        lost4pane.getChildren().add(search);
+        lost4pane.getChildren().add(lostback3);
+
+        lostfinalpane = new StackPane();
+
+        lostfinalpane.setStyle("-fx-background-color:#FFFFFF");
+
+        foundpane = new StackPane();
+
+        foundpane.setStyle("-fx-background-color:#FFFFFF");
+        foundpane.getChildren().add(foundterugmenu);
+        foundpane.getChildren().add(found1.date());
+        foundpane.getChildren().add(found1.Time());
+        foundpane.getChildren().add(found1.airport());
+        foundpane.getChildren().add(foundnext);
+
+        found2pane = new StackPane();
+
+        found2pane.setStyle("-fx-background-color:#FFFFFF");
+
+        found2pane.getChildren().add(found1.Labelnr());
+        found2pane.getChildren().add(found1.Flightnr());
+        found2pane.getChildren().add(found1.Destin());
+        found2pane.getChildren().add(found1.NameTrav());
+        found2pane.getChildren().add(foundback);
+        found2pane.getChildren().add(foundnext2);
+
+        found3pane = new StackPane();
+
+        found3pane.setStyle("-fx-background-color:#FFFFFF");
+
+        found3pane.getChildren().add(found1.Lugtype());
+        found3pane.getChildren().add(found1.Lugbrand());
+        found3pane.getChildren().add(found1.Lugcolor());
+        found3pane.getChildren().add(found1.Lugspef());
+        found3pane.getChildren().add(found1.Lugweight());
+        found3pane.getChildren().add(foundback2);
+        found3pane.getChildren().add(foundnext3);
+
+        foundfinalpane = new StackPane();
+        foundfinalpane.setStyle("-fx-background-color:#FFFFFF");
+          foundfinalpane.getChildren().add(foundfinalButton);
+
+        statpane = new StackPane();
+
+        statpane.setStyle("-fx-background-color:#FFFFFF");
+
+        statpane.getChildren().add(statterugmenu);
+        statpane.getChildren().add(yearbtn);
+        statpane.getChildren().add(currentbtn);
+
+        yearpane = new StackPane();
+
+        yearpane.setStyle("-fx-background-color:#FFFFFF");
+        yearpane.getChildren().add(stat1.OverYear());
+
+        currentpane = new StackPane();
+
+        currentpane.setStyle("-fx-background-color:#FFFFFF");
+        currentpane.getChildren().add(stat1.CurrentLuggage());
+
+        adminpane = new StackPane();
+
+        adminpane.setStyle("-fx-background-color:#FFFFFF");
+        adminpane.getChildren().add(adminterugmenu);
+        adminpane.getChildren().add(userTableBtn);
+        adminpane.getChildren().add(createUser);
+        adminpane.getChildren().add(removeUser);
+        adminpane.getChildren().add(updateUser);
+        adminpane.getChildren().add(LuggageTableBtn);
+        adminpane.getChildren().add(removeLuggage);
+        adminpane.getChildren().add(updateLuggage);
+
+        userTablePane = new StackPane();
+        userTablePane.setStyle("-fx-background-color:#FFFFFF");
+
+        StackPane userCreatePane = new StackPane();
+        userCreatePane.setStyle("-fx-background-color:#FFFFFF");
+
+        userCreatePane.getChildren().add(admin1.addUsername());
+        userCreatePane.getChildren().add(admin1.addPassword());
+        userCreatePane.getChildren().add(admin1.Toegang());
+        userCreatePane.getChildren().add(addUser);
+
+        userRemovePane = new StackPane();
+
+        userRemovePane.setStyle("-fx-background-color:#FFFFFF");
+        userRemovePane.getChildren().add(admin1.removeUsername());
+        userRemovePane.getChildren().add(admin1.removePassword());
+        userRemovePane.getChildren().add(deleteUser);
+
+        userUpdatePane = new StackPane();
+
+        userUpdatePane.setStyle("-fx-background-color:#FFFFFF");
+        userUpdatePane.getChildren().add(admin1.updateUsername());
+        userUpdatePane.getChildren().add(admin1.updatePassword());
+        userUpdatePane.getChildren().add(admin1.updateToegang());
+        userUpdatePane.getChildren().add(admin1.updateCurrentUsername());
+        userUpdatePane.getChildren().add(update2User);
+
+        luggageTablePane = new StackPane();
+        luggageTablePane.setStyle("-fx-background-color:#FFFFFF");
+
+        luggageRemovePane = new StackPane();
+        luggageRemovePane.setStyle("-fx-background-color:#FFFFFF");
+        luggageRemovePane.getChildren().add(deleteLuggage);
+        luggageRemovePane.getChildren().add(admin1.luggageNr());
+
+        luggageUpdatePane = new StackPane();
+        luggageUpdatePane.setStyle("-fx-background-color:#FFFFFF");
+        luggageUpdatePane.getChildren().add(admin1.luggageUnr());
+        luggageUpdatePane.getChildren().add(admin1.luggageType());
+        luggageUpdatePane.getChildren().add(admin1.luggageBrand());
+        luggageUpdatePane.getChildren().add(admin1.luggageCol());
+        luggageUpdatePane.getChildren().add(admin1.luggageWeight());
+        luggageUpdatePane.getChildren().add(admin1.luggageSpef());
+        luggageUpdatePane.getChildren().add(admin1.luggageLFDM());
+        luggageUpdatePane.getChildren().add(update2Luggage);
+>>>>>>> origin/master
 
         //geeft alle scenes in
         loginscherm = new Scene(inlogschermpane, 1600, 800);                     // set the height and width of the scene

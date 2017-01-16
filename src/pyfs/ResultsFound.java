@@ -72,8 +72,8 @@ public class ResultsFound {
             }
 
             //SQL FOR SELECTING ALL OF CUSTOMER
-            String SQL = "SELECT * FROM luggage where LFDM = 'Lost' and Luggagetype =" + "'" + info[0] + "'" + " or Luggagebrand = " + "'" + info[1] + "'" + " and Luggagecol = " + "'"
-                    + info[2] + "'" + " or Luggageweight = " + "'" + info[3] + "'" + " or Unr = " + "'" + Unr + "'" + " or Luggagespef = " + "'" + info[4] + "'";
+            String SQL = "SELECT * FROM luggage where Luggagetype LIKE" + "'%" + info[0] + "%'" + " and Luggagebrand LIKE " + "'%" + info[1] + "%'" + " and Luggagecol LIKE " + "'%"
+                    + info[2] + "%'" + " and Luggageweight LIKE " + "'%" + info[3] + "%'" + " and Luggagespef LIKE " + "'%" + info[4] + "%'" + "and LFDM = 'Lost'";
 
             //ResultSet
             ResultSet rs = c.createStatement().executeQuery(SQL);
@@ -149,8 +149,8 @@ public class ResultsFound {
                 Unr = rs3.getInt("Unr");
             }
 
-            String SQL2 = "SELECT * FROM luggage where LFDM = 'Lost' and Luggagetype =" + "'" + info[0] + "'" + " or Luggagebrand = " + "'" + info[1] + "'" + " and Luggagecol = " + "'"
-                    + info[2] + "'" + " or Luggageweight = " + "'" + info[3] + "'" + " or Unr = " + "'" + Unr + "'";
+            String SQL2 = "SELECT * FROM luggage where Luggagetype LIKE" + "'%" + info[0] + "%'" + " and Luggagebrand LIKE " + "'%" + info[1] + "%'" + " and Luggagecol LIKE " + "'%"
+                    + info[2] + "%'" + " and Luggageweight LIKE " + "'%" + info[3] + "%'" + " and Luggagespef LIKE " + "'%" + info[4] + "%'" + "and LFDM = 'Lost'";
 
             //ResultSet
             ResultSet rs2 = c.createStatement().executeQuery(SQL2);
