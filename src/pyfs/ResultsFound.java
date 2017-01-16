@@ -62,7 +62,7 @@ public class ResultsFound {
         try {
             c = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
 
-            String SQL2 = "SELECT * FROM flight JOIN luggage WHERE flight.labelnr = " + "'" + Label[0] + "' and " + "flight.flightnr = " + "'" + Label[1] + "'" + " and luggage.LFDM = 'Lost'";
+            String SQL2 = "SELECT * FROM flight JOIN luggage WHERE flight.labelnr = " + "'" + Label[0] + "' or " + "(flight.flightnr = " + "'" + Label[1] + "'" + " and flight.labelnr = " + "'" + Label[0] + "')" + " and luggage.LFDM = 'Lost'";
 
             //ResultSet
             ResultSet rs2 = c.createStatement().executeQuery(SQL2);
