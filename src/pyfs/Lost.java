@@ -1,8 +1,5 @@
 package pyfs;
 
-import java.time.format.DateTimeFormatter;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Font;
@@ -285,6 +282,8 @@ public class Lost {
         return destin;
     }
 
+    
+    
         public void Clear(){
         time.setText("");
         city.setText("");

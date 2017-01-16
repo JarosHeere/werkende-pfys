@@ -441,10 +441,35 @@ public class Admin {
         return luggageLFDM.getText();
     }
         
-        
+    public void ClearUser(){
+    username.setText("");
+    password.setText("");
+    toegang.setText("");
+    }
     
+    public void ClearRemoveUser(){
+        usernameRemove.setText("");
+        passwordRemove.setText("");
+    }
     
+    public void ClearUpdateUser(){
+        usernameUpdate.setText("");
+        usernameCurrentUpdate.setText("");
+        passwordUpdate.setText("");
+        toegangUpdate.setText("");
+    }
     
-    
-
+    public void ClearRemoveLuggage(){
+        luggagenr.setText("");
+    }
+   
+    public void ClearUpdateLuggage(){
+        luggageType.setText("");
+        luggageBrand.setText("");
+        luggageCol.setText("");
+        luggageWeight.setText("");
+        luggageSpef.setText("");
+        luggageUnr.setText("");
+        luggageLFDM.setText("");
+    }
 }
