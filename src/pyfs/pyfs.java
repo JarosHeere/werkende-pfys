@@ -439,12 +439,14 @@ public class pyfs extends Application {
 
                 results.setInfo(lostbagage);
                 results.Label(label);
+                lostfinal = new Scene(lostfinalpane, 1600, 800);
                 lostfinalpane.getChildren().add(results.ResultGrid());
                 lostfinalpane.getChildren().add(lostterugfinal);
                 lost1.Clear();
 
                 //lostd.zoeken(labelnr);
                 thestage.setScene(lostfinal);
+
             }
 
         }
@@ -481,9 +483,10 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event
             ) {
+                lostfinalpane.getChildren().remove(lostfinalpane.getChildren());
                 thestage.setScene(menu);
 
-            }
+                        }
         }
         );
 
@@ -646,6 +649,7 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event
             ) {
+
                 thestage.setScene(menu);
 
             }
@@ -802,7 +806,6 @@ public class pyfs extends Application {
                 userCreateStage.setScene(userCreate);
                 userCreateStage.setResizable(false);
                 userCreateStage.show();
-                
 
             }
 
@@ -924,7 +927,7 @@ public class pyfs extends Application {
                 admind.luggageRemove(deleteLuggage);
 
                 luggageRemoveStage.close();
-                
+
                 admin1.ClearRemoveLuggage();
 
             }
@@ -977,13 +980,7 @@ public class pyfs extends Application {
                 admind.Update(updateInfo);
                 userUpdateStage.close();
 
-<<<<<<< HEAD
-                luggageUpdateStage.close();
-                
                 admin1.ClearUpdateUser();
-=======
-                
->>>>>>> origin/master
 
             }
         }
@@ -1229,7 +1226,6 @@ public class pyfs extends Application {
         lost2 = new Scene(lost2pane, 1600, 800);
         lost3 = new Scene(lost3pane, 1600, 800);
         lost4 = new Scene(lost4pane, 1600, 800);
-        lostfinal = new Scene(lostfinalpane, 1600, 800);
         found = new Scene(foundpane, 1600, 800);
         found2 = new Scene(found2pane, 1600, 800);
         found3 = new Scene(found3pane, 1600, 800);
