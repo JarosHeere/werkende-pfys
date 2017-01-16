@@ -623,7 +623,7 @@ public class pyfs extends Application {
                 resultfound.Label(vlucht);
 
                 foundfinalpane.getChildren().add(resultfound.ResultGrid());
-     
+             
 
                 found1.Clear();
                 thestage.setScene(foundfinal);
@@ -1143,8 +1143,8 @@ public class pyfs extends Application {
         found3pane.getChildren().add(foundnext3);
 
         foundfinalpane = new StackPane();
-        foundfinalpane.getChildren().add(foundfinalButton);
         foundfinalpane.setStyle("-fx-background-color:#FFFFFF");
+          foundfinalpane.getChildren().add(foundfinalButton);
 
         statpane = new StackPane();
 
