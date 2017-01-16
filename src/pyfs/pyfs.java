@@ -174,7 +174,7 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event
             ) {
-                thestage.setScene(loginscherm);                                  // go to the next stage
+                thestage.setScene(loginscherm);                                  // go to the next scene
 
             }
         }
@@ -192,8 +192,7 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event
             ) {
-                thestage.setScene(lost);                                         // go to the next stage
-
+                thestage.setScene(lost);                                         // go to the next scene
             }
         }
         );
@@ -207,7 +206,7 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event
             ) {
-                thestage.setScene(found);                                        // go to the next stage
+                thestage.setScene(found);                                        // go to the next scene
 
             }
         }
@@ -273,7 +272,7 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event
             ) {
-                thestage.setScene(menu);                                         // go to the previous stage 
+                thestage.setScene(menu);                                         // go to the previous scene
 
             }
         }
@@ -295,7 +294,7 @@ public class pyfs extends Application {
                 date[2] = lost1.getAirport();                                    // save the data to the array
                 System.out.println(date[0]);                                     //
                 lostd.setLostdate(date);                                         // 
-                thestage.setScene(lost2);                                        // go to the next stage
+                thestage.setScene(lost2);                                        // go to the next scene
             }
         }
         );
@@ -312,7 +311,7 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event
             ) {
-                thestage.setScene(lost);                                         // go to the previous stage 
+                thestage.setScene(lost);                                         // go to the previous scene 
             }
         }
         );
@@ -338,7 +337,7 @@ public class pyfs extends Application {
                 persoon[6] = lost1.getTextMail();                                //
 
                 lostd.setP(persoon);
-                thestage.setScene(lost3);                                        // go to the next stage
+                thestage.setScene(lost3);                                        // go to the next scene
             }
         }
         );
@@ -354,7 +353,7 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event
             ) {
-                thestage.setScene(lost2);                                        // go to the previous stage
+                thestage.setScene(lost2);                                        // go to the previous scene
             }
         }
         );
@@ -370,7 +369,7 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event
             ) {
-                thestage.setScene(lost4);                                        // go to the next stage
+                thestage.setScene(lost4);                                        // go to the next scene
             }
         }
         );
@@ -386,7 +385,6 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event
             ) {
-
                 String[] label = new String[3];                                  // make a new array from the type string called label
                 label[0] = lost1.getTextLabelnr();                               //
                 label[1] = lost1.getTextFlightnr();                              // save the data to the array
@@ -416,14 +414,13 @@ public class pyfs extends Application {
                 lost1.Clear();                                                   // clears the fields
 
                 //lostd.zoeken(labelnr);
-                thestage.setScene(lostfinal);                                    // go to the next stage
+                thestage.setScene(lostfinal);                                    // go to the next scene
             }
 
         }
         );
 
         lostback3 = new Button();
-
         lostback3.setText("Back");                                               // back button & style
         lostback3.setPrefSize(200, 50);
         lostback3.setTranslateY(-370);
@@ -434,8 +431,7 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event
             ) {
-                thestage.setScene(lost3);                                        // go to the previous stage
-
+                thestage.setScene(lost3);                                        // go to the previous scene
             }
         }
         );
@@ -452,15 +448,13 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event
             ) {
-                thestage.setScene(menu);                                         // go to the next stage
-
+                thestage.setScene(menu);                                         // go to the next scene
             }
         }
         );
 
         //found
         foundterugmenu = new Button();
-
         foundterugmenu.setText("Back");                                          // back button & style
         foundterugmenu.setPrefSize(200, 50);
         foundterugmenu.setTranslateY(-370);
@@ -471,14 +465,13 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event
             ) {
-                thestage.setScene(menu);                                         // go to the previous stage
+                thestage.setScene(menu);                                         // go to the previous scene
 
             }
         }
         );
 
         foundnext = new Button();
-
         foundnext.setText("Next");                                               // next button & style
         foundnext.setPrefSize(120, 50);
         foundnext.setTranslateY(105);
@@ -489,22 +482,18 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event
             ) {
-
-                String[] datex = new String[4];
-                datex[0] = found1.getDate().getText().toLowerCase();
-                datex[1] = found1.getTime();
-                datex[2] = found1.getAirport();
-                System.out.println(datex[1]);
-                foundd.setFoundDate(datex);
-
-                thestage.setScene(found2);
-
+                String[] datex = new String[4];                                  // make a new array from the type string called datex
+                datex[0] = found1.getDate().getText().toLowerCase();             //
+                datex[1] = found1.getTime();                                     // fill in the array       
+                datex[2] = found1.getAirport();                                  //
+                System.out.println(datex[1]);                                    //
+                foundd.setFoundDate(datex);                                      //
+                thestage.setScene(found2);                                       // go to the next scene
             }
         }
         );
 
         foundback = new Button();
-
         foundback.setText("Back");                                               // back button & style
         foundback.setPrefSize(200, 50);
         foundback.setTranslateY(-370);
@@ -515,15 +504,14 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event
             ) {
-                thestage.setScene(found);
+                thestage.setScene(found);                                        // go to the previous scene
 
             }
         }
         );
 
         foundnext2 = new Button();
-
-        foundnext2.setText("Next");                                           //next button
+        foundnext2.setText("Next");                                              // next button & style
         foundnext2.setPrefSize(120, 50);
         foundnext2.setTranslateY(105);
         foundnext2.setTranslateX(55);
@@ -533,15 +521,12 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event
             ) {
-
-                thestage.setScene(found3);
-
+                thestage.setScene(found3);                                       // go to the next scene
             }
         }
         );
 
         foundback2 = new Button();
-
         foundback2.setText("Back");                                              // back button & style
         foundback2.setPrefSize(200, 50);
         foundback2.setTranslateY(-370);
@@ -551,15 +536,13 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event
             ) {
-                thestage.setScene(found2);
-
+                thestage.setScene(found2);                                       // go to the previous scene
             }
         }
         );
 
         foundnext3 = new Button();
-
-        foundnext3.setText("Place");                                           //place button
+        foundnext3.setText("Place");                                             // place button & style
         foundnext3.setPrefSize(120, 50);
         foundnext3.setTranslateY(175);
         foundnext3.setTranslateX(92);
@@ -569,63 +552,53 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event
             ) {
+                int unr = lostd.Unr();                                           //
+                String[] foundbagage = new String[5];                            // create a new array from the type string called foundbagage
+                foundbagage[0] = found1.getLugtype();                            //
+                foundbagage[1] = found1.getLugbrand();                           //
+                foundbagage[2] = found1.getLugcolor();                           // fill in the array
+                foundbagage[3] = found1.getLugweight();                          //
+                foundbagage[4] = found1.getLugspef();                            //
+                foundd.setFoundbagage(foundbagage);                              //
 
-                int unr = lostd.Unr();
+                String[] vlucht = new String[4];                                 // create a new array from the type string called vlucht
+                vlucht[0] = found1.getLabelnr();                                 //
+                vlucht[1] = found1.getFlightnr();                                // fill in the array
+                vlucht[2] = found1.getNametrav();                                //
+                
+                foundd.setFoundLabel(vlucht);                                    //
+                foundd.getLuggage(unr);                                          //
+                foundd.getLabel(unr);                                            // 
+                foundd.getDate(unr);                                             //
 
-                String[] foundbagage = new String[5];
-                foundbagage[0] = found1.getLugtype();
-                foundbagage[1] = found1.getLugbrand();
-                foundbagage[2] = found1.getLugcolor();
-                foundbagage[3] = found1.getLugweight();
-                foundbagage[4] = found1.getLugspef();
-                foundd.setFoundbagage(foundbagage);
-
-                String[] vlucht = new String[4];
-                vlucht[0] = found1.getLabelnr();
-                vlucht[1] = found1.getFlightnr();
-                vlucht[2] = found1.getNametrav();
-                foundd.setFoundLabel(vlucht);
-
-                foundd.getLuggage(unr);
-                foundd.getLabel(unr);
-                foundd.getDate(unr);
-
-                resultfound.setInfo(foundbagage);
-                resultfound.Label(vlucht);
-
-                foundfinalpane.getChildren().add(resultfound.ResultGrid());
-     
-
-                found1.Clear();
-                thestage.setScene(foundfinal);
-
+                resultfound.setInfo(foundbagage);                                // show results
+                resultfound.Label(vlucht);                                       //
+                foundfinalpane.getChildren().add(resultfound.ResultGrid());      //
+                found1.Clear();                                                  // clear the fields
+                thestage.setScene(foundfinal);                                   // go to the next scene
             }
         }
         );
 
         //foundfinal
         foundfinalButton = new Button();
-
-        foundfinalButton.setText("Menu");                                           //lost terug menu
+        foundfinalButton.setText("Menu");                                        // menu button & style
         foundfinalButton.setPrefSize(200, 50);
         foundfinalButton.setTranslateY(-370);
         foundfinalButton.setTranslateX(700);
-
         foundfinalButton.setStyle("-fx-base:darkcyan;-fx-border-color:black");
         foundfinalButton.setOnAction(new EventHandler<ActionEvent>() {           // this will happen when you click the button
 
             @Override
             public void handle(ActionEvent event
             ) {
-                thestage.setScene(menu);
-
+                thestage.setScene(menu);                                         // go to the next scene
             }
         }
         );
-
+        
         //stat
         statterugmenu = new Button();
-
         statterugmenu.setText("Back");                                           // back button & style
         statterugmenu.setPrefSize(200, 50);
         statterugmenu.setTranslateY(-370);
@@ -637,16 +610,14 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event
             ) {
-                thestage.setScene(menu);
-
+                thestage.setScene(menu);                                         // go to the previous scene
             }
         }
         );
 
         //stat
         yearbtn = new Button();
-
-        yearbtn.setText("Past year");                                           //back button
+        yearbtn.setText("Past year");                                            // past year button & style
         yearbtn.setPrefSize(200, 50);
         yearbtn.setTranslateX(300);
         yearbtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
@@ -655,19 +626,17 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event
             ) {
-                yearstage = new Stage();
+                yearstage = new Stage();                                         // make a new stage
                 yearstage.setTitle("Past year");
                 yearstage.setScene(year);
-                yearstage.setResizable(false);
-                yearstage.show();
-
+                yearstage.setResizable(false);                                   // make it so it isn't resizeable
+                yearstage.show();                                                // show the stage
             }
         }
         );
 
         currentbtn = new Button();
-
-        currentbtn.setText("Current luggage");                                           //back button
+        currentbtn.setText("Current luggage");                                   // current luggage button & style
         currentbtn.setPrefSize(200, 50);
         currentbtn.setTranslateX(-300);
         currentbtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
@@ -676,64 +645,55 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event
             ) {
-                currentstage = new Stage();
+                currentstage = new Stage();                                      // make a new stage
                 currentstage.setTitle("Current luggage");
                 currentstage.setScene(current);
-                currentstage.setResizable(false);
-                currentstage.show();
-
+                currentstage.setResizable(false);                                // make it so it isn't resizeable
+                currentstage.show();                                             // show the stage
             }
         }
         );
 
         //admin
         adminterugmenu = new Button();
-
         adminterugmenu.setText("Back");                                          // back button & style
         adminterugmenu.setPrefSize(200, 50);
         adminterugmenu.setTranslateY(-370);
         adminterugmenu.setTranslateX(700);
         adminterugmenu.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-
         adminterugmenu.setOnAction(new EventHandler<ActionEvent>() {             // this will happen when you click the button
 
             @Override
             public void handle(ActionEvent event
             ) {
-                thestage.setScene(menu);
+                thestage.setScene(menu);                                         // go to the next scene
             }
-
         }
         );
 
         userTableBtn = new Button();
-
-        userTableBtn.setText("View Users");                                           //back button
+        userTableBtn.setText("View Users");                                      // view users button & style
         userTableBtn.setPrefSize(200, 50);
         userTableBtn.setTranslateX(-400);
         userTableBtn.setTranslateY(-150);
         userTableBtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-
         userTableBtn.setOnAction(new EventHandler<ActionEvent>() {               // this will happen when you click the button
 
             @Override
             public void handle(ActionEvent event
             ) {
-
-                userTablePane.getChildren().add(admin1.adminTable());
-                userTableStage = new Stage();
-                userTableStage.setTitle("Users");
-                userTableStage.setScene(userTable);
-                userTableStage.setResizable(false);
-                userTableStage.show();
+                userTablePane.getChildren().add(admin1.adminTable());            // 
+                userTableStage = new Stage();                                    // make a new stage
+                userTableStage.setTitle("Users");                                // set the title
+                userTableStage.setScene(userTable);                              // set the scene to userTable
+                userTableStage.setResizable(false);                              // make it so it isn't resizeable
+                userTableStage.show();                                           // show the stage
             }
-
         }
         );
 
         Button LuggageTableBtn = new Button();
-
-        LuggageTableBtn.setText("View Luggage");                                           //back button
+        LuggageTableBtn.setText("View Luggage");                                 // view luggage button & style
         LuggageTableBtn.setPrefSize(200, 50);
         LuggageTableBtn.setTranslateX(-100);
         LuggageTableBtn.setTranslateY(-150);
@@ -743,21 +703,18 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event
             ) {
-
-                luggageTablePane.getChildren().add(admin1.adminTableLuggage());
-                luggageTableStage = new Stage();
-                luggageTableStage.setTitle("Luggage");
-                luggageTableStage.setScene(luggageTable);
-                luggageTableStage.setResizable(false);
-                luggageTableStage.show();
+                luggageTablePane.getChildren().add(admin1.adminTableLuggage());  //
+                luggageTableStage = new Stage();                                 // make a new stage
+                luggageTableStage.setTitle("Luggage");                           // set the title
+                luggageTableStage.setScene(luggageTable);                        // set the scene to luggageTable
+                luggageTableStage.setResizable(false);                           // make it so it isn't resizeable
+                luggageTableStage.show();                                        // show the stage
             }
-
         }
         );
 
         Button createUser = new Button();
-
-        createUser.setText("Create user");                                           //back button
+        createUser.setText("Create user");                                       // create user button & style
         createUser.setPrefSize(200, 50);
         createUser.setTranslateX(-400);
         createUser.setTranslateY(-50);
@@ -767,72 +724,60 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event
             ) {
-
-                userCreateStage = new Stage();
-                userCreateStage.setTitle("User creation");
-                userCreateStage.setScene(userCreate);
-                userCreateStage.setResizable(false);
-                userCreateStage.show();
-
+                userCreateStage = new Stage();                                   // make a new stage       
+                userCreateStage.setTitle("User creation");                       // set the title
+                userCreateStage.setScene(userCreate);                            // set the scene to userCreate
+                userCreateStage.setResizable(false);                             // make it so it isn't resizeable
+                userCreateStage.show();                                          // show the stage
             }
-
         }
         );
 
         Button addUser = new Button();
-
-        addUser.setText("Add");                                           //back button
+        addUser.setText("Add");                                                  // add button & style
         addUser.setPrefSize(150, 50);
         addUser.setTranslateX(350);
         addUser.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-
-        addUser.setOnAction(
-                new EventHandler<ActionEvent>() {                                // this will happen when you click the button
+        addUser.setOnAction(new EventHandler<ActionEvent>() {                    // this will happen when you click the button
 
             public void handle(ActionEvent event) {
 
-                String[] Add = new String[3];
-                Add[0] = admin1.getTextAddusername();
-                Add[1] = admin1.getTextAddpassword();
-                Add[2] = admin1.getTextAddtoegang();
+                String[] Add = new String[3];                                    // create a new array from the type string called Add
+                Add[0] = admin1.getTextAddusername();                            // fill the array
+                Add[1] = admin1.getTextAddpassword();                            //
+                Add[2] = admin1.getTextAddtoegang();                             //
 
-                admind.Add(Add);
+                admind.Add(Add);                                                 // 
 
-                userCreateStage.close();
-                admin1.ClearUser();
+                userCreateStage.close();                                         // close the stage
+                admin1.ClearUser();                                              // clear the fields
             }
-
         }
         );
 
         Button removeUser = new Button();
-
-        removeUser.setText("Remove user");                                           //back button
+        removeUser.setText("Remove user");                                       // remove user button & style
         removeUser.setPrefSize(200, 50);
         removeUser.setTranslateX(-400);
         removeUser.setTranslateY(50);
         removeUser.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-
         removeUser.setOnAction(
                 new EventHandler<ActionEvent>() {                                // this will happen when you click the button
 
             @Override
             public void handle(ActionEvent event
             ) {
-
-                userRemoveStage = new Stage();
-                userRemoveStage.setTitle("Removing User");
-                userRemoveStage.setScene(userRemove);
-                userRemoveStage.setResizable(false);
-                userRemoveStage.show();
-
+                userRemoveStage = new Stage();                                   // make a new stage
+                userRemoveStage.setTitle("Removing User");                       // set the title
+                userRemoveStage.setScene(userRemove);                            // set the scene to userRemove
+                userRemoveStage.setResizable(false);                             // make it so it isn't resizeable
+                userRemoveStage.show();                                          // show the stage
             }
-
         }
         );
 
         Button removeLuggage = new Button();
-        removeLuggage.setText("Remove Luggage");                                           //back button
+        removeLuggage.setText("Remove Luggage");                                 // remove luggage button & style
         removeLuggage.setPrefSize(200, 50);
         removeLuggage.setTranslateX(-100);
         removeLuggage.setTranslateY(-50);
@@ -842,67 +787,57 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event
             ) {
-
-                luggageRemoveStage = new Stage();
-                luggageRemoveStage.setTitle("Luggage remove");
-                luggageRemoveStage.setScene(luggageRemove);
-                luggageRemoveStage.setResizable(false);
-                luggageRemoveStage.show();
-
+                luggageRemoveStage = new Stage();                                // make a new stage
+                luggageRemoveStage.setTitle("Luggage remove");                   // set the title
+                luggageRemoveStage.setScene(luggageRemove);                      // set the scene to luggageRemove
+                luggageRemoveStage.setResizable(false);                          // make it so it isn't resizeable
+                luggageRemoveStage.show();                                       // show the stage
             }
-
         }
         );
 
         Button deleteUser = new Button();
-
-        deleteUser.setText("Remove");                                           //back button
+        deleteUser.setText("Remove");                                            // remove button & style
         deleteUser.setPrefSize(150, 50);
         deleteUser.setTranslateX(350);
         deleteUser.setStyle("-fx-base:darkcyan;-fx-border-color:black");
         deleteUser.setOnAction(new EventHandler<ActionEvent>() {                 // this will happen when you click the button
 
             public void handle(ActionEvent event) {
+                String[] remove = new String[2];                                 // create a new array from the type string called remove
+                remove[0] = admin1.getTextRemoveusername();                      // fill the array
+                remove[1] = admin1.getTextRemovepassword();                      //
 
-                String[] remove = new String[2];
+                admind.Delete(remove);                                           //
 
-                remove[0] = admin1.getTextRemoveusername();
-                remove[1] = admin1.getTextRemovepassword();
-
-                admind.Delete(remove);
-
-                userRemoveStage.close();
-                admin1.ClearRemoveUser();
-
+                userRemoveStage.close();                                         // close the stage
+                admin1.ClearRemoveUser();                                        // clear the fields
             }
         }
         );
 
         Button deleteLuggage = new Button();
-        deleteLuggage.setText("Delete");                                           //back button
+        deleteLuggage.setText("Delete");                                         // delete button & style
         deleteLuggage.setPrefSize(150, 50);
         deleteLuggage.setTranslateX(150);
         deleteLuggage.setStyle("-fx-base:darkcyan;-fx-border-color:black");
         deleteLuggage.setOnAction(new EventHandler<ActionEvent>() {              // this will happen when you click the button
 
             public void handle(ActionEvent event) {
+                String[] deleteLuggage = new String[1];                          // create a new array from the type string called deleteLuggage
+                deleteLuggage[0] = admin1.getLuggageNr();                        // fill the array
 
-                String[] deleteLuggage = new String[1];
+                admind.luggageRemove(deleteLuggage);                             //
 
-                deleteLuggage[0] = admin1.getLuggageNr();
+                luggageRemoveStage.close();                                      // close the stage
 
-                admind.luggageRemove(deleteLuggage);
-
-                luggageRemoveStage.close();
-
-                admin1.ClearRemoveLuggage();
-
+                admin1.ClearRemoveLuggage();                                     // clear the fields
             }
         }
         );
 
         Button updateUser = new Button();
-        updateUser.setText("Update user");                                           //back button
+        updateUser.setText("Update user");                                       // update user button & style
         updateUser.setPrefSize(200, 50);
         updateUser.setTranslateX(-400);
         updateUser.setTranslateY(150);
@@ -914,322 +849,272 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event
             ) {
-
-                userUpdateStage = new Stage();
-                userUpdateStage.setTitle("Update user");
-                userUpdateStage.setScene(userUpdate);
-                userUpdateStage.setResizable(false);
-                userUpdateStage.show();
-
+                userUpdateStage = new Stage();                                   // make a new stage
+                userUpdateStage.setTitle("Update user");                         // set the title
+                userUpdateStage.setScene(userUpdate);                            // set the scene to userUpdate
+                userUpdateStage.setResizable(false);                             // make it so it isn't resizeable
+                userUpdateStage.show();                                          // show the stage
             }
-
         }
         );
 
         Button update2User = new Button();
-
-        update2User.setText("Update");                                           //back button
+        update2User.setText("Update");                                           // update button & style
         update2User.setPrefSize(150, 50);
         update2User.setTranslateX(550);
         update2User.setStyle("fx-base:darkcyan;-fx-border-color:black");
-
         update2User.setOnAction(new EventHandler<ActionEvent>() {                // this will happen when you click the button
 
             public void handle(ActionEvent event) {
+                String updateInfo[] = new String[4];                             // create a new array from the type string called updateInfo
+                updateInfo[0] = admin1.getTextUpdateusername();                  //
+                updateInfo[1] = admin1.getTextUpdatepassword();                  // fill the array
+                updateInfo[2] = admin1.getTextUpdatetoegang();                   //
+                updateInfo[3] = admin1.getTextUpdateCurrent();                   //
 
-                String updateInfo[] = new String[4];
-
-                updateInfo[0] = admin1.getTextUpdateusername();
-                updateInfo[1] = admin1.getTextUpdatepassword();
-                updateInfo[2] = admin1.getTextUpdatetoegang();
-                updateInfo[3] = admin1.getTextUpdateCurrent();
-
-                admind.Update(updateInfo);
-                userUpdateStage.close();
-
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master
-                luggageUpdateStage.close();
-
-                admin1.ClearUpdateUser();
-<<<<<<< HEAD
-=======
-
-                
-
->>>>>>> origin/master
-
+                admind.Update(updateInfo);                                       // 
+                userUpdateStage.close();                                         // close the stage
+                luggageUpdateStage.close();                                      // close the stage
+                admin1.ClearUpdateUser();                                        // clear the fields
             }
         }
         );
 
         Button updateLuggage = new Button();
-        updateLuggage.setText("Update Luggage");                                           //back button
+        updateLuggage.setText("Update Luggage");                                 // update luggage button & style
         updateLuggage.setPrefSize(200, 50);
         updateLuggage.setTranslateX(-100);
         updateLuggage.setTranslateY(50);
         updateLuggage.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-
         updateLuggage.setOnAction(
                 new EventHandler<ActionEvent>() {                                // this will happen when you click the button
 
             @Override
             public void handle(ActionEvent event
             ) {
-
-                luggageUpdateStage = new Stage();
-                luggageUpdateStage.setTitle("Luggage update");
-                luggageUpdateStage.setScene(luggageUpdate);
-                luggageUpdateStage.setResizable(false);
-                luggageUpdateStage.show();
-
+                luggageUpdateStage = new Stage();                                // make a new stage
+                luggageUpdateStage.setTitle("Luggage update");                   // set the title
+                luggageUpdateStage.setScene(luggageUpdate);                      // set the scene to luggageUpdate
+                luggageUpdateStage.setResizable(false);                          // make it so it isn't resizeable
+                luggageUpdateStage.show();                                       // show the stage
             }
-
         }
         );
 
         Button update2Luggage = new Button();
-        update2Luggage.setText("Update");                                           //back button
+        update2Luggage.setText("Update");                                        // update button & style
         update2Luggage.setPrefSize(150, 50);
         update2Luggage.setTranslateX(700);
         update2Luggage.setStyle("fx-base:darkcyan;-fx-border-color:black");
         update2Luggage.setOnAction(new EventHandler<ActionEvent>() {             // this will happen when you click the button
 
             public void handle(ActionEvent event) {
+                String updateLuggage[] = new String[7];                          // create a new array from the type string called updateLuggage
+                updateLuggage[0] = admin1.getLuggageUnr();                       //
+                updateLuggage[1] = admin1.getLuggageType();                      //
+                updateLuggage[2] = admin1.getLuggageBrand();                     // fill the array
+                updateLuggage[3] = admin1.getLuggageCol();                       //
+                updateLuggage[4] = admin1.getLuggageWeight();                    //
+                updateLuggage[5] = admin1.getLuggageSpef();                      //
+                updateLuggage[6] = admin1.getLuggageLFDM();                      //
 
-                String updateLuggage[] = new String[7];
+                admind.luggageUpdate(updateLuggage);                             //
 
-                updateLuggage[0] = admin1.getLuggageUnr();
-                updateLuggage[1] = admin1.getLuggageType();
-                updateLuggage[2] = admin1.getLuggageBrand();
-                updateLuggage[3] = admin1.getLuggageCol();
-                updateLuggage[4] = admin1.getLuggageWeight();
-                updateLuggage[5] = admin1.getLuggageSpef();
-                updateLuggage[6] = admin1.getLuggageLFDM();
-
-                admind.luggageUpdate(updateLuggage);
-
-                luggageUpdateStage.close();
-                admin1.ClearUpdateLuggage();
-
+                luggageUpdateStage.close();                                      // close the stage
+                admin1.ClearUpdateLuggage();                                     // clear the fields
             }
         }
         );
 
         //EINDE CONTROLS
         //PANES
-        StackPane inlogschermpane = new StackPane();                                             //toevoegen button
+        StackPane inlogschermpane = new StackPane();                             // create a new stackpane (lays out the children in a back-to-front stack
+        inlogschermpane.getChildren().add(loginbtn);                             // add the login button
+        inlogschermpane.getChildren().add(login.username());                     // add the username button
+        inlogschermpane.getChildren().add(login.password());                     // add the password button
+        inlogschermpane.getChildren().add(login.logologin());                    // add the logo
+        inlogschermpane.setStyle("-fx-background-color:#FFFFFF");                // set the backgroundcolour
 
-        //Stackpane inlogscherm
-        inlogschermpane.getChildren().add(loginbtn);                        //toevoegen button
-        inlogschermpane.getChildren().add(login.username());                   //toevoegen username text
-        inlogschermpane.getChildren().add(login.password());
-        inlogschermpane.getChildren().add(login.logologin());
+        menupane = new StackPane();                                              // create a new stackpane
+        menupane.getChildren().add(logoutbtn);                                   // add the logout button
+        menupane.getChildren().add(lostbtn);                                     // add the lost button
+        menupane.getChildren().add(foundbtn);                                    // add the found button
+        menupane.getChildren().add(statbtn);                                     // add the statistics button
+        menupane.getChildren().add(adminbtn);                                    // add the admin button
+        menupane.setStyle("-fx-background-color:#FFFFFF");                       // set the backgroundcolour
 
-        inlogschermpane.setStyle("-fx-background-color:#FFFFFF");
+        lostpane = new StackPane();                                              // create a new stackpane
+        lostpane.setStyle("-fx-background-color:#FFFFFF");                       // set the backgroundcolour
+        lostpane.getChildren().add(lostterugmenu);                               // add the back to menu button
+        lostpane.getChildren().add(lost1.date());                                // add the textfield date
+        lostpane.getChildren().add(lost1.Time());                                // add the textfield time
+        lostpane.getChildren().add(lost1.airport());                             // add the textfield airport
+        lostpane.getChildren().add(lostnext);                                    // add the next button
 
-        menupane = new StackPane();
+        lost2pane = new StackPane();                                             // create a new stackpane
+        lost2pane.setStyle("-fx-background-color:#FFFFFF");                      // set the backgroundcolour
+        lost2pane.getChildren().add(lostback);                                   // add the back button
+        lost2pane.getChildren().add(lost1.Naam());                               // add the textfield naam
+        lost2pane.getChildren().add(lost1.adres());                              // add the textfield adres
+        lost2pane.getChildren().add(lost1.City());                               // add the textfield city
+        lost2pane.getChildren().add(lost1.Zip());                                // add the textfield zip
+        lost2pane.getChildren().add(lost1.country());                            // add the textfield country
+        lost2pane.getChildren().add(lost1.Phone());                              // add the textfield phone
+        lost2pane.getChildren().add(lost1.Mail());                               // add the textfield mail
+        lost2pane.getChildren().add(lostnext2);                                  // add the next button
 
-        menupane.getChildren().add(logoutbtn);
-        menupane.getChildren().add(lostbtn);
-        menupane.getChildren().add(foundbtn);
-        menupane.getChildren().add(statbtn);
-        menupane.getChildren().add(adminbtn);
-        menupane.setStyle("-fx-background-color:#FFFFFF");
+        lost3pane = new StackPane();                                             // create a new stackpane
+        lost3pane.setStyle("-fx-background-color:#FFFFFF");                      // set the backgroundcolour
+        lost3pane.getChildren().add(lost1.Lugtype());                            // add the textfield lugtype
+        lost3pane.getChildren().add(lost1.Lugbrand());                           // add the textfield lugbrand
+        lost3pane.getChildren().add(lost1.Lugcolor());                           // add the textfield lugcolor
+        lost3pane.getChildren().add(lost1.lugspef());                            // add the textfield lugspef
+        lost3pane.getChildren().add(lost1.Lugweight());                          // add the textfield lugweight
+        lost3pane.getChildren().add(lostback2);                                  // add the back button
+        lost3pane.getChildren().add(lostnext3);                                  // add the next button
 
-        lostpane = new StackPane();
+        lost4pane = new StackPane();                                             // create a new stackpane
+        lost4pane.setStyle("-fx-background-color:#FFFFFF");                      // set the backgroundcolour
+        lost4pane.getChildren().add(lost1.Labelnr());                            // add the textfield labelnr
+        lost4pane.getChildren().add(lost1.Flightnr());                           // add the textfield flightnr
+        lost4pane.getChildren().add(lost1.Destin());                             // add the textfield destin
+        lost4pane.getChildren().add(search);                                     // add the search button
+        lost4pane.getChildren().add(lostback3);                                  // add the back button
 
-        lostpane.setStyle("-fx-background-color:#FFFFFF");
-        lostpane.getChildren().add(lostterugmenu);
-        lostpane.getChildren().add(lost1.date());
-        lostpane.getChildren().add(lost1.Time());
-        lostpane.getChildren().add(lost1.airport());
-        lostpane.getChildren().add(lostnext);
+        lostfinalpane = new StackPane();                                         // create a new stackpane
+        lostfinalpane.setStyle("-fx-background-color:#FFFFFF");                  // set the backgroundcolour
 
-        lost2pane = new StackPane();
+        foundpane = new StackPane();                                             // create a new stackpane
+        foundpane.setStyle("-fx-background-color:#FFFFFF");                      // set the backgroundcolour
+        foundpane.getChildren().add(foundterugmenu);                             // add the back button
+        foundpane.getChildren().add(found1.date());                              // add the textfield date
+        foundpane.getChildren().add(found1.Time());                              // add the textfield time
+        foundpane.getChildren().add(found1.airport());                           // add the textfield airport
+        foundpane.getChildren().add(foundnext);                                  // add the next button
 
-        lost2pane.setStyle("-fx-background-color:#FFFFFF");
-        lost2pane.getChildren().add(lostback);
-        lost2pane.getChildren().add(lost1.Naam());
-        lost2pane.getChildren().add(lost1.adres());
-        lost2pane.getChildren().add(lost1.City());
-        lost2pane.getChildren().add(lost1.Zip());
-        lost2pane.getChildren().add(lost1.country());
-        lost2pane.getChildren().add(lost1.Phone());
-        lost2pane.getChildren().add(lost1.Mail());
-        lost2pane.getChildren().add(lostnext2);
+        found2pane = new StackPane();                                            // create a new stackpane
+        found2pane.setStyle("-fx-background-color:#FFFFFF");                     // set the backgroundcolour
+        found2pane.getChildren().add(found1.Labelnr());                          // add the textfield labelnr
+        found2pane.getChildren().add(found1.Flightnr());                         // add the textfield flightnr
+        found2pane.getChildren().add(found1.Destin());                           // add the textfield destin
+        found2pane.getChildren().add(found1.NameTrav());                         // add the textfield nametrav
+        found2pane.getChildren().add(foundback);                                 // add the back button
+        found2pane.getChildren().add(foundnext2);                                // add the next button
 
-        lost3pane = new StackPane();
+        found3pane = new StackPane();                                            // create a new stackpane
+        found3pane.setStyle("-fx-background-color:#FFFFFF");                     // set the backgroundcolour
+        found3pane.getChildren().add(found1.Lugtype());                          // add the textfield lugtype
+        found3pane.getChildren().add(found1.Lugbrand());                         // add the textfield lugbrand
+        found3pane.getChildren().add(found1.Lugcolor());                         // add the textfield lugcolor
+        found3pane.getChildren().add(found1.Lugspef());                          // add the textfield lugspef
+        found3pane.getChildren().add(found1.Lugweight());                        // add the textfield lugweight
+        found3pane.getChildren().add(foundback2);                                // add the back button
+        found3pane.getChildren().add(foundnext3);                                // add the next button
 
-        lost3pane.setStyle("-fx-background-color:#FFFFFF");
-        lost3pane.getChildren().add(lost1.Lugtype());
-        lost3pane.getChildren().add(lost1.Lugbrand());
-        lost3pane.getChildren().add(lost1.Lugcolor());
-        lost3pane.getChildren().add(lost1.lugspef());
-        lost3pane.getChildren().add(lost1.Lugweight());
-        lost3pane.getChildren().add(lostback2);
-        lost3pane.getChildren().add(lostnext3);
+        foundfinalpane = new StackPane();                                        // create a new stackpane
+        foundfinalpane.getChildren().add(foundfinalButton);                      // add the menu button
+        foundfinalpane.setStyle("-fx-background-color:#FFFFFF");                 // set the backgroundcolour
 
-        lost4pane = new StackPane();
+        statpane = new StackPane();                                              // create a new stackpane
+        statpane.setStyle("-fx-background-color:#FFFFFF");                       // set the backgroundcolour
+        statpane.getChildren().add(statterugmenu);                               // add the back button
+        statpane.getChildren().add(yearbtn);                                     // add the year button
+        statpane.getChildren().add(currentbtn);                                  // add the current button
 
-        lost4pane.setStyle("-fx-background-color:#FFFFFF");
+        yearpane = new StackPane();                                              // create a new stackpane
+        yearpane.setStyle("-fx-background-color:#FFFFFF");                       // set the backgroundcolour
+        yearpane.getChildren().add(stat1.OverYear());                            // add the piechart overyear
 
-        lost4pane.getChildren().add(lost1.Labelnr());
-        lost4pane.getChildren().add(lost1.Flightnr());
-        lost4pane.getChildren().add(lost1.Destin());
-        lost4pane.getChildren().add(search);
-        lost4pane.getChildren().add(lostback3);
+        currentpane = new StackPane();                                           // create a new stackpane
+        currentpane.setStyle("-fx-background-color:#FFFFFF");                    // set the backgroundcolour
+        currentpane.getChildren().add(stat1.CurrentLuggage());                   // add the piechart currentluggage
 
-        lostfinalpane = new StackPane();
+        adminpane = new StackPane();                                             // create a new stackpane
+        adminpane.setStyle("-fx-background-color:#FFFFFF");                      // set the backgroundcolour
+        adminpane.getChildren().add(adminterugmenu);                             // add the back button
+        adminpane.getChildren().add(userTableBtn);                               // add the view users button
+        adminpane.getChildren().add(createUser);                                 // add the create user button 
+        adminpane.getChildren().add(removeUser);                                 // add the remove user button
+        adminpane.getChildren().add(updateUser);                                 // add the update user button
+        adminpane.getChildren().add(LuggageTableBtn);                            // add the view luggage button
+        adminpane.getChildren().add(removeLuggage);                              // add the remove luggage button
+        adminpane.getChildren().add(updateLuggage);                              // add the update luggage button
 
-        lostfinalpane.setStyle("-fx-background-color:#FFFFFF");
+        userTablePane = new StackPane();                                         // create a new stackpane
+        userTablePane.setStyle("-fx-background-color:#FFFFFF");                  // set the backgroundcolour
 
-        foundpane = new StackPane();
+        StackPane userCreatePane = new StackPane();                              // create a new stackpane
+        userCreatePane.setStyle("-fx-background-color:#FFFFFF");                 // set the backgroundcolour
+        userCreatePane.getChildren().add(admin1.addUsername());                  // add the textfield username 
+        userCreatePane.getChildren().add(admin1.addPassword());                  // add the textfield password
+        userCreatePane.getChildren().add(admin1.Toegang());                      // add the textfield toegang
+        userCreatePane.getChildren().add(addUser);                               // add the button addUser
 
-        foundpane.setStyle("-fx-background-color:#FFFFFF");
-        foundpane.getChildren().add(foundterugmenu);
-        foundpane.getChildren().add(found1.date());
-        foundpane.getChildren().add(found1.Time());
-        foundpane.getChildren().add(found1.airport());
-        foundpane.getChildren().add(foundnext);
+        userRemovePane = new StackPane();                                        // create a new stackpane
+        userRemovePane.setStyle("-fx-background-color:#FFFFFF");                 // set the backgroundcolour
+        userRemovePane.getChildren().add(admin1.removeUsername());               // add the textfield removeUsername
+        userRemovePane.getChildren().add(admin1.removePassword());               // add the textfield removePassword
+        userRemovePane.getChildren().add(deleteUser);                            // add the button deleteUser
 
-        found2pane = new StackPane();
+        userUpdatePane = new StackPane();                                        // create a new stackpane
+        userUpdatePane.setStyle("-fx-background-color:#FFFFFF");                 // set the backgroundcolour
+        userUpdatePane.getChildren().add(admin1.updateUsername());               // add the textfield updateUsername
+        userUpdatePane.getChildren().add(admin1.updatePassword());               // add the textfield updatePassword
+        userUpdatePane.getChildren().add(admin1.updateToegang());                // add the textfield updateToegang
+        userUpdatePane.getChildren().add(admin1.updateCurrentUsername());        // add the textfield updateCurrentUsername
+        userUpdatePane.getChildren().add(update2User);                           // add the update2User button
 
-        found2pane.setStyle("-fx-background-color:#FFFFFF");
+        luggageTablePane = new StackPane();                                      // create a new stackpane
+        luggageTablePane.setStyle("-fx-background-color:#FFFFFF");               // set the backgroundcolour
+        
+        luggageRemovePane = new StackPane();                                     // create a new stackpane
+        luggageRemovePane.setStyle("-fx-background-color:#FFFFFF");              // set the backgroundcolour
+        luggageRemovePane.getChildren().add(deleteLuggage);                      // add the deleteLuggage button
+        luggageRemovePane.getChildren().add(admin1.luggageNr());                 // add the textfield luggageNr
 
-        found2pane.getChildren().add(found1.Labelnr());
-        found2pane.getChildren().add(found1.Flightnr());
-        found2pane.getChildren().add(found1.Destin());
-        found2pane.getChildren().add(found1.NameTrav());
-        found2pane.getChildren().add(foundback);
-        found2pane.getChildren().add(foundnext2);
-
-        found3pane = new StackPane();
-
-        found3pane.setStyle("-fx-background-color:#FFFFFF");
-
-        found3pane.getChildren().add(found1.Lugtype());
-        found3pane.getChildren().add(found1.Lugbrand());
-        found3pane.getChildren().add(found1.Lugcolor());
-        found3pane.getChildren().add(found1.Lugspef());
-        found3pane.getChildren().add(found1.Lugweight());
-        found3pane.getChildren().add(foundback2);
-        found3pane.getChildren().add(foundnext3);
-
-        foundfinalpane = new StackPane();
-        foundfinalpane.getChildren().add(foundfinalButton);
-        foundfinalpane.setStyle("-fx-background-color:#FFFFFF");
-
-        statpane = new StackPane();
-
-        statpane.setStyle("-fx-background-color:#FFFFFF");
-
-        statpane.getChildren().add(statterugmenu);
-        statpane.getChildren().add(yearbtn);
-        statpane.getChildren().add(currentbtn);
-
-        yearpane = new StackPane();
-
-        yearpane.setStyle("-fx-background-color:#FFFFFF");
-        yearpane.getChildren().add(stat1.OverYear());
-
-        currentpane = new StackPane();
-
-        currentpane.setStyle("-fx-background-color:#FFFFFF");
-        currentpane.getChildren().add(stat1.CurrentLuggage());
-
-        adminpane = new StackPane();
-
-        adminpane.setStyle("-fx-background-color:#FFFFFF");
-        adminpane.getChildren().add(adminterugmenu);
-        adminpane.getChildren().add(userTableBtn);
-        adminpane.getChildren().add(createUser);
-        adminpane.getChildren().add(removeUser);
-        adminpane.getChildren().add(updateUser);
-        adminpane.getChildren().add(LuggageTableBtn);
-        adminpane.getChildren().add(removeLuggage);
-        adminpane.getChildren().add(updateLuggage);
-
-        userTablePane = new StackPane();
-        userTablePane.setStyle("-fx-background-color:#FFFFFF");
-
-        StackPane userCreatePane = new StackPane();
-        userCreatePane.setStyle("-fx-background-color:#FFFFFF");
-
-        userCreatePane.getChildren().add(admin1.addUsername());
-        userCreatePane.getChildren().add(admin1.addPassword());
-        userCreatePane.getChildren().add(admin1.Toegang());
-        userCreatePane.getChildren().add(addUser);
-
-        userRemovePane = new StackPane();
-
-        userRemovePane.setStyle("-fx-background-color:#FFFFFF");
-        userRemovePane.getChildren().add(admin1.removeUsername());
-        userRemovePane.getChildren().add(admin1.removePassword());
-        userRemovePane.getChildren().add(deleteUser);
-
-        userUpdatePane = new StackPane();
-
-        userUpdatePane.setStyle("-fx-background-color:#FFFFFF");
-        userUpdatePane.getChildren().add(admin1.updateUsername());
-        userUpdatePane.getChildren().add(admin1.updatePassword());
-        userUpdatePane.getChildren().add(admin1.updateToegang());
-        userUpdatePane.getChildren().add(admin1.updateCurrentUsername());
-        userUpdatePane.getChildren().add(update2User);
-
-        luggageTablePane = new StackPane();
-        luggageTablePane.setStyle("-fx-background-color:#FFFFFF");
-
-        luggageRemovePane = new StackPane();
-        luggageRemovePane.setStyle("-fx-background-color:#FFFFFF");
-        luggageRemovePane.getChildren().add(deleteLuggage);
-        luggageRemovePane.getChildren().add(admin1.luggageNr());
-
-        luggageUpdatePane = new StackPane();
-        luggageUpdatePane.setStyle("-fx-background-color:#FFFFFF");
-        luggageUpdatePane.getChildren().add(admin1.luggageUnr());
-        luggageUpdatePane.getChildren().add(admin1.luggageType());
-        luggageUpdatePane.getChildren().add(admin1.luggageBrand());
-        luggageUpdatePane.getChildren().add(admin1.luggageCol());
-        luggageUpdatePane.getChildren().add(admin1.luggageWeight());
-        luggageUpdatePane.getChildren().add(admin1.luggageSpef());
-        luggageUpdatePane.getChildren().add(admin1.luggageLFDM());
-        luggageUpdatePane.getChildren().add(update2Luggage);
+        luggageUpdatePane = new StackPane();                                     // create a new stackpane
+        luggageUpdatePane.setStyle("-fx-background-color:#FFFFFF");              // set the backgroundcolour
+        luggageUpdatePane.getChildren().add(admin1.luggageUnr());                // add the textfield luggagenr
+        luggageUpdatePane.getChildren().add(admin1.luggageType());               // add the textfield luggagetype
+        luggageUpdatePane.getChildren().add(admin1.luggageBrand());              // add the textfield luggagebrand
+        luggageUpdatePane.getChildren().add(admin1.luggageCol());                // add the textfield luggagecol
+        luggageUpdatePane.getChildren().add(admin1.luggageWeight());             // add the textfield luggageweight
+        luggageUpdatePane.getChildren().add(admin1.luggageSpef());               // add the textfield luggagespef
+        luggageUpdatePane.getChildren().add(admin1.luggageLFDM());               // add the textfield luggagelfdm
+        luggageUpdatePane.getChildren().add(update2Luggage);                     // add the update2Luggage button
 
         //geeft alle scenes in
-        loginscherm = new Scene(inlogschermpane, 1600, 800);
-        menu = new Scene(menupane, 1600, 800);
-        lost = new Scene(lostpane, 1600, 800);
-        lost2 = new Scene(lost2pane, 1600, 800);
-        lost3 = new Scene(lost3pane, 1600, 800);
-        lost4 = new Scene(lost4pane, 1600, 800);
-        lostfinal = new Scene(lostfinalpane, 1600, 800);
-        found = new Scene(foundpane, 1600, 800);
-        found2 = new Scene(found2pane, 1600, 800);
-        found3 = new Scene(found3pane, 1600, 800);
-        foundfinal = new Scene(foundfinalpane, 1600, 800);
-        stat = new Scene(statpane, 1600, 800);
-        year = new Scene(yearpane, 1200, 800);
-        current = new Scene(currentpane, 1200, 800);
-        admin = new Scene(adminpane, 1600, 800);
-        userTable = new Scene(userTablePane, 300, 400);
-        userCreate = new Scene(userCreatePane, 1000, 100);
-        userRemove = new Scene(userRemovePane, 1000, 100);
-        userUpdate = new Scene(userUpdatePane, 1300, 100);
-        luggageTable = new Scene(luggageTablePane, 700, 700);
-        luggageRemove = new Scene(luggageRemovePane, 500, 100);
-        luggageUpdate = new Scene(luggageUpdatePane, 1600, 200);
+        loginscherm = new Scene(inlogschermpane, 1600, 800);                     // set the height and width of the scene
+        menu = new Scene(menupane, 1600, 800);                                   // set the height and width of the scene
+        lost = new Scene(lostpane, 1600, 800);                                   // set the height and width of the scene
+        lost2 = new Scene(lost2pane, 1600, 800);                                 // set the height and width of the scene
+        lost3 = new Scene(lost3pane, 1600, 800);                                 // set the height and width of the scene
+        lost4 = new Scene(lost4pane, 1600, 800);                                 // set the height and width of the scene
+        lostfinal = new Scene(lostfinalpane, 1600, 800);                         // set the height and width of the scene
+        found = new Scene(foundpane, 1600, 800);                                 // set the height and width of the scene
+        found2 = new Scene(found2pane, 1600, 800);                               // set the height and width of the scene
+        found3 = new Scene(found3pane, 1600, 800);                               // set the height and width of the scene
+        foundfinal = new Scene(foundfinalpane, 1600, 800);                       // set the height and width of the scene
+        stat = new Scene(statpane, 1600, 800);                                   // set the height and width of the scene
+        year = new Scene(yearpane, 1200, 800);                                   // set the height and width of the scene
+        current = new Scene(currentpane, 1200, 800);                             // set the height and width of the scene
+        admin = new Scene(adminpane, 1600, 800);                                 // set the height and width of the scene
+        userTable = new Scene(userTablePane, 300, 400);                          // set the height and width of the scene
+        userCreate = new Scene(userCreatePane, 1000, 100);                       // set the height and width of the scene
+        userRemove = new Scene(userRemovePane, 1000, 100);                       // set the height and width of the scene
+        userUpdate = new Scene(userUpdatePane, 1300, 100);                       // set the height and width of the scene
+        luggageTable = new Scene(luggageTablePane, 700, 700);                    // set the height and width of the scene
+        luggageRemove = new Scene(luggageRemovePane, 500, 100);                  // set the height and width of the scene
+        luggageUpdate = new Scene(luggageUpdatePane, 1600, 200);                 // set the height and width of the scene
 
-        primaryStage.setTitle("Applicatie naam");
-        primaryStage.setScene(admin);
-        primaryStage.setResizable(false);
-        primaryStage.show();
+        primaryStage.setTitle("Applicatie naam");                                // the title of our application
+        primaryStage.setScene(admin);                                            // set the scene to admin
+        primaryStage.setResizable(false);                                        // make it so it isn't resizeable
+        primaryStage.show();                                                     // show the stage
 
     }
-    public String[] persoon;
-    private int toegang;
+    public String[] persoon;                                                     // array of the type string called persoon
+    private int toegang;                                                         // variable int called toegang
 
     /**
      *
