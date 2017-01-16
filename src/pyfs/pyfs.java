@@ -70,53 +70,53 @@ public class pyfs extends Application {
     @Override
     public void start(Stage primaryStage) {
 
-        thestage = primaryStage;    //verklaart toegoevoegde stage
-        Found found1 = new Found(); //Maakt nieuwe Found genaamd found1
-        Lost lost1 = new Lost();    //maakt niuewe Lost genaamd lost1
-        Stat stat1 = new Stat();    // nieuwe Stat genaamd stat1
-        Login login = new Login();  //maakt nieuwe Login genaamd login
-        mysql Mysql = new mysql();
-        Lostd lostd = new Lostd();
-        Admin admin1 = new Admin();
-        Admind admind = new Admind();
-        Foundd foundd = new Foundd();
-        Results results = new Results();
-        ResultsFound resultfound = new ResultsFound();
+        thestage = primaryStage;                                                 // declares the stage
+        Found found1 = new Found();                                              //
+        Lost lost1 = new Lost();                                                 //
+        Stat stat1 = new Stat();                                                 //
+        Login login = new Login();                                               //
+        mysql Mysql = new mysql();                                               //
+        Lostd lostd = new Lostd();                                               //  makes new objects of the classes and giving them a name.
+        Admin admin1 = new Admin();                                              //
+        Admind admind = new Admind();                                            //
+        Foundd foundd = new Foundd();                                            //
+        Results results = new Results();                                         //
+        ResultsFound resultfound = new ResultsFound();//
 
         //BEGIN CONTROLS
         //Loginscherm
         Button loginbtn = new Button();
-        loginbtn.setText("Login");                                           //inlog button
+        loginbtn.setText("Login");                                               // login button & style
         loginbtn.setPrefSize(200, 50);
         loginbtn.setTranslateY(90);
         loginbtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        loginbtn.setOnAction(new EventHandler<ActionEvent>() {
+        loginbtn.setOnAction(new EventHandler<ActionEvent>() {                   // this will happen when you click the button
 
             @Override
             public void handle(ActionEvent event) {
 
-                String UserName = login.getTextUsername();   //getting username
-                String Password = login.getTextPassword();   //getting password
+                String UserName = login.getTextUsername();                       // getting username
+                String Password = login.getTextPassword();                       // getting password
 
-                Connection conn;                                                            //making connection to database
+                Connection conn;                                                 // declares the connection name
 
-                final String USERNAME = Mysql.username();
-                final String PASSWORD = Mysql.password();
-                final String CONN_STRING = Mysql.urlmysql();
+                final String USERNAME = Mysql.username();                        // getting the username from the database
+                final String PASSWORD = Mysql.password();                        // getting the password from the database
+                final String CONN_STRING = Mysql.urlmysql();                     // getting the connection string to connect with the database
 
                 try {
 
-                    conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+                    conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);     // making connection to the database
                     System.out.println("Connected login");
-                    Statement stmt = (Statement) conn.createStatement();
-                    ResultSet rs1 = stmt.executeQuery("SELECT COUNT(*) AS total FROM login WHERE username= " + '"' + UserName + '"');   //check if there is a accout with name
+                    Statement stmt = (Statement) conn.createStatement();         // creates a statement
+                    ResultSet rs1 = stmt.executeQuery("SELECT COUNT(*) AS total FROM login WHERE username= " + '"' + UserName + '"');   //check if there is a account with the same name
                     int count = 0;
 
-                    while (rs1.next()) {
+                    while (rs1.next()) {                                         // getting total
                         count = rs1.getInt("total");
                     }
 
-                    ResultSet rs = stmt.executeQuery("SELECT * FROM login WHERE username = " + "'" + UserName + "'");               //getting password form database
+                    ResultSet rs = stmt.executeQuery("SELECT * FROM login WHERE username = " + "'" + UserName + "'");               //getting username from database
 
                     if (count > 0) {
 
@@ -124,37 +124,33 @@ public class pyfs extends Application {
 
                             String pass = rs.getString("password");
                             if (pass.equals(Password)) {                         // check if passwords are the same
-
-                                toegang = rs.getInt("permission");
-
-                                thestage.setScene(menu);
-                                login.Clear();
+                                toegang = rs.getInt("permission");               // gets the permissionlevel
+                                thestage.setScene(menu);                         // go to the next stage
+                                login.Clear();                                   // clears the fields
 
                             } else {
-
-                                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                Alert alert = new Alert(Alert.AlertType.INFORMATION);   // get an alert popup
                                 alert.setTitle("warning");
                                 alert.setHeaderText("username and/or password are incorrect");
                                 alert.showAndWait();
-                                login.Clear();
-
+                                login.Clear();                                   // clears the fields
                             }
 
                         }
 
                     } else {
 
-                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);    // get an alert popup
                         alert.setTitle("warning");
                         alert.setHeaderText("username and/or password are incorrect");
                         alert.showAndWait();
-                        login.Clear();
+                        login.Clear();                                           // clears the fields
 
                     }
 
                 } catch (SQLException ed) {
 
-                    System.err.println(ed);
+                    System.err.println(ed);                                      // print the warning message
 
                 }
 
@@ -166,20 +162,19 @@ public class pyfs extends Application {
         //verklaren alle toegevoegde controls
         //menu
         logoutbtn = new Button();
-
-        logoutbtn.setText("Logout");                                           //logoutbutton
+        logoutbtn.setText("Logout");                                             // logout button & style
         logoutbtn.setPrefSize(200, 50);
         logoutbtn.setTranslateY(-370);
         logoutbtn.setTranslateX(700);
         logoutbtn.setStyle(
                 "-fx-base:darkcyan;-fx-border-color:black");
         logoutbtn.setOnAction(
-                new EventHandler<ActionEvent>() {
+                new EventHandler<ActionEvent>() {                                // this will happen when you click the button
 
             @Override
             public void handle(ActionEvent event
             ) {
-                thestage.setScene(loginscherm);
+                thestage.setScene(loginscherm);                                  // go to the next stage
 
             }
         }
@@ -187,55 +182,53 @@ public class pyfs extends Application {
 
         lostbtn = new Button();
 
-        lostbtn.setText("Lost");                                           //lost button
+        lostbtn.setText("Lost");                                                 // lost button & style
         lostbtn.setPrefSize(200, 50);
         lostbtn.setTranslateX(-500);
         lostbtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
         lostbtn.setOnAction(
-                new EventHandler<ActionEvent>() {
+                new EventHandler<ActionEvent>() {                                // this will happen when you click the button
 
             @Override
             public void handle(ActionEvent event
             ) {
-                thestage.setScene(lost);
+                thestage.setScene(lost);                                         // go to the next stage
 
             }
         }
         );
 
         foundbtn = new Button();
-
-        foundbtn.setText("Found");                                           //found button
+        foundbtn.setText("Found");                                               // found button & style
         foundbtn.setPrefSize(200, 50);
         foundbtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        foundbtn.setOnAction(new EventHandler<ActionEvent>() {
+        foundbtn.setOnAction(new EventHandler<ActionEvent>() {                   // this will happen when you click the button
 
             @Override
             public void handle(ActionEvent event
             ) {
-                thestage.setScene(found);
+                thestage.setScene(found);                                        // go to the next stage
 
             }
         }
         );
 
         statbtn = new Button();
-
-        statbtn.setText("Statistics");                                           //statistics button
+        statbtn.setText("Statistics");                                           // statistics button & style
         statbtn.setPrefSize(200, 50);
         statbtn.setTranslateX(500);
         statbtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        statbtn.setOnAction(new EventHandler<ActionEvent>() {
+        statbtn.setOnAction(new EventHandler<ActionEvent>() {                    // this will happen when you click the button
 
             @Override
             public void handle(ActionEvent event) {
 
-                if (toegang >= 2) {
+                if (toegang >= 2) {                                              // if the permissionlevel is 2 or higher you can go to this stage
                     thestage.setScene(stat);
                 } else {
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);        // get an alert popup
                     alert.setTitle("Warning");
-                    alert.setHeaderText("You do not have permission to this page");
+                    alert.setHeaderText("You do not have permission to this page"); // if the permissionlevel is lower then 2 print this errormessage
                     alert.showAndWait();
 
                 }
@@ -244,207 +237,186 @@ public class pyfs extends Application {
         });
 
         adminbtn = new Button();
-
-        adminbtn.setText("Admin");                                           //statistics button
+        adminbtn.setText("Admin");                                               // admin button & style
         adminbtn.setPrefSize(200, 50);
         adminbtn.setTranslateY(-370);
         adminbtn.setTranslateX(-700);
         adminbtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        adminbtn.setOnAction(new EventHandler<ActionEvent>() {
+        adminbtn.setOnAction(new EventHandler<ActionEvent>() {                   // this will happen when you click the button
 
             @Override
             public void handle(ActionEvent eventF) {
 
-                if (toegang == 3) {
+                if (toegang == 3) {                                              // if the permissionlevel is exactly 3 you can go to this stage
 
                     thestage.setScene(admin);
 
                 } else {
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);        // get an alert popup
                     alert.setTitle("Warning");
-                    alert.setHeaderText("You do not have permission to this page");
+                    alert.setHeaderText("You do not have permission to this page"); // if the permissionlevel is lower then 3 print this errormessage
                     alert.showAndWait();
-
                 }
-
             }
         }
         );
 
         //lost
-        //lost 1
         lostterugmenu = new Button();
-
-        lostterugmenu.setText("Back");                                           //back button
+        lostterugmenu.setText("Back");                                           // back button & style
         lostterugmenu.setPrefSize(200, 50);
         lostterugmenu.setTranslateY(-370);
         lostterugmenu.setTranslateX(700);
         lostterugmenu.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        lostterugmenu.setOnAction(new EventHandler<ActionEvent>() {
+        lostterugmenu.setOnAction(new EventHandler<ActionEvent>() {              // this will happen when you click the button
 
             @Override
             public void handle(ActionEvent event
             ) {
-                thestage.setScene(menu);
+                thestage.setScene(menu);                                         // go to the previous stage 
 
             }
         }
         );
 
         lostnext = new Button();
-
-        lostnext.setText("Next");                                           //next button
+        lostnext.setText("Next");                                                // next button & style
         lostnext.setPrefSize(120, 50);
         lostnext.setTranslateY(105);
         lostnext.setTranslateX(55);
         lostnext.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        lostnext.setOnAction(new EventHandler<ActionEvent>() {
+        lostnext.setOnAction(new EventHandler<ActionEvent>() {                   // this will happen when you click the button
 
             public void handle(ActionEvent event
             ) {
-
-                String[] date = new String[4];
-                date[0] = lost1.getDate();
-                date[1] = lost1.getTime();
-                date[2] = lost1.getAirport();
-                System.out.println(date[0]);
-                lostd.setLostdate(date);
-
-                thestage.setScene(lost2);
-
+                String[] date = new String[4];                                   // make a new array called date from the type string
+                date[0] = lost1.getDate();                                       //
+                date[1] = lost1.getTime();                                       //
+                date[2] = lost1.getAirport();                                    // save the data to the array
+                System.out.println(date[0]);                                     //
+                lostd.setLostdate(date);                                         // 
+                thestage.setScene(lost2);                                        // go to the next stage
             }
         }
         );
 
         //lost 2
         lostback = new Button();
-
-        lostback.setText("Back");                                           //back button
+        lostback.setText("Back");                                                // back button & style
         lostback.setPrefSize(200, 50);
         lostback.setTranslateY(-370);
         lostback.setTranslateX(700);
         lostback.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        lostback.setOnAction(new EventHandler<ActionEvent>() {
+        lostback.setOnAction(new EventHandler<ActionEvent>() {                   // this will happen when you click the button
 
             @Override
             public void handle(ActionEvent event
             ) {
-                thestage.setScene(lost);
-
+                thestage.setScene(lost);                                         // go to the previous stage 
             }
         }
         );
 
         lostnext2 = new Button();
-
-        lostnext2.setText("Next");                                           //next button
+        lostnext2.setText("Next");                                               // next button & style
         lostnext2.setPrefSize(120, 50);
         lostnext2.setTranslateY(105);
         lostnext2.setTranslateX(55);
         lostnext2.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        lostnext2.setOnAction(new EventHandler<ActionEvent>() {
+        lostnext2.setOnAction(new EventHandler<ActionEvent>() {                  // this will happen when you click the button
 
             @Override
             public void handle(ActionEvent event
             ) {
-
-                String[] persoon = new String[7];
-                persoon[0] = lost1.getTextNaam();
-                persoon[1] = lost1.getTextAdres();
-                persoon[2] = lost1.getCity();
-                persoon[3] = lost1.getTextZip();
-                persoon[4] = lost1.getTextCountry();
-                persoon[5] = lost1.getTextPhone();
-                persoon[6] = lost1.getTextMail();
+                String[] persoon = new String[7];                                // make a new array from the type string called persoon
+                persoon[0] = lost1.getTextNaam();                                //
+                persoon[1] = lost1.getTextAdres();                               //
+                persoon[2] = lost1.getCity();                                    //
+                persoon[3] = lost1.getTextZip();                                 // save the data to the array
+                persoon[4] = lost1.getTextCountry();                             //
+                persoon[5] = lost1.getTextPhone();                               //
+                persoon[6] = lost1.getTextMail();                                //
 
                 lostd.setP(persoon);
-                thestage.setScene(lost3);
-
+                thestage.setScene(lost3);                                        // go to the next stage
             }
-
         }
         );
 
         lostback2 = new Button();
-
-        lostback2.setText("Back");                                           //back button
+        lostback2.setText("Back");                                               // back button & style
         lostback2.setPrefSize(200, 50);
         lostback2.setTranslateY(-370);
         lostback2.setTranslateX(700);
         lostback2.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        lostback2.setOnAction(new EventHandler<ActionEvent>() {
+        lostback2.setOnAction(new EventHandler<ActionEvent>() {                  // this will happen when you click the button
 
             @Override
             public void handle(ActionEvent event
             ) {
-                thestage.setScene(lost2);
-
+                thestage.setScene(lost2);                                        // go to the previous stage
             }
         }
         );
 
         lostnext3 = new Button();
-
-        lostnext3.setText("Next");                                           //next button
+        lostnext3.setText("Next");                                               // next button & style
         lostnext3.setPrefSize(120, 50);
         lostnext3.setTranslateY(175);
         lostnext3.setTranslateX(92);
         lostnext3.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        lostnext3.setOnAction(new EventHandler<ActionEvent>() {
+        lostnext3.setOnAction(new EventHandler<ActionEvent>() {                  // this will happen when you click the button
 
             @Override
             public void handle(ActionEvent event
             ) {
-
-                thestage.setScene(lost4);
-
+                thestage.setScene(lost4);                                        // go to the next stage
             }
         }
         );
 
         search = new Button();
-
-        search.setText("Search");                                           //Search button
+        search.setText("Search");                                                // search button & style
         search.setPrefSize(120, 50);
         search.setTranslateY(175);
         search.setTranslateX(92);
         search.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        search.setOnAction(new EventHandler<ActionEvent>() {
+        search.setOnAction(new EventHandler<ActionEvent>() {                     // this will happen when you click the button
 
             @Override
             public void handle(ActionEvent event
             ) {
 
-                String[] label = new String[3];
-                label[0] = lost1.getTextLabelnr();
-                label[1] = lost1.getTextFlightnr();
-                label[2] = lost1.getTextDestin();
-                lostd.setLabel(label);
+                String[] label = new String[3];                                  // make a new array from the type string called label
+                label[0] = lost1.getTextLabelnr();                               //
+                label[1] = lost1.getTextFlightnr();                              // save the data to the array
+                label[2] = lost1.getTextDestin();                                //
+                lostd.setLabel(label);                                           //
 
-                String[] lostbagage = new String[5];
-                lostbagage[0] = lost1.getTextLugype();
-                lostbagage[1] = lost1.getTextLygbrand();
-                lostbagage[2] = lost1.getTextLugcolor();
-                lostbagage[3] = lost1.getTextlugweight();
-                lostbagage[4] = lost1.getTextLugspef();
+                String[] lostbagage = new String[5];                             // make a new array from the type string called lostbagage
+                lostbagage[0] = lost1.getTextLugype();                           //
+                lostbagage[1] = lost1.getTextLygbrand();                         // save the data to the array
+                lostbagage[2] = lost1.getTextLugcolor();                         //
+                lostbagage[3] = lost1.getTextlugweight();                        //
+                lostbagage[4] = lost1.getTextLugspef();                          //
 
                 lostd.setLostbagage(lostbagage);
 
-                int unr = lostd.Unr();
-                int pnr = lostd.invullenP();
+                int unr = lostd.Unr();                                           // get the unr from lostd
+                int pnr = lostd.invullenP();                                     // get the pnr from lostd
+                
+                lostd.getLabel(unr);                                             //
+                lostd.getLuggage(unr, pnr);                                      // assign the values of unr and pnr
+                lostd.getDate(unr);                                              //
 
-                lostd.getLabel(unr);
-                lostd.getLuggage(unr, pnr);
-                lostd.getDate(unr);
-
-                results.setInfo(lostbagage);
-                results.Label(label);
-                lostfinalpane.getChildren().add(results.ResultGrid());
-                lostfinalpane.getChildren().add(lostterugfinal);
-                lost1.Clear();
+                results.setInfo(lostbagage);                                     // fills in the info
+                results.Label(label);                                            // fills in the label
+                lostfinalpane.getChildren().add(results.ResultGrid());           // show the results
+                lostfinalpane.getChildren().add(lostterugfinal);                 // 
+                lost1.Clear();                                                   // clears the fields
 
                 //lostd.zoeken(labelnr);
-                thestage.setScene(lostfinal);
+                thestage.setScene(lostfinal);                                    // go to the next stage
             }
 
         }
@@ -452,17 +424,17 @@ public class pyfs extends Application {
 
         lostback3 = new Button();
 
-        lostback3.setText("Back");                                           //back button
+        lostback3.setText("Back");                                               // back button & style
         lostback3.setPrefSize(200, 50);
         lostback3.setTranslateY(-370);
         lostback3.setTranslateX(700);
         lostback3.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        lostback3.setOnAction(new EventHandler<ActionEvent>() {
+        lostback3.setOnAction(new EventHandler<ActionEvent>() {                  // this will happen when you click the button
 
             @Override
             public void handle(ActionEvent event
             ) {
-                thestage.setScene(lost3);
+                thestage.setScene(lost3);                                        // go to the previous stage
 
             }
         }
@@ -470,18 +442,17 @@ public class pyfs extends Application {
 
         //lost final
         lostterugfinal = new Button();
-
-        lostterugfinal.setText("Menu");                                           //lost terug menu
+        lostterugfinal.setText("Menu");                                           //lost terug menu button
         lostterugfinal.setPrefSize(200, 50);
         lostterugfinal.setTranslateY(-370);
         lostterugfinal.setTranslateX(700);
         lostterugfinal.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        lostterugfinal.setOnAction(new EventHandler<ActionEvent>() {
+        lostterugfinal.setOnAction(new EventHandler<ActionEvent>() {             // this will happen when you click the button
 
             @Override
             public void handle(ActionEvent event
             ) {
-                thestage.setScene(menu);
+                thestage.setScene(menu);                                         // go to the next stage
 
             }
         }
@@ -490,17 +461,17 @@ public class pyfs extends Application {
         //found
         foundterugmenu = new Button();
 
-        foundterugmenu.setText("Back");                                           //back button
+        foundterugmenu.setText("Back");                                          // back button & style
         foundterugmenu.setPrefSize(200, 50);
         foundterugmenu.setTranslateY(-370);
         foundterugmenu.setTranslateX(700);
         foundterugmenu.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        foundterugmenu.setOnAction(new EventHandler<ActionEvent>() {
+        foundterugmenu.setOnAction(new EventHandler<ActionEvent>() {             // this will happen when you click the button
 
             @Override
             public void handle(ActionEvent event
             ) {
-                thestage.setScene(menu);
+                thestage.setScene(menu);                                         // go to the previous stage
 
             }
         }
@@ -508,12 +479,12 @@ public class pyfs extends Application {
 
         foundnext = new Button();
 
-        foundnext.setText("Next");                                           //next button
+        foundnext.setText("Next");                                               // next button & style
         foundnext.setPrefSize(120, 50);
         foundnext.setTranslateY(105);
         foundnext.setTranslateX(55);
         foundnext.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        foundnext.setOnAction(new EventHandler<ActionEvent>() {
+        foundnext.setOnAction(new EventHandler<ActionEvent>() {                  // this will happen when you click the button         
 
             @Override
             public void handle(ActionEvent event
@@ -534,12 +505,12 @@ public class pyfs extends Application {
 
         foundback = new Button();
 
-        foundback.setText("Back");                                           //back button
+        foundback.setText("Back");                                               // back button & style
         foundback.setPrefSize(200, 50);
         foundback.setTranslateY(-370);
         foundback.setTranslateX(700);
         foundback.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        foundback.setOnAction(new EventHandler<ActionEvent>() {
+        foundback.setOnAction(new EventHandler<ActionEvent>() {                  // this will happen when you click the button
 
             @Override
             public void handle(ActionEvent event
@@ -557,7 +528,7 @@ public class pyfs extends Application {
         foundnext2.setTranslateY(105);
         foundnext2.setTranslateX(55);
         foundnext2.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        foundnext2.setOnAction(new EventHandler<ActionEvent>() {
+        foundnext2.setOnAction(new EventHandler<ActionEvent>() {                 // this will happen when you click the button
 
             @Override
             public void handle(ActionEvent event
@@ -571,12 +542,12 @@ public class pyfs extends Application {
 
         foundback2 = new Button();
 
-        foundback2.setText("Back");                                           //back button
+        foundback2.setText("Back");                                              // back button & style
         foundback2.setPrefSize(200, 50);
         foundback2.setTranslateY(-370);
         foundback2.setTranslateX(700);
         foundback2.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        foundback2.setOnAction(new EventHandler<ActionEvent>() {
+        foundback2.setOnAction(new EventHandler<ActionEvent>() {                 // this will happen when you click the button
             @Override
             public void handle(ActionEvent event
             ) {
@@ -593,7 +564,7 @@ public class pyfs extends Application {
         foundnext3.setTranslateY(175);
         foundnext3.setTranslateX(92);
         foundnext3.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        foundnext3.setOnAction(new EventHandler<ActionEvent>() {
+        foundnext3.setOnAction(new EventHandler<ActionEvent>() {                 // this will happen when you click the button
 
             @Override
             public void handle(ActionEvent event
@@ -641,7 +612,7 @@ public class pyfs extends Application {
         foundfinalButton.setTranslateX(700);
 
         foundfinalButton.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        foundfinalButton.setOnAction(new EventHandler<ActionEvent>() {
+        foundfinalButton.setOnAction(new EventHandler<ActionEvent>() {           // this will happen when you click the button
 
             @Override
             public void handle(ActionEvent event
@@ -655,13 +626,13 @@ public class pyfs extends Application {
         //stat
         statterugmenu = new Button();
 
-        statterugmenu.setText("Back");                                           //back button
+        statterugmenu.setText("Back");                                           // back button & style
         statterugmenu.setPrefSize(200, 50);
         statterugmenu.setTranslateY(-370);
         statterugmenu.setTranslateX(700);
         statterugmenu.setStyle("-fx-base:darkcyan;-fx-border-color:black");
 
-        statterugmenu.setOnAction(new EventHandler<ActionEvent>() {
+        statterugmenu.setOnAction(new EventHandler<ActionEvent>() {              // this will happen when you click the button
 
             @Override
             public void handle(ActionEvent event
@@ -679,7 +650,7 @@ public class pyfs extends Application {
         yearbtn.setPrefSize(200, 50);
         yearbtn.setTranslateX(300);
         yearbtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        yearbtn.setOnAction(new EventHandler<ActionEvent>() {
+        yearbtn.setOnAction(new EventHandler<ActionEvent>() {                    // this will happen when you click the button
 
             @Override
             public void handle(ActionEvent event
@@ -700,7 +671,7 @@ public class pyfs extends Application {
         currentbtn.setPrefSize(200, 50);
         currentbtn.setTranslateX(-300);
         currentbtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        currentbtn.setOnAction(new EventHandler<ActionEvent>() {
+        currentbtn.setOnAction(new EventHandler<ActionEvent>() {                 // this will happen when you click the button
 
             @Override
             public void handle(ActionEvent event
@@ -718,13 +689,13 @@ public class pyfs extends Application {
         //admin
         adminterugmenu = new Button();
 
-        adminterugmenu.setText("Back");                                           //back button
+        adminterugmenu.setText("Back");                                          // back button & style
         adminterugmenu.setPrefSize(200, 50);
         adminterugmenu.setTranslateY(-370);
         adminterugmenu.setTranslateX(700);
         adminterugmenu.setStyle("-fx-base:darkcyan;-fx-border-color:black");
 
-        adminterugmenu.setOnAction(new EventHandler<ActionEvent>() {
+        adminterugmenu.setOnAction(new EventHandler<ActionEvent>() {             // this will happen when you click the button
 
             @Override
             public void handle(ActionEvent event
@@ -743,7 +714,7 @@ public class pyfs extends Application {
         userTableBtn.setTranslateY(-150);
         userTableBtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
 
-        userTableBtn.setOnAction(new EventHandler<ActionEvent>() {
+        userTableBtn.setOnAction(new EventHandler<ActionEvent>() {               // this will happen when you click the button
 
             @Override
             public void handle(ActionEvent event
@@ -767,7 +738,7 @@ public class pyfs extends Application {
         LuggageTableBtn.setTranslateX(-100);
         LuggageTableBtn.setTranslateY(-150);
         LuggageTableBtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        LuggageTableBtn.setOnAction(new EventHandler<ActionEvent>() {
+        LuggageTableBtn.setOnAction(new EventHandler<ActionEvent>() {            // this will happen when you click the button
 
             @Override
             public void handle(ActionEvent event
@@ -791,7 +762,7 @@ public class pyfs extends Application {
         createUser.setTranslateX(-400);
         createUser.setTranslateY(-50);
         createUser.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        createUser.setOnAction(new EventHandler<ActionEvent>() {
+        createUser.setOnAction(new EventHandler<ActionEvent>() {                 // this will happen when you click the button
 
             @Override
             public void handle(ActionEvent event
@@ -802,7 +773,6 @@ public class pyfs extends Application {
                 userCreateStage.setScene(userCreate);
                 userCreateStage.setResizable(false);
                 userCreateStage.show();
-                
 
             }
 
@@ -817,7 +787,7 @@ public class pyfs extends Application {
         addUser.setStyle("-fx-base:darkcyan;-fx-border-color:black");
 
         addUser.setOnAction(
-                new EventHandler<ActionEvent>() {
+                new EventHandler<ActionEvent>() {                                // this will happen when you click the button
 
             public void handle(ActionEvent event) {
 
@@ -844,7 +814,7 @@ public class pyfs extends Application {
         removeUser.setStyle("-fx-base:darkcyan;-fx-border-color:black");
 
         removeUser.setOnAction(
-                new EventHandler<ActionEvent>() {
+                new EventHandler<ActionEvent>() {                                // this will happen when you click the button
 
             @Override
             public void handle(ActionEvent event
@@ -867,7 +837,7 @@ public class pyfs extends Application {
         removeLuggage.setTranslateX(-100);
         removeLuggage.setTranslateY(-50);
         removeLuggage.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        removeLuggage.setOnAction(new EventHandler<ActionEvent>() {
+        removeLuggage.setOnAction(new EventHandler<ActionEvent>() {              // this will happen when you click the button
 
             @Override
             public void handle(ActionEvent event
@@ -890,7 +860,7 @@ public class pyfs extends Application {
         deleteUser.setPrefSize(150, 50);
         deleteUser.setTranslateX(350);
         deleteUser.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        deleteUser.setOnAction(new EventHandler<ActionEvent>() {
+        deleteUser.setOnAction(new EventHandler<ActionEvent>() {                 // this will happen when you click the button
 
             public void handle(ActionEvent event) {
 
@@ -913,7 +883,7 @@ public class pyfs extends Application {
         deleteLuggage.setPrefSize(150, 50);
         deleteLuggage.setTranslateX(150);
         deleteLuggage.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        deleteLuggage.setOnAction(new EventHandler<ActionEvent>() {
+        deleteLuggage.setOnAction(new EventHandler<ActionEvent>() {              // this will happen when you click the button
 
             public void handle(ActionEvent event) {
 
@@ -924,7 +894,7 @@ public class pyfs extends Application {
                 admind.luggageRemove(deleteLuggage);
 
                 luggageRemoveStage.close();
-                
+
                 admin1.ClearRemoveLuggage();
 
             }
@@ -939,7 +909,7 @@ public class pyfs extends Application {
         updateUser.setStyle("-fx-base:darkcyan;-fx-border-color:black");
 
         updateUser.setOnAction(
-                new EventHandler<ActionEvent>() {
+                new EventHandler<ActionEvent>() {                                // this will happen when you click the button
 
             @Override
             public void handle(ActionEvent event
@@ -963,7 +933,7 @@ public class pyfs extends Application {
         update2User.setTranslateX(550);
         update2User.setStyle("fx-base:darkcyan;-fx-border-color:black");
 
-        update2User.setOnAction(new EventHandler<ActionEvent>() {
+        update2User.setOnAction(new EventHandler<ActionEvent>() {                // this will happen when you click the button
 
             public void handle(ActionEvent event) {
 
@@ -977,13 +947,9 @@ public class pyfs extends Application {
                 admind.Update(updateInfo);
                 userUpdateStage.close();
 
-<<<<<<< HEAD
                 luggageUpdateStage.close();
-                
+
                 admin1.ClearUpdateUser();
-=======
-                
->>>>>>> origin/master
 
             }
         }
@@ -997,7 +963,7 @@ public class pyfs extends Application {
         updateLuggage.setStyle("-fx-base:darkcyan;-fx-border-color:black");
 
         updateLuggage.setOnAction(
-                new EventHandler<ActionEvent>() {
+                new EventHandler<ActionEvent>() {                                // this will happen when you click the button
 
             @Override
             public void handle(ActionEvent event
@@ -1019,7 +985,7 @@ public class pyfs extends Application {
         update2Luggage.setPrefSize(150, 50);
         update2Luggage.setTranslateX(700);
         update2Luggage.setStyle("fx-base:darkcyan;-fx-border-color:black");
-        update2Luggage.setOnAction(new EventHandler<ActionEvent>() {
+        update2Luggage.setOnAction(new EventHandler<ActionEvent>() {             // this will happen when you click the button
 
             public void handle(ActionEvent event) {
 

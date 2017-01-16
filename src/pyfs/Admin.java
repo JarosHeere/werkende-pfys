@@ -3,10 +3,15 @@ package pyfs;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
@@ -47,8 +52,7 @@ public class Admin {
 
             /**
              * ********************************
-             * TABLE COLUMN ADDED DYNAMICALLY *
-             *********************************
+             * TABLE COLUMN ADDED DYNAMICALLY * ********************************
              */
             for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
                 //We are using non property style for making dynamic table
@@ -66,8 +70,7 @@ public class Admin {
 
             /**
              * ******************************
-             * Data added to ObservableList *
-             *******************************
+             * Data added to ObservableList * ******************************
              */
             while (rs.next()) {
                 //Iterate Row
@@ -146,7 +149,7 @@ public class Admin {
         return toegang.getText();
     }
 
-     public TextField removeUsername() {
+    public TextField removeUsername() {
 
         usernameRemove = new TextField();                 //text voor tijd invullen
         usernameRemove.setPromptText("Username");
@@ -170,8 +173,6 @@ public class Admin {
 
     }
 
-    
-
     public String getTextRemoveusername() {
         return usernameRemove.getText();
     }
@@ -179,7 +180,7 @@ public class Admin {
     public String getTextRemovepassword() {
         return passwordRemove.getText();
     }
-    
+
     public TextField updateCurrentUsername() {
 
         usernameCurrentUpdate = new TextField();                 //text voor tijd invullen
@@ -191,8 +192,8 @@ public class Admin {
         return usernameCurrentUpdate;
 
     }
-    
-     public TextField updateUsername() {
+
+    public TextField updateUsername() {
 
         usernameUpdate = new TextField();                 //text voor tijd invullen
         usernameUpdate.setPromptText("Username");
@@ -239,11 +240,12 @@ public class Admin {
     public String getTextUpdatetoegang() {
         return toegangUpdate.getText();
     }
+
     public String getTextUpdateCurrent() {
         return usernameCurrentUpdate.getText();
     }
-    
-     public void buildDataLuggage() {
+
+    public void buildDataLuggage() {
         Connection c;
 
         luggagedata = FXCollections.observableArrayList();
@@ -256,8 +258,7 @@ public class Admin {
 
             /**
              * ********************************
-             * TABLE COLUMN ADDED DYNAMICALLY *
-             *********************************
+             * TABLE COLUMN ADDED DYNAMICALLY * ********************************
              */
             for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
                 //We are using non property style for making dynamic table
@@ -275,8 +276,7 @@ public class Admin {
 
             /**
              * ******************************
-             * Data added to ObservableList *
-             *******************************
+             * Data added to ObservableList * ******************************
              */
             while (rs.next()) {
                 //Iterate Row
@@ -298,16 +298,16 @@ public class Admin {
         }
 
     }
-     
-      TableView adminTableLuggage() {
+
+    TableView adminTableLuggage() {
 
         luggage = new TableView();
         buildDataLuggage();
 
         return this.luggage;
     }
-      
-       public TextField luggageNr() {
+
+    public TextField luggageNr() {
 
         luggagenr = new TextField();                 //text voor tijd invullen
         luggagenr.setPromptText("UNr");
@@ -322,7 +322,7 @@ public class Admin {
     public String getLuggageNr() {
         return luggagenr.getText();
     }
-    
+
     public TextField luggageType() {
 
         luggageType = new TextField();                 //text voor tijd invullen
@@ -330,13 +330,13 @@ public class Admin {
         luggageType.setFont(Font.font("Verdana", 20));
         luggageType.setMaxWidth(220);
         luggageType.setTranslateX(-250);
-       luggageType.setTranslateY(-20);
+        luggageType.setTranslateY(-20);
 
         return luggageType;
-        
+
     }
-        
-        public TextField luggageBrand() {
+
+    public TextField luggageBrand() {
 
         luggageBrand = new TextField();                 //text voor tijd invullen
         luggageBrand.setPromptText("Brand");
@@ -346,10 +346,10 @@ public class Admin {
         luggageBrand.setTranslateY(20);
 
         return luggageBrand;
-        
-        }
-        
-        public TextField luggageCol() {
+
+    }
+
+    public TextField luggageCol() {
 
         luggageCol = new TextField();                 //text voor tijd invullen
         luggageCol.setPromptText("Colour");
@@ -359,10 +359,10 @@ public class Admin {
         luggageCol.setTranslateY(20);
 
         return luggageCol;
-        
-        }
-        
-        public TextField luggageWeight() {
+
+    }
+
+    public TextField luggageWeight() {
 
         luggageWeight = new TextField();                 //text voor tijd invullen
         luggageWeight.setPromptText("Weight (.. KG)");
@@ -372,10 +372,10 @@ public class Admin {
         luggageWeight.setTranslateY(-20);
 
         return luggageWeight;
-        
-        }
-        
-        public TextField luggageSpef() {
+
+    }
+
+    public TextField luggageSpef() {
 
         luggageSpef = new TextField();                 //text voor tijd invullen
         luggageSpef.setPromptText("Specifications");
@@ -385,22 +385,22 @@ public class Admin {
         luggageSpef.setTranslateY(-20);
 
         return luggageSpef;
-        
-        }
-        
-        public TextField luggageUnr() {
+
+    }
+
+    public TextField luggageUnr() {
 
         luggageUnr = new TextField();                 //text voor tijd invullen
         luggageUnr.setPromptText("Unr");
         luggageUnr.setFont(Font.font("Verdana", 20));
         luggageUnr.setMaxWidth(220);
         luggageUnr.setTranslateX(-600);
-        
+
         return luggageUnr;
-        
-        }
-        
-        public TextField luggageLFDM() {
+
+    }
+
+    public TextField luggageLFDM() {
 
         luggageLFDM = new TextField();                 //text voor tijd invullen
         luggageLFDM.setPromptText("Status");
@@ -410,8 +410,8 @@ public class Admin {
         luggageLFDM.setTranslateY(20);
 
         return luggageLFDM;
-        
-        }
+
+    }
 
     public String getLuggageType() {
         return luggageType.getText();
@@ -440,30 +440,30 @@ public class Admin {
     public String getLuggageLFDM() {
         return luggageLFDM.getText();
     }
-        
-    public void ClearUser(){
-    username.setText("");
-    password.setText("");
-    toegang.setText("");
+
+    public void ClearUser() {
+        username.setText("");
+        password.setText("");
+        toegang.setText("");
     }
-    
-    public void ClearRemoveUser(){
+
+    public void ClearRemoveUser() {
         usernameRemove.setText("");
         passwordRemove.setText("");
     }
-    
-    public void ClearUpdateUser(){
+
+    public void ClearUpdateUser() {
         usernameUpdate.setText("");
         usernameCurrentUpdate.setText("");
         passwordUpdate.setText("");
         toegangUpdate.setText("");
     }
-    
-    public void ClearRemoveLuggage(){
+
+    public void ClearRemoveLuggage() {
         luggagenr.setText("");
     }
-   
-    public void ClearUpdateLuggage(){
+
+    public void ClearUpdateLuggage() {
         luggageType.setText("");
         luggageBrand.setText("");
         luggageCol.setText("");
@@ -471,5 +471,30 @@ public class Admin {
         luggageSpef.setText("");
         luggageUnr.setText("");
         luggageLFDM.setText("");
+    }
+
+    public void Check(String username) {
+
+        Connection conn;                                                            //making connection to database
+
+        final String USERNAME = Mysql.username();
+        final String PASSWORD = Mysql.password();
+        final String CONN_STRING = Mysql.urlmysql();
+        try {
+            conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+            String query = ("SELECT * from login WHERE username  = " + '"' + username + '"');
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(query);
+
+            if (rs.absolute(1)) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("warning");
+                alert.setHeaderText("username already exists. Please choose another username");
+                alert.showAndWait();
+                            }
+
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
     }
 }
