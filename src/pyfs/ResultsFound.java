@@ -21,78 +21,66 @@ public class ResultsFound {
 
     public ResultsFound() {
     }
-    
-      private String[] info;
+
+    private String[] info;
     private String[] Label;
 
     public void setInfo(String[] info) {
         this.info = info;
     }
-    
-     public void Label(String [] Label) {
-        this.Label = Label;
-    }  
-    
-    
-    public GridPane ResultGrid() {
-    
-        GridPane grid = new GridPane();
-        
-    grid.setHgap(10);
-    grid.setVgap(10);
-    grid.setPadding(new Insets(0, 10, 0, 10));
-    grid.add(ShowTableLuggage(), 1, 0);
-    grid.add(ShowTablePerson(), 2, 0);
 
-    
-   return grid;
-}
-   
-    
+    public void Label(String[] Label) {
+        this.Label = Label;
+    }
+
+    public GridPane ResultGrid() {
+
+        GridPane grid = new GridPane();
+
+        grid.setHgap(10);
+        grid.setVgap(10);
+        grid.setPadding(new Insets(0, 10, 0, 10));
+        grid.add(ShowTableLuggage(), 1, 0);
+        grid.add(ShowTablePerson(), 2, 0);
+
+        return grid;
+    }
+
     mysql Mysql = new mysql();
-    
-      final String USERNAME = Mysql.username();
+
+    final String USERNAME = Mysql.username();
     final String PASSWORD = Mysql.password();
     final String CONN_STRING = Mysql.urlmysql();
-    
-    
-     private ObservableList<ObservableList> data, person, loc;
+
+    private ObservableList<ObservableList> data, person, loc;
     private TableView tableview, personTable, locTable;
-   
-    
-     public void showLuggageL() {
+
+    public void showLuggageL() {
         Connection c;
-  int Unr = 0;
+        int Unr = 0;
         data = FXCollections.observableArrayList();
         try {
             c = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
-            
-             String SQL2 = "SELECT * FROM flight WHERE labelnr = " + "'" + Label[0] + "' and " + "flightnr = " + "'" + Label[1] + "'";
-           
+
+            String SQL2 = "SELECT * FROM flight join luggage on flight.Unr = luggage.Unr WHERE labelnr = " + "'" + Label[0] + "' and " + "flightnr = " + "'" + Label[1] + "'" + "and LFDM = 'Lost'";
+
             //ResultSet
-            
             ResultSet rs2 = c.createStatement().executeQuery(SQL2);
-            
-           while (rs2.next()) { 
-           Unr = rs2.getInt("Unr");
-           }
-            
-            
-            
+
+            while (rs2.next()) {
+                Unr = rs2.getInt("Unr");
+            }
+
             //SQL FOR SELECTING ALL OF CUSTOMER
-            String SQL = "SELECT * FROM luggage where LFDM = 'Lost' and Luggagetype =" + "'" + info[0] + "'" + " or Luggagebrand = " + "'" + info[1] + "'" + " and Luggagecol = " + "'" 
-                    + info[2] + "'" + " or Luggageweight = " + "'" + info[3] +"'" + " or Unr = " + "'" + Unr + "'" + " or Luggagespef = " + "'" + info[4] + "'";
-           
+            String SQL = "SELECT * FROM luggage where LFDM = 'Lost' and Luggagetype =" + "'" + info[0] + "'" + " or Luggagebrand = " + "'" + info[1] + "'" + " and Luggagecol = " + "'"
+                    + info[2] + "'" + " or Luggageweight = " + "'" + info[3] + "'" + " or Unr = " + "'" + Unr + "'" + " or Luggagespef = " + "'" + info[4] + "'";
+
             //ResultSet
-            
             ResultSet rs = c.createStatement().executeQuery(SQL);
-            
-            
 
             /**
              * ********************************
-             * TABLE COLUMN ADDED DYNAMICALLY *
-             *********************************
+             * TABLE COLUMN ADDED DYNAMICALLY * ********************************
              */
             for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
                 //We are using non property style for making dynamic table
@@ -110,8 +98,7 @@ public class ResultsFound {
 
             /**
              * ******************************
-             * Data added to ObservableList *
-             *******************************
+             * Data added to ObservableList * ******************************
              */
             while (rs.next()) {
                 //Iterate Row
@@ -127,11 +114,7 @@ public class ResultsFound {
 
             //FINALLY ADDED TO TableView
             tableview.setItems(data);
-            
-          
-                    
-            
-            
+
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Error on Building Data");
@@ -146,53 +129,45 @@ public class ResultsFound {
 
         return this.tableview;
     }
-    
-     
-    
-     public void showPerson() {
+
+    public void showPerson() {
         Connection c;
         int Unr = 0;
-        
+
         int Pnr = 0;
 
         person = FXCollections.observableArrayList();
         try {
             c = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
-            
-             String SQL3 = "SELECT * FROM flight WHERE labelnr = " + "'" + Label[0] + "' and " + "flightnr = " + "'" + Label[1] + "'";
-           
+
+            String SQL3 = "SELECT * FROM flight WHERE labelnr = " + "'" + Label[0] + "' and " + "flightnr = " + "'" + Label[1] + "'";
+
             //ResultSet
-            
             ResultSet rs3 = c.createStatement().executeQuery(SQL3);
-            
-           while (rs3.next()) { 
-           Unr = rs3.getInt("Unr");
-           }
-            
-             String SQL2 = "SELECT * FROM luggage where LFDM = 'Lost' and Luggagetype =" + "'" + info[0] + "'" + " or Luggagebrand = " + "'" + info[1] + "'" + " and Luggagecol = " + "'" 
-                    + info[2] + "'" + " or Luggageweight = " + "'" + info[3] +"'" + " or Unr = " + "'" + Unr + "'";
-           
+
+            while (rs3.next()) {
+                Unr = rs3.getInt("Unr");
+            }
+
+            String SQL2 = "SELECT * FROM luggage where LFDM = 'Lost' and Luggagetype =" + "'" + info[0] + "'" + " or Luggagebrand = " + "'" + info[1] + "'" + " and Luggagecol = " + "'"
+                    + info[2] + "'" + " or Luggageweight = " + "'" + info[3] + "'" + " or Unr = " + "'" + Unr + "'";
+
             //ResultSet
-            
             ResultSet rs2 = c.createStatement().executeQuery(SQL2);
             while (rs2.next()) {
-                
-               Pnr = rs2.getInt("Pnr");
-               
-                
+
+                Pnr = rs2.getInt("Pnr");
+
             }
-            
+
             //SQL FOR SELECTING ALL OF CUSTOMER
             String SQL = "SELECT * FROM persoon WHERE Pnr = " + "'" + Pnr + "'";
             //ResultSet
             ResultSet rs = c.createStatement().executeQuery(SQL);
-            
-          
 
             /**
              * ********************************
-             * TABLE COLUMN ADDED DYNAMICALLY *
-             *********************************
+             * TABLE COLUMN ADDED DYNAMICALLY * ********************************
              */
             for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
                 //We are using non property style for making dynamic table
@@ -210,8 +185,7 @@ public class ResultsFound {
 
             /**
              * ******************************
-             * Data added to ObservableList *
-             *******************************
+             * Data added to ObservableList * ******************************
              */
             while (rs.next()) {
                 //Iterate Row
@@ -241,11 +215,5 @@ public class ResultsFound {
 
         return this.personTable;
     }
-    
-  
 
-    
 }
-
-    
-
