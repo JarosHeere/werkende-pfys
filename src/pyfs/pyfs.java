@@ -440,7 +440,7 @@ public class pyfs extends Application {
                 results.setInfo(lostbagage);
                 results.Label(label);
                 lostfinalpane.getChildren().add(results.ResultGrid());
-                lostfinalpane.getChildren().add(lostterugfinal);
+               
                 lost1.Clear();
 
                 //lostd.zoeken(labelnr);
@@ -1109,6 +1109,7 @@ public class pyfs extends Application {
         lostfinalpane = new StackPane();
 
         lostfinalpane.setStyle("-fx-background-color:#FFFFFF");
+         lostfinalpane.getChildren().add(lostterugfinal);
 
         foundpane = new StackPane();
 

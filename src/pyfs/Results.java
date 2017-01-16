@@ -60,7 +60,7 @@ public class Results {
         try {
             c = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
 
-            String SQL2 = "SELECT * FROM flight join luggage on flight.Unr = luggage.Unr WHERE labelnr = " + "'" + Label[0] + "' and " + "flightnr = " + "'" + Label[1] + "'" + "and LFDM = 'Found'";
+            String SQL2 = "SELECT * FROM flight JOIN luggage WHERE flight.labelnr = " + "'" + Label[0] + "' and " + "flight.flightnr = " + "'" + Label[1] + "'" + " and luggage.LFDM = 'Found'";
 
             //ResultSet
             ResultSet rs2 = c.createStatement().executeQuery(SQL2);
@@ -78,8 +78,8 @@ public class Results {
             try {
                 c = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
                 //SQL FOR SELECTING ALL OF CUSTOMER
-                String SQL = "SELECT * FROM luggage where LFDM = 'Found' and Luggagetype =" + "'" + info[0] + "'" + " and Luggagebrand = " + "'" + info[1] + "'" + " and Luggagecol = " + "'"
-                        + info[2] + "'" + " and Luggageweight = " + "'" + info[3] + "'" + " or (Unr = " + "'" + Unr + "'" + " and LFDM =  'Found')";
+                String SQL = "SELECT * FROM luggage where Luggagetype LIKE" + "'%" + info[0] + "%'" + " and Luggagebrand LIKE " + "'%" + info[1] + "%'" + " and Luggagecol LIKE " + "'%"
+                    + info[2] + "%'" + " and Luggageweight LIKE " + "'%" + info[3] + "%'" + " and Luggagespef LIKE " + "'%" + info[4] + "%'" + "and LFDM = 'Found'";
 
                 //ResultSet
                 ResultSet rs = c.createStatement().executeQuery(SQL);
@@ -128,7 +128,7 @@ public class Results {
             try {
                 a = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
 
-                String SQL2 = "SELECT * FROM flight join luggage on flight.Unr = luggage.Unr WHERE labelnr = " + "'" + Label[0] + "'";
+                String SQL2 = "SELECT * FROM flight JOIN luggage WHERE flight.labelnr = " + "'" + Label[0] + "' and " + "flight.flightnr = " + "'" + Label[1] + "'" + " and luggage.LFDM = 'Found'";
 
                 //ResultSet
                 ResultSet rs2 = a.createStatement().executeQuery(SQL2);

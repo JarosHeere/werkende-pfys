@@ -62,7 +62,7 @@ public class ResultsFound {
         try {
             c = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
 
-            String SQL2 = "SELECT * FROM flight join luggage on flight.Unr = luggage.Unr WHERE labelnr = " + "'" + Label[0] + "' and " + "flightnr = " + "'" + Label[1] + "'" + "and LFDM = 'Lost'";
+            String SQL2 = "SELECT * FROM flight JOIN luggage WHERE flight.labelnr = " + "'" + Label[0] + "' and " + "flight.flightnr = " + "'" + Label[1] + "'" + " and luggage.LFDM = 'Lost'";
 
             //ResultSet
             ResultSet rs2 = c.createStatement().executeQuery(SQL2);
@@ -73,7 +73,7 @@ public class ResultsFound {
 
             //SQL FOR SELECTING ALL OF CUSTOMER
             String SQL = "SELECT * FROM luggage where Luggagetype LIKE" + "'%" + info[0] + "%'" + " and Luggagebrand LIKE " + "'%" + info[1] + "%'" + " and Luggagecol LIKE " + "'%"
-                    + info[2] + "%'" + " and Luggageweight LIKE " + "'%" + info[3] + "%'" + " and Luggagespef LIKE " + "'%" + info[4] + "%'" + "and LFDM = 'Lost'";
+                    + info[2] + "%'" + " and Luggageweight LIKE " + "'%" + info[3] + "%'" + " and Luggagespef LIKE " + "'%" + info[4] + "%'" + "and LFDM = 'Lost' OR " + "Unr = " + "'" + Unr + "'";
 
             //ResultSet
             ResultSet rs = c.createStatement().executeQuery(SQL);
@@ -150,7 +150,7 @@ public class ResultsFound {
             }
 
             String SQL2 = "SELECT * FROM luggage where Luggagetype LIKE" + "'%" + info[0] + "%'" + " and Luggagebrand LIKE " + "'%" + info[1] + "%'" + " and Luggagecol LIKE " + "'%"
-                    + info[2] + "%'" + " and Luggageweight LIKE " + "'%" + info[3] + "%'" + " and Luggagespef LIKE " + "'%" + info[4] + "%'" + "and LFDM = 'Lost'";
+                    + info[2] + "%'" + " and Luggageweight LIKE " + "'%" + info[3] + "%'" + " and Luggagespef LIKE " + "'%" + info[4] + "%'" + "and LFDM = 'Lost' or Unr = " + "'" + Unr + "'";
 
             //ResultSet
             ResultSet rs2 = c.createStatement().executeQuery(SQL2);
