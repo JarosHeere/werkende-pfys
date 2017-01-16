@@ -977,13 +977,13 @@ public class pyfs extends Application {
                 admind.Update(updateInfo);
                 userUpdateStage.close();
 
-<<<<<<< HEAD
+
                 luggageUpdateStage.close();
                 
                 admin1.ClearUpdateUser();
-=======
+
                 
->>>>>>> origin/master
+
 
             }
         }
