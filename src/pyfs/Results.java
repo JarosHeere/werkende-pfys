@@ -168,6 +168,8 @@ public class Results {
                 e.printStackTrace();
                 System.out.println("Error on Building Data");
             }
+            
+            tableview.setItems(data);
 
         }
     }

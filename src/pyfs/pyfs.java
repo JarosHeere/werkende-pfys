@@ -623,7 +623,7 @@ public class pyfs extends Application {
                 resultfound.Label(vlucht);
 
                 foundfinalpane.getChildren().add(resultfound.ResultGrid());
-                foundfinalpane.getChildren().add(lostterugfinal);
+     
 
                 found1.Clear();
                 thestage.setScene(foundfinal);

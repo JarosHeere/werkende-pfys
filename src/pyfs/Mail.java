@@ -5,7 +5,9 @@
  */
 package pyfs;
 
-import java.util.Properties;
+import java.util.*;
+import javax.mail.*;
+import javax.mail.internet.*;
 
 /**
  *
@@ -16,9 +18,9 @@ public class Mail {
     public Mail() {
     }
     
-     private static String USER_NAME = "*****";  // GMail user name (just the part before "@gmail.com")
-    private static String PASSWORD = "********"; // GMail password
-    private static String RECIPIENT = "lizard.bill@myschool.edu";
+     private static String USER_NAME = "lugagemail";  // GMail user name (just the part before "@gmail.com")
+    private static String PASSWORD = "PFYS2017"; // GMail password
+    private static String RECIPIENT = "merijnmolenaar@outlook.com";
 
     public static void main(String[] args) {
         String from = USER_NAME;
@@ -69,7 +71,15 @@ public class Mail {
         catch (MessagingException me) {
             me.printStackTrace();
         }
+        
+        
+     
+        
+        
     }
-}
+    
+    
     
 }
+    
+
