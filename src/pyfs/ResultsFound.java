@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pyfs;
 
 import java.sql.Connection;
@@ -36,11 +31,7 @@ public class ResultsFound {
     
      public void Label(String [] Label) {
         this.Label = Label;
-    }
-     
-     
-    
-    
+    }  
     
     
     public GridPane ResultGrid() {
@@ -85,10 +76,6 @@ public class ResultsFound {
            while (rs2.next()) { 
            Unr = rs2.getInt("Unr");
            }
-            
-            
-            
-            
             
             
             

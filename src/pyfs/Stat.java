@@ -5,13 +5,9 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 import javafx.scene.chart.*;
-import javafx.scene.Group;
 
 /**
  *
@@ -37,18 +33,18 @@ public class Stat {
         try {
             conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
             Statement stmt = (Statement) conn.createStatement();
-            ResultSet rs5 = stmt.executeQuery("SELECT COUNT(*) AS total FROM luggage where LFDM = L");
+            ResultSet rs5 = stmt.executeQuery("SELECT COUNT(*) AS total FROM luggage where LFDM = 'L'");
 
             while (rs5.next()) {
                 count = rs5.getInt("total");
             }
-            ResultSet rs6 = stmt.executeQuery("SELECT COUNT(*) AS total FROM luggage where LFDM = D");
+            ResultSet rs6 = stmt.executeQuery("SELECT COUNT(*) AS total FROM luggage where LFDM = 'D'");
 
             while (rs6.next()) {
                 count1 = rs6.getInt("total");
-                
+
             }
-            ResultSet rs7 = stmt.executeQuery("SELECT COUNT(*) AS total FROM luggage where LFDM = F");
+            ResultSet rs7 = stmt.executeQuery("SELECT COUNT(*) AS total FROM luggage where LFDM = 'F'");
 
             while (rs7.next()) {
                 count2 = rs7.getInt("total");
@@ -83,18 +79,18 @@ public class Stat {
         try {
             conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
             Statement stmt = (Statement) conn.createStatement();
-            ResultSet rs5 = stmt.executeQuery("SELECT COUNT(*) AS total FROM luggage where LFDM = L");
+            ResultSet rs5 = stmt.executeQuery("SELECT COUNT(*) AS total FROM luggage where LFDM = 'Lost'");
 
             while (rs5.next()) {
                 count = rs5.getInt("total");
             }
-            ResultSet rs6 = stmt.executeQuery("SELECT COUNT(*) AS total FROM luggage where LFDM = M");
+            ResultSet rs6 = stmt.executeQuery("SELECT COUNT(*) AS total FROM luggage where LFDM = 'M'");
 
             while (rs6.next()) {
                 count1 = rs6.getInt("total");
                 count1 = count1 / 2;
             }
-            ResultSet rs7 = stmt.executeQuery("SELECT COUNT(*) AS total FROM luggage where LFDM = F");
+            ResultSet rs7 = stmt.executeQuery("SELECT COUNT(*) AS total FROM luggage where LFDM = 'Found'");
 
             while (rs7.next()) {
                 count2 = rs7.getInt("total");

@@ -1,6 +1,5 @@
 package pyfs;
 
-import com.sun.corba.se.spi.orb.StringPair;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -11,13 +10,11 @@ import static javafx.application.Application.launch;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.chart.PieChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 /**
@@ -805,6 +802,7 @@ public class pyfs extends Application {
                 userCreateStage.setScene(userCreate);
                 userCreateStage.setResizable(false);
                 userCreateStage.show();
+                
 
             }
 
@@ -831,7 +829,7 @@ public class pyfs extends Application {
                 admind.Add(Add);
 
                 userCreateStage.close();
-
+                admin1.ClearUser();
             }
 
         }
@@ -904,6 +902,7 @@ public class pyfs extends Application {
                 admind.Delete(remove);
 
                 userRemoveStage.close();
+                admin1.ClearRemoveUser();
 
             }
         }
@@ -925,6 +924,8 @@ public class pyfs extends Application {
                 admind.luggageRemove(deleteLuggage);
 
                 luggageRemoveStage.close();
+                
+                admin1.ClearRemoveLuggage();
 
             }
         }
@@ -944,11 +945,11 @@ public class pyfs extends Application {
             public void handle(ActionEvent event
             ) {
 
-                luggageUpdateStage = new Stage();
-                luggageUpdateStage.setTitle("Luggage update");
-                luggageUpdateStage.setScene(luggageUpdate);
-                luggageUpdateStage.setResizable(false);
-                luggageUpdateStage.show();
+                userUpdateStage = new Stage();
+                userUpdateStage.setTitle("Update user");
+                userUpdateStage.setScene(userUpdate);
+                userUpdateStage.setResizable(false);
+                userUpdateStage.show();
 
             }
 
@@ -974,8 +975,15 @@ public class pyfs extends Application {
                 updateInfo[3] = admin1.getTextUpdateCurrent();
 
                 admind.Update(updateInfo);
+                userUpdateStage.close();
 
+<<<<<<< HEAD
                 luggageUpdateStage.close();
+                
+                admin1.ClearUpdateUser();
+=======
+                
+>>>>>>> origin/master
 
             }
         }
@@ -1015,9 +1023,7 @@ public class pyfs extends Application {
 
             public void handle(ActionEvent event) {
 
-               
-                
-                     String updateLuggage[] = new String[7];
+                String updateLuggage[] = new String[7];
 
                 updateLuggage[0] = admin1.getLuggageUnr();
                 updateLuggage[1] = admin1.getLuggageType();
@@ -1030,6 +1036,7 @@ public class pyfs extends Application {
                 admind.luggageUpdate(updateLuggage);
 
                 luggageUpdateStage.close();
+                admin1.ClearUpdateLuggage();
 
             }
         }

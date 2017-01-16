@@ -1,8 +1,5 @@
 package pyfs;
 
-import java.time.format.DateTimeFormatter;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Font;
@@ -20,83 +17,80 @@ public class Lost {
     private TextField adres, zip, country, phone, mail, lugtype, lugbrand, lugcolor, lugweight, labelnr, flightnr, destin, date;
     private TextArea lugspef;
 
-    public String getTextLugspef() {
+    public String getTextLugspef() {// return text of lugspef
         return lugspef.getText().toLowerCase();
     }
 
-    public String getTextDestin() {
+    public String getTextDestin() {//return text of destin
         return destin.getText().toLowerCase();
     }
 
-    public String getTextFlightnr() {
+    public String getTextFlightnr() {//return text of flightnr
         return flightnr.getText().toLowerCase();
     }
 
-    public String getTextLabelnr() {
+    public String getTextLabelnr() {//return text of labelnr
         return labelnr.getText().toLowerCase();
     }
 
-    public String getTextlugweight() {
+    public String getTextlugweight() {//return text of lugweight
         return lugweight.getText().toLowerCase();
     }
 
-    public String getTextLugcolor() {
+    public String getTextLugcolor() {//return text of lugcolor
         return lugcolor.getText().toLowerCase();
     }
 
-    public String getTextLygbrand() {
+    public String getTextLygbrand() {//return text of lugbrand
         return lugbrand.getText().toLowerCase();
     }
 
-    public String getTextLugype() {
+    public String getTextLugype() {//return text of lugtupe
         return lugtype.getText().toLowerCase();
     }
 
-    public String getTextNaam() {
-
+    public String getTextNaam() {//return text of naam
         return naam.getText().toLowerCase();
     }
 
-    public String getTextAdres() {
+    public String getTextAdres() {//return text of adres
         return adres.getText().toLowerCase();
     }
 
-    public String getTextZip() {
+    public String getTextZip() {//return text of zip
         return zip.getText().toLowerCase();
     }
 
-    public String getTextCountry() {
+    public String getTextCountry() {//return text of country
         return country.getText().toLowerCase();
     }
 
-    public String getTextPhone() {
+    public String getTextPhone() {//return text of phone
         return phone.getText().toLowerCase();
 
     }
 
-    public String getTextMail() {
+    public String getTextMail() {//return text of mail
         return mail.getText().toLowerCase();
     }
 
-    public String getCity() {
+    public String getCity() {//return text of city
         return city.getText().toLowerCase();
     }
-    
-     public String getAirport() {
+
+    public String getAirport() {//return text of airport
         return airport.getText().toLowerCase();
     }
 
-    public String getTime() {
+    public String getTime() {//return text of time
         return time.getText().toLowerCase();
     }
-     
-      public String getDate() {
+
+    public String getDate() {//return text of date
         return date.getText();
     }
-     
-     
 
-    TextField date() {
+    TextField date() {//creating textfield for date
 
         date = new TextField();
         date.setPromptText("YYYY-MM-DD");
@@ -108,7 +102,7 @@ public class Lost {
 
     TextField Time() {
 
-        time = new TextField();                 //text voor tijd invullen
+        time = new TextField();                //creating textfield for time
         time.setPromptText("Time (HH:MM)");
         time.setFont(Font.font("Verdana", 20));
         time.setMaxWidth(220);
@@ -119,19 +113,17 @@ public class Lost {
 
     TextField airport() {
 
-        airport = new TextField();                 //text voor vliegveld
+        airport = new TextField();                 //creating textfield for airport
         airport.setPromptText("Airport");
         airport.setTranslateY(50);
         airport.setMaxWidth(220);
-        
-      
 
         return airport;
 
     }
 
     TextField Naam() {
-        naam = new TextField();                 //text voor naam invullen
+        naam = new TextField();                //creating textfield for naam
         naam.setPromptText("Name");
         naam.setFont(Font.font("Verdana", 20));
         naam.setMaxWidth(220);
@@ -142,7 +134,7 @@ public class Lost {
 
     TextField adres() {
 
-        adres = new TextField();                 //text voor adres invullen
+        adres = new TextField();                 //creating textfield for adres
         adres.setPromptText("Adress");
         adres.setFont(Font.font("Verdana", 20));
         adres.setMaxWidth(220);
@@ -153,7 +145,7 @@ public class Lost {
 
     TextField City() {
 
-        city = new TextField();                 //text voor woonplaats invullen
+        city = new TextField();                 //creating textfield for city
         city.setPromptText("City");
         city.setFont(Font.font("Verdana", 20));
         city.setMaxWidth(220);
@@ -285,7 +277,13 @@ public class Lost {
         return destin;
     }
 
+<<<<<<< HEAD
+    
+    
         public void Clear(){
+=======
+    public void Clear() {
+>>>>>>> origin/master
         time.setText("");
         city.setText("");
         naam.setText("");
@@ -304,6 +302,6 @@ public class Lost {
         date.setText("");
         lugspef.setText("");
         airport.setText("");
-        
+
     }
 }
