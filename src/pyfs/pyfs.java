@@ -594,7 +594,7 @@ public class pyfs extends Application {
                 resultfound.Label(vlucht);
 
                 foundfinalpane.getChildren().add(resultfound.ResultGrid());
-                foundfinalpane.getChildren().add(lostterugfinal);
+     
 
                 found1.Clear();
                 thestage.setScene(foundfinal);
@@ -947,9 +947,19 @@ public class pyfs extends Application {
                 admind.Update(updateInfo);
                 userUpdateStage.close();
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
                 luggageUpdateStage.close();
 
                 admin1.ClearUpdateUser();
+<<<<<<< HEAD
+=======
+
+                
+
+>>>>>>> origin/master
 
             }
         }

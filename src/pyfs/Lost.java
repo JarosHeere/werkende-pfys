@@ -278,8 +278,16 @@ public class Lost {
     }
 
 
+<<<<<<< HEAD
     public void Clear() {
 
+=======
+    
+    
+        public void Clear(){
+
+  
+>>>>>>> origin/master
         time.setText("");
         city.setText("");
         naam.setText("");
