@@ -106,7 +106,34 @@ public class Admind {
         try {
          
             conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
-            String query = "DELETE FROM luggage WHERE luggagelnr = " + "'" + remove[0] + "'";
+            String query = "DELETE FROM luggage WHERE Unr = " + "'" + remove[0] + "'";
+            Statement st = conn.createStatement();
+            st.executeUpdate(query);
+
+        } catch (SQLException ed) {
+
+            System.err.println(ed);
+
+        }
+
+     
+
+    }
+    
+     public void luggageUpdate(String[] Update) {
+      
+
+        Connection conn;                                                            //making connection to database
+
+        final String USERNAME = Mysql.username();
+        final String PASSWORD = Mysql.password();
+        final String CONN_STRING = Mysql.urlmysql();
+
+        try {
+         
+            conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+            String query = "UPDATE luggage SET Luggagetype =" + '"' + Update[1] + '"' + ",Luggagebrand = " + '"' + Update[2] + '"' + ", Luggagecol = " + '"' + Update[3] + '"' + ", Luggageweight = " + '"' + Update[4] + '"' 
+               +     ", Luggagespef = " + '"' + Update[5] + '"' + ", LFDM = " + '"' + Update[6] + '"'  + " WHERE Unr = " + '"' + Update[0] + '"';
             Statement st = conn.createStatement();
             st.executeUpdate(query);
 

@@ -66,9 +66,9 @@ public class pyfs extends Application {
 
     //Admin
     Button adminterugmenu, userTableBtn;
-    StackPane adminpane, userTablePane, userRemovePane, userUpdatePane, luggageTablePane, luggageRemovePane;
-    Scene admin, userTable, userCreate, userRemove, userUpdate, luggageTable, luggageRemove;
-    Stage userTableStage, userCreateStage, userRemoveStage, userUpdateStage, luggageTableStage, luggageRemoveStage;
+    StackPane adminpane, userTablePane, userRemovePane, userUpdatePane, luggageTablePane, luggageRemovePane, luggageUpdatePane;
+    Scene admin, userTable, userCreate, userRemove, userUpdate, luggageTable, luggageRemove, luggageUpdate;
+    Stage userTableStage, userCreateStage, userRemoveStage, userUpdateStage, luggageTableStage, luggageRemoveStage, luggageUpdateStage;
 
     @Override
     public void start(Stage primaryStage) {
@@ -84,6 +84,7 @@ public class pyfs extends Application {
         Admind admind = new Admind();
         Foundd foundd = new Foundd();
         Results results = new Results();
+        ResultsFound resultfound = new ResultsFound();
 
         //BEGIN CONTROLS
         //Loginscherm
@@ -452,15 +453,6 @@ public class pyfs extends Application {
             public void handle(ActionEvent event
             ) {
 
-                String[] lostbagage = new String[5];
-                lostbagage[0] = lost1.getTextLugype();
-                lostbagage[1] = lost1.getTextLygbrand();
-                lostbagage[2] = lost1.getTextLugcolor();
-                lostbagage[3] = lost1.getTextlugweight();
-                lostbagage[4] = lost1.getTextLugspef();
-
-                lostd.setLostbagage(lostbagage);
-
                 thestage.setScene(lost4);
 
             }
@@ -492,12 +484,26 @@ public class pyfs extends Application {
                 label[2] = lost1.getTextDestin();
                 lostd.setLabel(label);
 
+                String[] lostbagage = new String[5];
+                lostbagage[0] = lost1.getTextLugype();
+                lostbagage[1] = lost1.getTextLygbrand();
+                lostbagage[2] = lost1.getTextLugcolor();
+                lostbagage[3] = lost1.getTextlugweight();
+                lostbagage[4] = lost1.getTextLugspef();
+
+                lostd.setLostbagage(lostbagage);
+
                 int unr = lostd.Unr();
                 int pnr = lostd.invullenP();
 
                 lostd.getLabel(unr);
                 lostd.getLuggage(unr, pnr);
                 lostd.getDate(unr);
+
+                results.setInfo(lostbagage);
+                results.Label(label);
+                lostfinalpane.getChildren().add(results.ResultGrid());
+                lostfinalpane.getChildren().add(lostterugfinal);
                 lost1.Clear();
 
                 //lostd.zoeken(labelnr);
@@ -656,15 +662,6 @@ public class pyfs extends Application {
             public void handle(ActionEvent event
             ) {
 
-                String[] vlucht = new String[4];
-                vlucht[0] = found1.getLabelnr();
-                vlucht[1] = found1.getFlightnr();
-                vlucht[2] = found1.getNametrav();
-                foundd.setFoundLabel(vlucht);
-                System.out.println(vlucht[0]);
-                System.out.println(vlucht[1]);
-                System.out.println(vlucht[2]);
-
                 thestage.setScene(found3);
 
             }
@@ -724,9 +721,21 @@ public class pyfs extends Application {
                 foundbagage[4] = found1.getLugspef();
                 foundd.setFoundbagage(foundbagage);
 
+                String[] vlucht = new String[4];
+                vlucht[0] = found1.getLabelnr();
+                vlucht[1] = found1.getFlightnr();
+                vlucht[2] = found1.getNametrav();
+                foundd.setFoundLabel(vlucht);
+
                 foundd.getLuggage(unr);
                 foundd.getLabel(unr);
                 foundd.getDate(unr);
+
+                resultfound.setInfo(foundbagage);
+                resultfound.Label(vlucht);
+
+                foundfinalpane.getChildren().add(resultfound.ResultGrid());
+                foundfinalpane.getChildren().add(lostterugfinal);
 
                 found1.Clear();
                 thestage.setScene(foundfinal);
@@ -1017,7 +1026,7 @@ public class pyfs extends Application {
         removeLuggage.setText("Remove Luggage");                                           //back button
         removeLuggage.setPrefSize(200, 50);
         removeLuggage.setTranslateX(-100);
-        removeLuggage.setTranslateY(50);
+        removeLuggage.setTranslateY(-50);
         removeLuggage.setStyle("-fx-base:darkcyan;-fx-border-color:black");
         removeLuggage.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -1094,11 +1103,11 @@ public class pyfs extends Application {
             public void handle(ActionEvent event
             ) {
 
-                userUpdateStage = new Stage();
-                userUpdateStage.setTitle("User update");
-                userUpdateStage.setScene(userUpdate);
-                userUpdateStage.setResizable(false);
-                userUpdateStage.show();
+                luggageUpdateStage = new Stage();
+                luggageUpdateStage.setTitle("Luggage update");
+                luggageUpdateStage.setScene(luggageUpdate);
+                luggageUpdateStage.setResizable(false);
+                luggageUpdateStage.show();
 
             }
 
@@ -1106,11 +1115,6 @@ public class pyfs extends Application {
         );
 
         Button update2User = new Button();
-
-        update2User.setText("Update");                                           //back button
-        update2User.setPrefSize(150, 50);
-        update2User.setTranslateX(550);
-        update2User.setStyle("-fx-base:darkcyan;-fx-border-color:black");
 
         update2User.setText("Update");                                           //back button
         update2User.setPrefSize(150, 50);
@@ -1130,7 +1134,61 @@ public class pyfs extends Application {
 
                 admind.Update(updateInfo);
 
-                userUpdateStage.close();
+                luggageUpdateStage.close();
+
+            }
+        }
+        );
+
+        Button updateLuggage = new Button();
+        updateLuggage.setText("Update Luggage");                                           //back button
+        updateLuggage.setPrefSize(200, 50);
+        updateLuggage.setTranslateX(-100);
+        updateLuggage.setTranslateY(50);
+        updateLuggage.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+
+        updateLuggage.setOnAction(
+                new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event
+            ) {
+
+                luggageUpdateStage = new Stage();
+                luggageUpdateStage.setTitle("Luggage update");
+                luggageUpdateStage.setScene(luggageUpdate);
+                luggageUpdateStage.setResizable(false);
+                luggageUpdateStage.show();
+
+            }
+
+        }
+        );
+
+        Button update2Luggage = new Button();
+        update2Luggage.setText("Update");                                           //back button
+        update2Luggage.setPrefSize(150, 50);
+        update2Luggage.setTranslateX(700);
+        update2Luggage.setStyle("fx-base:darkcyan;-fx-border-color:black");
+        update2Luggage.setOnAction(new EventHandler<ActionEvent>() {
+
+            public void handle(ActionEvent event) {
+
+               
+                
+                     String updateLuggage[] = new String[7];
+
+                updateLuggage[0] = admin1.getLuggageUnr();
+                updateLuggage[1] = admin1.getLuggageType();
+                updateLuggage[2] = admin1.getLuggageBrand();
+                updateLuggage[3] = admin1.getLuggageCol();
+                updateLuggage[4] = admin1.getLuggageWeight();
+                updateLuggage[5] = admin1.getLuggageSpef();
+                updateLuggage[6] = admin1.getLuggageLFDM();
+
+                admind.luggageUpdate(updateLuggage);
+
+                luggageUpdateStage.close();
 
             }
         }
@@ -1203,8 +1261,6 @@ public class pyfs extends Application {
         lostfinalpane = new StackPane();
 
         lostfinalpane.setStyle("-fx-background-color:#FFFFFF");
-        lostfinalpane.getChildren().add(lostterugfinal);
-        lostfinalpane.getChildren().add(results.ShowTable());
 
         foundpane = new StackPane();
 
@@ -1270,6 +1326,7 @@ public class pyfs extends Application {
         adminpane.getChildren().add(updateUser);
         adminpane.getChildren().add(LuggageTableBtn);
         adminpane.getChildren().add(removeLuggage);
+        adminpane.getChildren().add(updateLuggage);
 
         userTablePane = new StackPane();
         userTablePane.setStyle("-fx-background-color:#FFFFFF");
@@ -1306,6 +1363,17 @@ public class pyfs extends Application {
         luggageRemovePane.getChildren().add(deleteLuggage);
         luggageRemovePane.getChildren().add(admin1.luggageNr());
 
+        luggageUpdatePane = new StackPane();
+        luggageUpdatePane.setStyle("-fx-background-color:#FFFFFF");
+        luggageUpdatePane.getChildren().add(admin1.luggageUnr());
+        luggageUpdatePane.getChildren().add(admin1.luggageType());
+        luggageUpdatePane.getChildren().add(admin1.luggageBrand());
+        luggageUpdatePane.getChildren().add(admin1.luggageCol());
+        luggageUpdatePane.getChildren().add(admin1.luggageWeight());
+        luggageUpdatePane.getChildren().add(admin1.luggageSpef());
+        luggageUpdatePane.getChildren().add(admin1.luggageLFDM());
+        luggageUpdatePane.getChildren().add(update2Luggage);
+
         //geeft alle scenes in
         loginscherm = new Scene(inlogschermpane, 1600, 800);
         menu = new Scene(menupane, 1600, 800);
@@ -1328,6 +1396,7 @@ public class pyfs extends Application {
         userUpdate = new Scene(userUpdatePane, 1300, 100);
         luggageTable = new Scene(luggageTablePane, 700, 700);
         luggageRemove = new Scene(luggageRemovePane, 500, 100);
+        luggageUpdate = new Scene(luggageUpdatePane, 1600, 200);
 
         primaryStage.setTitle("Applicatie naam");
         primaryStage.setScene(admin);

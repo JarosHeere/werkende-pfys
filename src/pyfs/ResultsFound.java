@@ -20,20 +20,26 @@ import javafx.util.Callback;
 
 /**
  *
- * @author merij
+ * @author Merijn Molenaar
  */
-public class Results {
+public class ResultsFound {
+
+    public ResultsFound() {
+    }
     
-    private String[] info;
+      private String[] info;
     private String[] Label;
 
     public void setInfo(String[] info) {
         this.info = info;
     }
     
-     public void Label(String[] Label) {
+     public void Label(String [] Label) {
         this.Label = Label;
     }
+     
+     
+    
     
     
     
@@ -45,7 +51,7 @@ public class Results {
     grid.setVgap(10);
     grid.setPadding(new Insets(0, 10, 0, 10));
     grid.add(ShowTableLuggage(), 1, 0);
-
+    grid.add(ShowTablePerson(), 2, 0);
 
     
    return grid;
@@ -59,14 +65,13 @@ public class Results {
     final String CONN_STRING = Mysql.urlmysql();
     
     
-     private ObservableList<ObservableList> data, date, loc;
-    private TableView tableview, dateTable, locTable;
+     private ObservableList<ObservableList> data, person, loc;
+    private TableView tableview, personTable, locTable;
    
     
      public void showLuggageL() {
         Connection c;
-        int Unr = 0;
-
+  int Unr = 0;
         data = FXCollections.observableArrayList();
         try {
             c = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
@@ -83,13 +88,18 @@ public class Results {
             
             
             
+            
+            
+            
+            
             //SQL FOR SELECTING ALL OF CUSTOMER
-            String SQL = "SELECT * FROM luggage where LFDM = 'Found' and Luggagetype =" + "'" + info[0] + "'" + " and Luggagebrand = " + "'" + info[1] + "'" + " and Luggagecol = " + "'" 
-                    + info[2] + "'" + " and Luggageweight = " + "'" + info[3] +"'" + "or Unr = " + "'" + Unr + "'";
+            String SQL = "SELECT * FROM luggage where LFDM = 'Lost' and Luggagetype =" + "'" + info[0] + "'" + " and Luggagebrand = " + "'" + info[1] + "'" + " and Luggagecol = " + "'" 
+                    + info[2] + "'" + " and Luggageweight = " + "'" + info[3] +"'" + " or Unr = " + "'" + Unr + "'" + " or Luggagespef = " + "'" + info[4] + "'";
            
             //ResultSet
             
             ResultSet rs = c.createStatement().executeQuery(SQL);
+            
             
 
             /**
@@ -131,9 +141,9 @@ public class Results {
             //FINALLY ADDED TO TableView
             tableview.setItems(data);
             
-            
+          
                     
-        
+            
             
         } catch (Exception e) {
             e.printStackTrace();
@@ -152,28 +162,41 @@ public class Results {
     
      
     
-    /* public void showDate() {
+     public void showPerson() {
         Connection c;
+        int Unr = 0;
+        
+        int Pnr = 0;
 
-        date = FXCollections.observableArrayList();
+        person = FXCollections.observableArrayList();
         try {
             c = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
             
-             String SQL2 = "SELECT * FROM luggage where LFDM = 'Found' and Luggagetype =" + "'" + info[0] + "'" + " and Luggagebrand = " + "'" + info[1] + "'" + " and Luggagecol = " + "'" 
-                    + info[2] + "'" + " and Luggageweight = " + "'" + info[3] +"'";
+             String SQL3 = "SELECT * FROM flight WHERE labelnr = " + "'" + Label[0] + "' and " + "flightnr = " + "'" + Label[1] + "'";
            
             //ResultSet
             
-            ResultSet rs2 = c.createStatement().executeQuery(SQL2); 
-            while(rs2.next()) {
+            ResultSet rs3 = c.createStatement().executeQuery(SQL3);
+            
+           while (rs3.next()) { 
+           Unr = rs3.getInt("Unr");
+           }
+            
+             String SQL2 = "SELECT * FROM luggage where LFDM = 'Lost' and Luggagetype =" + "'" + info[0] + "'" + " and Luggagebrand = " + "'" + info[1] + "'" + " and Luggagecol = " + "'" 
+                    + info[2] + "'" + " and Luggageweight = " + "'" + info[3] +"'" + " or Unr = " + "'" + Unr + "'";
+           
+            //ResultSet
+            
+            ResultSet rs2 = c.createStatement().executeQuery(SQL2);
+            while (rs2.next()) {
                 
-                this.Date[0] = rs2.getInt("Unr");
+               Pnr = rs2.getInt("Pnr");
+               
                 
             }
             
-            
             //SQL FOR SELECTING ALL OF CUSTOMER
-            String SQL = "SELECT * FROM flight WHERE";
+            String SQL = "SELECT * FROM persoon WHERE Pnr = " + "'" + Pnr + "'";
             //ResultSet
             ResultSet rs = c.createStatement().executeQuery(SQL);
             
@@ -184,7 +207,7 @@ public class Results {
              * TABLE COLUMN ADDED DYNAMICALLY *
              *********************************
              */
-     /*       for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
+            for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
                 //We are using non property style for making dynamic table
                 final int j = i;
                 TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i + 1));
@@ -194,7 +217,7 @@ public class Results {
                     }
                 });
 
-                dateTable.getColumns().addAll(col);
+                personTable.getColumns().addAll(col);
                 System.out.println("Column [" + i + "] ");
             }
 
@@ -203,7 +226,7 @@ public class Results {
              * Data added to ObservableList *
              *******************************
              */
-       /*     while (rs.next()) {
+            while (rs.next()) {
                 //Iterate Row
                 ObservableList<String> row = FXCollections.observableArrayList();
                 for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
@@ -211,12 +234,12 @@ public class Results {
                     row.add(rs.getString(i));
                 }
                 System.out.println("Row [1] added " + row);
-                date.add(row);
+                person.add(row);
 
             }
 
             //FINALLY ADDED TO TableView
-            dateTable.setItems(date);
+            personTable.setItems(person);
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Error on Building Data");
@@ -224,15 +247,18 @@ public class Results {
 
     }
 
-    TableView ShowTableDate() {
+    TableView ShowTablePerson() {
 
-        dateTable = new TableView();
-        showDate();
+        personTable = new TableView();
+        showPerson();
 
-        return this.dateTable;
-    } */
+        return this.personTable;
+    }
     
   
 
     
 }
+
+    
+

@@ -22,7 +22,7 @@ public class Admin {
 
     mysql Mysql = new mysql();
     TextField username, usernameRemove, usernameUpdate, usernameCurrentUpdate, password, passwordRemove, passwordUpdate, toegang, toegangRemove, toegangUpdate;
-    TextField luggagenr;
+    TextField luggagenr, luggageType, luggageBrand, luggageCol, luggageWeight, luggageSpef, luggageUnr, luggageLFDM;
 
     final String USERNAME = Mysql.username();
     final String PASSWORD = Mysql.password();
@@ -322,5 +322,129 @@ public class Admin {
     public String getLuggageNr() {
         return luggagenr.getText();
     }
+    
+    public TextField luggageType() {
+
+        luggageType = new TextField();                 //text voor tijd invullen
+        luggageType.setPromptText("Type");
+        luggageType.setFont(Font.font("Verdana", 20));
+        luggageType.setMaxWidth(220);
+        luggageType.setTranslateX(-250);
+       luggageType.setTranslateY(-20);
+
+        return luggageType;
+        
+    }
+        
+        public TextField luggageBrand() {
+
+        luggageBrand = new TextField();                 //text voor tijd invullen
+        luggageBrand.setPromptText("Brand");
+        luggageBrand.setFont(Font.font("Verdana", 20));
+        luggageBrand.setMaxWidth(220);
+        luggageBrand.setTranslateX(-250);
+        luggageBrand.setTranslateY(20);
+
+        return luggageBrand;
+        
+        }
+        
+        public TextField luggageCol() {
+
+        luggageCol = new TextField();                 //text voor tijd invullen
+        luggageCol.setPromptText("Colour");
+        luggageCol.setFont(Font.font("Verdana", 20));
+        luggageCol.setMaxWidth(220);
+        luggageCol.setTranslateX(0);
+        luggageCol.setTranslateY(20);
+
+        return luggageCol;
+        
+        }
+        
+        public TextField luggageWeight() {
+
+        luggageWeight = new TextField();                 //text voor tijd invullen
+        luggageWeight.setPromptText("Weight (.. KG)");
+        luggageWeight.setFont(Font.font("Verdana", 20));
+        luggageWeight.setMaxWidth(220);
+        luggageWeight.setTranslateX(0);
+        luggageWeight.setTranslateY(-20);
+
+        return luggageWeight;
+        
+        }
+        
+        public TextField luggageSpef() {
+
+        luggageSpef = new TextField();                 //text voor tijd invullen
+        luggageSpef.setPromptText("Specifications");
+        luggageSpef.setFont(Font.font("Verdana", 20));
+        luggageSpef.setMaxWidth(220);
+        luggageSpef.setTranslateX(250);
+        luggageSpef.setTranslateY(-20);
+
+        return luggageSpef;
+        
+        }
+        
+        public TextField luggageUnr() {
+
+        luggageUnr = new TextField();                 //text voor tijd invullen
+        luggageUnr.setPromptText("Unr");
+        luggageUnr.setFont(Font.font("Verdana", 20));
+        luggageUnr.setMaxWidth(220);
+        luggageUnr.setTranslateX(-600);
+        
+        return luggageUnr;
+        
+        }
+        
+        public TextField luggageLFDM() {
+
+        luggageLFDM = new TextField();                 //text voor tijd invullen
+        luggageLFDM.setPromptText("Status");
+        luggageLFDM.setFont(Font.font("Verdana", 20));
+        luggageLFDM.setMaxWidth(220);
+        luggageLFDM.setTranslateX(250);
+        luggageLFDM.setTranslateY(20);
+
+        return luggageLFDM;
+        
+        }
+
+    public String getLuggageType() {
+        return luggageType.getText();
+    }
+
+    public String getLuggageBrand() {
+        return luggageBrand.getText();
+    }
+
+    public String getLuggageCol() {
+        return luggageCol.getText();
+    }
+
+    public String getLuggageWeight() {
+        return luggageWeight.getText();
+    }
+
+    public String getLuggageSpef() {
+        return luggageSpef.getText();
+    }
+
+    public String getLuggageUnr() {
+        return luggageUnr.getText();
+    }
+
+    public String getLuggageLFDM() {
+        return luggageLFDM.getText();
+    }
+        
+        
+    
+    
+    
+    
 
 }
