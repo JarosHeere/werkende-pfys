@@ -121,12 +121,9 @@ public class Admind {
 
         }
 
-     
-
     }
-    
-     public void luggageUpdate(String[] Update) {
-      
+
+    public void luggageUpdate(String[] Update) {
 
         Connection conn;                                                            //making connection to database
 
@@ -135,10 +132,10 @@ public class Admind {
         final String CONN_STRING = Mysql.urlmysql();
 
         try {
-         
+
             conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
-            String query = "UPDATE luggage SET Luggagetype =" + '"' + Update[1] + '"' + ",Luggagebrand = " + '"' + Update[2] + '"' + ", Luggagecol = " + '"' + Update[3] + '"' + ", Luggageweight = " + '"' + Update[4] + '"' 
-               +     ", Luggagespef = " + '"' + Update[5] + '"' + ", LFDM = " + '"' + Update[6] + '"'  + " WHERE Unr = " + '"' + Update[0] + '"';
+            String query = "UPDATE luggage SET Luggagetype =" + '"' + Update[1] + '"' + ",Luggagebrand = " + '"' + Update[2] + '"' + ", Luggagecol = " + '"' + Update[3] + '"' + ", Luggageweight = " + '"' + Update[4] + '"'
+                    + ", Luggagespef = " + '"' + Update[5] + '"' + ", LFDM = " + '"' + Update[6] + '"' + " WHERE Unr = " + '"' + Update[0] + '"';
             Statement st = conn.createStatement();
             st.executeUpdate(query);
 

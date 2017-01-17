@@ -64,8 +64,13 @@ public class Results {
             try {
                 c = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
                 //SQL FOR SELECTING ALL OF CUSTOMER
+<<<<<<< HEAD
                 String SQL = "SELECT * FROM luggage where Luggagetype LIKE" + "'%" + info[0] + "%'" + " and Luggagebrand LIKE " + "'%" + info[1] + "%'" + " and Luggagecol LIKE " + "'%"
                     + info[2] + "%'" + " and Luggageweight LIKE " + "'%" + info[3] + "%'" + " or Luggagespef LIKE " + "'%" + info[4] + "%'" + "and LFDM = 'Found'";
+=======
+                String SQL = "SELECT * FROM luggage where Luggagetype LIKE" + "'%" + info[0] + "%'" + " or Luggagebrand LIKE " + "'%" + info[1] + "%'" + " or Luggagecol LIKE " + "'%"
+                        + info[2] + "%'" + " or Luggageweight LIKE " + "'%" + info[3] + "%'" + " or Luggagespef LIKE " + "'%" + info[4] + "%'" + "and LFDM = 'Found'";
+>>>>>>> origin/master
 
                 //ResultSet
                 ResultSet rs = c.createStatement().executeQuery(SQL);
@@ -114,7 +119,57 @@ public class Results {
                 e.printStackTrace();
                 System.out.println("Error on Building Data");
             }
+<<<<<<< HEAD
             
+=======
+
+        } else {
+
+            try {
+                a = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+
+                String SQL2 = "SELECT * FROM luggage WHERE Unr = " + "'" + Unr + "'";
+
+                //ResultSet
+                ResultSet rs2 = a.createStatement().executeQuery(SQL2);
+
+                /**
+                 * ********************************
+                 * TABLE COLUMN ADDED DYNAMICALLY *
+                 * ********************************
+                 */
+                for (int i = 0; i < rs2.getMetaData().getColumnCount(); i++) {
+                    //We are using non property style for making dynamic table
+                    final int j = i;
+                    TableColumn col = new TableColumn(rs2.getMetaData().getColumnName(i + 1));
+                    col.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ObservableList, String>, ObservableValue<String>>() {
+                        public ObservableValue<String> call(TableColumn.CellDataFeatures<ObservableList, String> param) {
+                            return new SimpleStringProperty(param.getValue().get(j).toString());
+                        }
+                    });
+                    System.out.println("Column [" + i + "] ");
+                    tableview.getColumns().addAll(col);
+                    while (rs2.next()) {
+                        //Iterate Row
+                        ObservableList<String> row = FXCollections.observableArrayList();
+                        for (int l = 1; l <= rs2.getMetaData().getColumnCount(); l++) {
+                            //Iterate Column
+                            row.add(rs2.getString(l));
+                        }
+                        System.out.println("Row [1] added " + row);
+                        data.add(row);
+
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.out.println("Error on Building Data");
+            }
+
+            tableview.setItems(data);
+
+        }
+>>>>>>> origin/master
     }
 
          
