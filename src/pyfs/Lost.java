@@ -277,7 +277,7 @@ public class Lost {
         return destin;
     }
 
-        public void Clear(){
+    public void Clear() {
 
         time.setText("");
         city.setText("");

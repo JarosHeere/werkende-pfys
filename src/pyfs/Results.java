@@ -79,7 +79,7 @@ public class Results {
                 c = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
                 //SQL FOR SELECTING ALL OF CUSTOMER
                 String SQL = "SELECT * FROM luggage where Luggagetype LIKE" + "'%" + info[0] + "%'" + " or Luggagebrand LIKE " + "'%" + info[1] + "%'" + " or Luggagecol LIKE " + "'%"
-                    + info[2] + "%'" + " or Luggageweight LIKE " + "'%" + info[3] + "%'" + " or Luggagespef LIKE " + "'%" + info[4] + "%'" + "and LFDM = 'Found'";
+                        + info[2] + "%'" + " or Luggageweight LIKE " + "'%" + info[3] + "%'" + " or Luggagespef LIKE " + "'%" + info[4] + "%'" + "and LFDM = 'Found'";
 
                 //ResultSet
                 ResultSet rs = c.createStatement().executeQuery(SQL);
@@ -133,8 +133,6 @@ public class Results {
                 //ResultSet
                 ResultSet rs2 = a.createStatement().executeQuery(SQL2);
 
-               
-
                 /**
                  * ********************************
                  * TABLE COLUMN ADDED DYNAMICALLY *
@@ -160,7 +158,6 @@ public class Results {
                         }
                         System.out.println("Row [1] added " + row);
                         data.add(row);
-                        
 
                     }
                 }
@@ -168,7 +165,7 @@ public class Results {
                 e.printStackTrace();
                 System.out.println("Error on Building Data");
             }
-            
+
             tableview.setItems(data);
 
         }

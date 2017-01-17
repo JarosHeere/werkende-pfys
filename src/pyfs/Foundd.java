@@ -97,7 +97,7 @@ public class Foundd {
             conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
             Statement st = conn.createStatement();
 
-            String query = ("INSERT INTO flight (Unr, labelnr, flightnr, destin, owner) VALUES (" + '"' + Unr + '"' + "," + "'" + foundLabel[0] + "'" + "," + '"' + foundLabel[1] + '"' + "," +  null + "," + '"' +  foundLabel[2] + '"' + ")");
+            String query = ("INSERT INTO flight (Unr, labelnr, flightnr, destin, owner) VALUES (" + '"' + Unr + '"' + "," + "'" + foundLabel[0] + "'" + "," + '"' + foundLabel[1] + '"' + "," + null + "," + '"' + foundLabel[2] + '"' + ")");
             //String query2 = ("INSERT into persoon (Pnr, name, adress, city, zip, country, tel, mail) VALUES (25, " + '"' + info[2] + '"' + ", null, null, null, null, null, null)");
 
             st.executeUpdate(query);

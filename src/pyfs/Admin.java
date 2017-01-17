@@ -489,8 +489,7 @@ public class Admin {
                 alert.setTitle("warning");
                 alert.setHeaderText("username already exists. Please choose another username");
                 alert.showAndWait();
-                            }
-
+            }
         } catch (SQLException ex) {
             System.err.println(ex);
         }

@@ -9,12 +9,11 @@ import javafx.scene.text.Font;
  * @author merij
  */
 public class Found {
-    
-  
+
     private TextField time, labelnr, flightnr, destin, nametrav, lugtype, lugbrand, lugcolor, lugweight, date;
     private TextField airport;
     private TextArea lugspef;
-    
+
     Found() {
 
     }
@@ -67,8 +66,6 @@ public class Found {
         return lugspef.getText().toLowerCase();
     }
 
-    
-    
     TextField date() {                                                           // create the textfield date                                                                      
         date = new TextField();
         date.setPromptText("YYYY-MM-DD");
@@ -78,7 +75,7 @@ public class Found {
     }
 
     TextField Time() {                                                           // create the textfield time
-        time = new TextField();                 
+        time = new TextField();
         time.setPromptText("Time (HH:MM)");
         time.setFont(Font.font("Verdana", 20));
         time.setMaxWidth(220);
@@ -87,16 +84,16 @@ public class Found {
     }
 
     TextField airport() {                                                        // create the textfield airport
-        airport = new TextField();                 
+        airport = new TextField();
         airport.setPromptText("Airport");
         airport.setFont(Font.font("Verdana", 20));
         airport.setTranslateY(50);
         airport.setMaxWidth(220);
         return airport;
     }
-    
-     TextField Labelnr() {                                                       // create the textfield labelnr
-        labelnr = new TextField();                 
+
+    TextField Labelnr() {                                                       // create the textfield labelnr
+        labelnr = new TextField();
         labelnr.setPromptText("Label number");
         labelnr.setFont(Font.font("Verdana", 20));
         labelnr.setMaxWidth(220);
@@ -105,7 +102,7 @@ public class Found {
     }
 
     TextField Flightnr() {                                                       // create the textfield flightnr
-        flightnr = new TextField();                 
+        flightnr = new TextField();
         flightnr.setPromptText("Flight number");
         flightnr.setFont(Font.font("Verdana", 20));
         flightnr.setMaxWidth(220);
@@ -114,26 +111,26 @@ public class Found {
     }
 
     TextField Destin() {                                                         // create the textfield destin
-        destin = new TextField();                 
+        destin = new TextField();
         destin.setPromptText("Destination");
         destin.setFont(Font.font("Verdana", 20));
         destin.setMaxWidth(220);
         destin.setTranslateY(50);
         return destin;
     }
-    
+
     TextField NameTrav() {                                                       // create the textfield nametrav
-        nametrav = new TextField();             
+        nametrav = new TextField();
         nametrav.setPromptText("Name Traveller");
         nametrav.setFont(Font.font("Verdana", 20));
         nametrav.setMaxWidth(220);
         nametrav.setTranslateY(50);
         return nametrav;
     }
-    
-     TextField Lugtype() {                                                       // create the textfield lugtype
 
-        lugtype = new TextField();                 
+    TextField Lugtype() {                                                       // create the textfield lugtype
+
+        lugtype = new TextField();
         lugtype.setPromptText("Luggage type");
         lugtype.setFont(Font.font("Verdana", 20));
         lugtype.setMaxWidth(300);
@@ -142,7 +139,7 @@ public class Found {
     }
 
     TextField Lugbrand() {                                                       // create the textfield lugbrand
-        lugbrand = new TextField();                 
+        lugbrand = new TextField();
         lugbrand.setPromptText("Luggage brand");
         lugbrand.setFont(Font.font("Verdana", 20));
         lugbrand.setMaxWidth(300);
@@ -151,7 +148,7 @@ public class Found {
     }
 
     TextField Lugcolor() {                                                       // create the textfield lugcolor
-        lugcolor = new TextField();                 
+        lugcolor = new TextField();
         lugcolor.setPromptText("Luggage color");
         lugcolor.setFont(Font.font("Verdana", 20));
         lugcolor.setMaxWidth(300);
@@ -160,7 +157,7 @@ public class Found {
     }
 
     TextField Lugweight() {                                                      // create the textfield lugweight
-        lugweight = new TextField();                 
+        lugweight = new TextField();
         lugweight.setPromptText("Luggage weight");
         lugweight.setFont(Font.font("Verdana", 20));
         lugweight.setMaxWidth(300);
@@ -176,8 +173,8 @@ public class Found {
         lugspef.setTranslateY(60);
         return lugspef;
     }
-    
-    public void Clear(){                                                         // method to clear the fields
+
+    public void Clear() {                                                         // method to clear the fields
         time.setText("");
         labelnr.setText("");
         flightnr.setText("");
@@ -190,6 +187,6 @@ public class Found {
         date.setText("");
         airport.setText("");
         lugspef.setText("");
-        
+
     }
 }

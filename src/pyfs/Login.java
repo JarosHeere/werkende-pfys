@@ -57,7 +57,7 @@ public class Login {
         return password.getText();
     }
 
-    public void Clear(){                                                         // clear the textfields from login
+    public void Clear() {                                                         // clear the textfields from login
         username.setText("");
         password.setText("");
     }

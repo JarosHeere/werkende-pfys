@@ -198,15 +198,13 @@ public class ResultsFound {
                 person.add(row);
 
             }
-  personTable.setItems(person);
+            personTable.setItems(person);
             //FINALLY ADDED TO TableView
-        
+
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Error on Building Data");
         }
-       
-      
 
     }
 
