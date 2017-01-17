@@ -402,7 +402,7 @@ public class pyfs extends Application {
 
                 int unr = lostd.Unr();                                           // get the unr from lostd
                 int pnr = lostd.invullenP();                                     // get the pnr from lostd
-                
+
                 lostd.getLabel(unr);                                             //
                 lostd.getLuggage(unr, pnr);                                      // assign the values of unr and pnr
                 lostd.getDate(unr);                                              //
@@ -410,8 +410,9 @@ public class pyfs extends Application {
                 results.setInfo(lostbagage);                                     // fills in the info
                 results.Label(label);                                            // fills in the label
                 lostfinalpane.getChildren().add(results.ResultGrid());           // show the results
-                lostfinalpane.getChildren().add(lostterugfinal);                 // 
-                lost1.Clear();                                                   // clears the fields
+                            
+                lost1.Clear();            
+                lostfinalpane.getChildren().add(lostterugfinal);  // clears the fields
 
                 //lostd.zoeken(labelnr);
                 thestage.setScene(lostfinal);                                    // go to the next scene
@@ -566,7 +567,7 @@ public class pyfs extends Application {
                 vlucht[0] = found1.getLabelnr();                                 //
                 vlucht[1] = found1.getFlightnr();                                // fill in the array
                 vlucht[2] = found1.getNametrav();                                //
-                
+
                 foundd.setFoundLabel(vlucht);                                    //
                 foundd.getLuggage(unr);                                          //
                 foundd.getLabel(unr);                                            // 
@@ -576,6 +577,7 @@ public class pyfs extends Application {
                 resultfound.Label(vlucht);                                       //
                 foundfinalpane.getChildren().add(resultfound.ResultGrid());      //
                 found1.Clear();                                                  // clear the fields
+               foundfinalpane.getChildren().add(foundfinalButton);  
                 thestage.setScene(foundfinal);                                   // go to the next scene
             }
         }
@@ -597,7 +599,7 @@ public class pyfs extends Application {
             }
         }
         );
-        
+
         //stat
         statterugmenu = new Button();
         statterugmenu.setText("Back");                                           // back button & style
@@ -748,8 +750,9 @@ public class pyfs extends Application {
                 Add[1] = admin1.getTextAddpassword();                            //
                 Add[2] = admin1.getTextAddtoegang();                             //
 
+                  admin1.Check(Add[0]);
                 admind.Add(Add);                                                 // 
-
+              
                 userCreateStage.close();                                         // close the stage
                 admin1.ClearUser();                                              // clear the fields
             }
@@ -873,9 +876,11 @@ public class pyfs extends Application {
                 updateInfo[2] = admin1.getTextUpdatetoegang();                   //
                 updateInfo[3] = admin1.getTextUpdateCurrent();                   //
 
+                 admin1.Check(updateInfo[0]);
                 admind.Update(updateInfo);                                       // 
                 userUpdateStage.close();                                         // close the stage
-                luggageUpdateStage.close();                                      // close the stage
+               
+                // close the stage
                 admin1.ClearUpdateUser();                                        // clear the fields
             }
         }
@@ -984,7 +989,8 @@ public class pyfs extends Application {
 
         lostfinalpane = new StackPane();                                         // create a new stackpane
         lostfinalpane.setStyle("-fx-background-color:#FFFFFF");                  // set the backgroundcolour
-
+    
+        
         foundpane = new StackPane();                                             // create a new stackpane
         foundpane.setStyle("-fx-background-color:#FFFFFF");                      // set the backgroundcolour
         foundpane.getChildren().add(foundterugmenu);                             // add the back button
@@ -1013,7 +1019,7 @@ public class pyfs extends Application {
         found3pane.getChildren().add(foundnext3);                                // add the next button
 
         foundfinalpane = new StackPane();                                        // create a new stackpane
-        foundfinalpane.getChildren().add(foundfinalButton);                      // add the menu button
+                                                                                
         foundfinalpane.setStyle("-fx-background-color:#FFFFFF");                 // set the backgroundcolour
 
         statpane = new StackPane();                                              // create a new stackpane
@@ -1067,7 +1073,7 @@ public class pyfs extends Application {
 
         luggageTablePane = new StackPane();                                      // create a new stackpane
         luggageTablePane.setStyle("-fx-background-color:#FFFFFF");               // set the backgroundcolour
-        
+
         luggageRemovePane = new StackPane();                                     // create a new stackpane
         luggageRemovePane.setStyle("-fx-background-color:#FFFFFF");              // set the backgroundcolour
         luggageRemovePane.getChildren().add(deleteLuggage);                      // add the deleteLuggage button
