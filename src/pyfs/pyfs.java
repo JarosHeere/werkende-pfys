@@ -409,15 +409,10 @@ public class pyfs extends Application {
                 results.setInfo(lostbagage);                                     // fills in the info
                 results.Label(label);                                            // fills in the label
                 lostfinalpane.getChildren().add(results.ResultGrid());           // show the results
-<<<<<<< HEAD
-                            
-                lost1.Clear();            
-                lostfinalpane.getChildren().add(lostterugfinal);  // clears the fields
 
-=======
                 lostfinalpane.getChildren().add(lostterugfinal);                 // 
                 lost1.Clear();                                                   // clears the fields
->>>>>>> origin/master
+
                 //lostd.zoeken(labelnr);
                 thestage.setScene(lostfinal);                                    // go to the next scene
                 
@@ -882,15 +877,10 @@ public class pyfs extends Application {
                 updateInfo[2] = admin1.getTextUpdatetoegang();                   //
                 updateInfo[3] = admin1.getTextUpdateCurrent();                   //
 
-                 admin1.Check(updateInfo[0]);
+//                 admin1.Check(updateInfo[0]);                                  // check if the username alreadyx exists in the database
                 admind.Update(updateInfo);                                       // 
-                userUpdateStage.close();                                         // close the stage
-<<<<<<< HEAD
-               
-                // close the stage
-=======
-                admin1.Check(updateInfo[0]);                                     // check if the username alreadyx exists in the database
->>>>>>> origin/master
+                userUpdateStage.close();                                         // close the stage                                   
+
                 admin1.ClearUpdateUser();                                        // clear the fields
             }
         }
@@ -1024,14 +1014,9 @@ public class pyfs extends Application {
 
         lostfinalpane = new StackPane();                                         // create a new stackpane
         lostfinalpane.setStyle("-fx-background-color:#FFFFFF");                  // set the backgroundcolour
-<<<<<<< HEAD
-    
-        
-=======
         lostfinalpane.getChildren().add(lost1.unr());
         lostfinalpane.getChildren().add(unrLost);
 
->>>>>>> origin/master
         foundpane = new StackPane();                                             // create a new stackpane
         foundpane.setStyle("-fx-background-color:#FFFFFF");                      // set the backgroundcolour
         foundpane.getChildren().add(foundterugmenu);                             // add the back button
@@ -1060,13 +1045,9 @@ public class pyfs extends Application {
         found3pane.getChildren().add(foundnext3);                                // add the next button
 
         foundfinalpane = new StackPane();                                        // create a new stackpane
-<<<<<<< HEAD
-                                                                                
-=======
-        foundfinalpane.getChildren().add(foundfinalButton);                      // add the menu button
+                         // add the menu button
         foundfinalpane.getChildren().add(found1.unr());
         foundfinalpane.getChildren().add(unrFound);
->>>>>>> origin/master
         foundfinalpane.setStyle("-fx-background-color:#FFFFFF");                 // set the backgroundcolour
 
         statpane = new StackPane();                                              // create a new stackpane
