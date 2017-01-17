@@ -38,7 +38,7 @@ public class Stat {
             while (rs5.next()) {
                 count = rs5.getInt("total");
             }
-            ResultSet rs6 = stmt.executeQuery("SELECT COUNT(*) AS total FROM luggage where LFDM = 'D'");
+            ResultSet rs6 = stmt.executeQuery("SELECT COUNT(*) AS total FROM luggage where LFDM = 'Destroyed'");
 
             while (rs6.next()) {
                 count1 = rs6.getInt("total");
@@ -84,11 +84,11 @@ public class Stat {
             while (rs5.next()) {
                 count = rs5.getInt("total");
             }
-            ResultSet rs6 = stmt.executeQuery("SELECT COUNT(*) AS total FROM luggage where LFDM = 'M'");
+            ResultSet rs6 = stmt.executeQuery("SELECT COUNT(*) AS total FROM luggage where LFDM = 'Managed'");
 
             while (rs6.next()) {
                 count1 = rs6.getInt("total");
-                count1 = count1 / 2;
+             
             }
             ResultSet rs7 = stmt.executeQuery("SELECT COUNT(*) AS total FROM luggage where LFDM = 'Found'");
 
@@ -104,7 +104,7 @@ public class Stat {
 
         ObservableList<PieChart.Data> pieChartData
                 = FXCollections.observableArrayList(
-                        new PieChart.Data("Lost at the moment", count),
+                        new PieChart.Data("Lost", count),
                         new PieChart.Data("Back to owner's", count1),
                         new PieChart.Data("Found", count2));
 

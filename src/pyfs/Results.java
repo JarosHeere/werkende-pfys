@@ -3,6 +3,7 @@ package pyfs;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -21,6 +22,7 @@ public class Results {
 
     private String[] info;
     private String[] Label;
+    private String fUnr;
 
     public void setInfo(String[] info) {
         this.info = info;
@@ -28,6 +30,10 @@ public class Results {
 
     public void Label(String[] Label) {
         this.Label = Label;
+    }
+
+    public void fUnr(String fUnr) {
+        this.fUnr = fUnr;
     }
 
     public GridPane ResultGrid() {
@@ -57,112 +63,36 @@ public class Results {
         int Unr = 0;
 
         data = FXCollections.observableArrayList();
-        
 
-       
-
-            try {
-                c = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
-                //SQL FOR SELECTING ALL OF CUSTOMER
-
-                String SQL = "SELECT * FROM luggage where Luggagetype LIKE" + "'%" + info[0] + "%'" + " and Luggagebrand LIKE " + "'%" + info[1] + "%'" + " and Luggagecol LIKE " + "'%"
-                    + info[2] + "%'" + " and Luggageweight LIKE " + "'%" + info[3] + "%'" + " and Luggagespef LIKE " + "'%" + info[4] + "%'" + "and LFDM = 'Found'";
-
-               
-
-
-                //ResultSet
-                ResultSet rs = c.createStatement().executeQuery(SQL);
-  ResultSet rs2 = c.createStatement().executeQuery(SQL);
-
-            while (rs2.next()) {
-                Unr = rs2.getInt("Unr");
-            }
-                
-                
-                for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
-                    //We are using non property style for making dynamic table
-                    final int j = i;
-                    TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i + 1));
-                    col.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ObservableList, String>, ObservableValue<String>>() {
-                        public ObservableValue<String> call(TableColumn.CellDataFeatures<ObservableList, String> param) {
-                            return new SimpleStringProperty(param.getValue().get(j).toString());
-                        }
-                    });
-
-                    tableview.getColumns().addAll(col);
-                    System.out.println("Column [" + i + "] ");
-
-                }
-
-                /**
-                 * ******************************
-                 * Data added to ObservableList * ******************************
-                 */
-                while (rs.next()) {
-                    //Iterate Row
-                    ObservableList<String> row = FXCollections.observableArrayList();
-                    for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
-                        //Iterate Column
-                        row.add(rs.getString(i));
-                    }
-                    System.out.println("Row [1] added " + row);
-                    data.add(row);
-
-                }
-
-                //FINALLY ADDED TO TableView
-                tableview.setItems(data);
-
-            } catch (Exception e) {
-                e.printStackTrace();
-                System.out.println("Error on Building Data");
-            }
-
-    }
-          
-
-    TableView ShowTableLuggage() {
-
-        tableview = new TableView();
-        showLuggageL();
-
-        return this.tableview;
-    }
-
-    /* public void showDate() {
-        Connection c;
-
-        date = FXCollections.observableArrayList();
         try {
             c = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
-            
-             String SQL2 = "SELECT * FROM luggage where LFDM = 'Found' and Luggagetype =" + "'" + info[0] + "'" + " and Luggagebrand = " + "'" + info[1] + "'" + " and Luggagecol = " + "'" 
-                    + info[2] + "'" + " and Luggageweight = " + "'" + info[3] +"'";
-           
-            //ResultSet
-            
-            ResultSet rs2 = c.createStatement().executeQuery(SQL2); 
-            while(rs2.next()) {
-                
-                this.Date[0] = rs2.getInt("Unr");
-                
-            }
-            
-            
             //SQL FOR SELECTING ALL OF CUSTOMER
-            String SQL = "SELECT * FROM flight WHERE";
-            //ResultSet
-            ResultSet rs = c.createStatement().executeQuery(SQL);
-            
-          
 
-            /**
-             * ********************************
-             * TABLE COLUMN ADDED DYNAMICALLY *
-             *********************************
-     */
- /*       for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
+            ResultSet rs;
+
+            if (Label[0].isEmpty()) {
+                String SQL = "SELECT * FROM luggage where Luggagetype LIKE" + "'%" + info[0] + "%'" + " and Luggagebrand LIKE " + "'%" + info[1] + "%'" + " and Luggagecol LIKE " + "'%"
+                        + info[2] + "%'" + " and Luggageweight LIKE " + "'%" + info[3] + "%'" + " and Luggagespef LIKE " + "'%" + info[4] + "%'" + "and LFDM = 'Found'";
+                rs = c.createStatement().executeQuery(SQL);
+            } else {
+
+                String SQL = "SELECT * FROM luggage l, flight f WHERE f.Unr = l.Unr AND f.labelnr =" + "'" + Label[0] + "'" + " AND l.LFDM = 'Found'";
+                 rs = c.createStatement().executeQuery(SQL);
+                while (rs.next()) {
+                    Unr = rs.getInt("Unr");
+                }
+
+                if (Unr != 0) {
+
+                    String SQL3 = " SELECT * FROM luggage WHERE Unr =" + "'" + Unr + "'";
+                    rs = c.createStatement().executeQuery(SQL3);
+
+                }
+
+            }
+
+            //ResultSet
+            for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
                 //We are using non property style for making dynamic table
                 final int j = i;
                 TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i + 1));
@@ -172,16 +102,16 @@ public class Results {
                     }
                 });
 
-                dateTable.getColumns().addAll(col);
+                tableview.getColumns().addAll(col);
                 System.out.println("Column [" + i + "] ");
+
             }
 
             /**
              * ******************************
-             * Data added to ObservableList *
-             *******************************
-     */
- /*     while (rs.next()) {
+             * Data added to ObservableList * ******************************
+             */
+            while (rs.next()) {
                 //Iterate Row
                 ObservableList<String> row = FXCollections.observableArrayList();
                 for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
@@ -189,12 +119,13 @@ public class Results {
                     row.add(rs.getString(i));
                 }
                 System.out.println("Row [1] added " + row);
-                date.add(row);
+                data.add(row);
 
             }
 
             //FINALLY ADDED TO TableView
-            dateTable.setItems(date);
+            tableview.setItems(data);
+
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Error on Building Data");
@@ -202,11 +133,33 @@ public class Results {
 
     }
 
-    TableView ShowTableDate() {
+    TableView ShowTableLuggage() {
 
-        dateTable = new TableView();
-        showDate();
+        tableview = new TableView();
+        showLuggageL();
 
-        return this.dateTable;
-    } */
+        return this.tableview;
+    }
+
+    public void setManaged(String fUnr) {
+
+        Connection c;
+
+        try {
+            c = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+            //SQL FOR SELECTING ALL OF CUSTOMER
+
+            String SQL = "UPDATE luggage SET LFDM = 'Managed' WHERE Unr = " + "'" + fUnr + "'";
+
+            //ResultSet
+            Statement st = c.createStatement();
+            st.executeUpdate(SQL);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error on Building Data");
+        }
+
+    }
+
 }

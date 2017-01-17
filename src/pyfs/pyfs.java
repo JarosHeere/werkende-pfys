@@ -13,7 +13,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -43,7 +45,7 @@ public class pyfs extends Application {
     Scene menu;
 
     //Lost
-    Button lostterugmenu, lostnext, lostnext2, lostback, lostback2, search, lostterugfinal, lostnext3, lostback3;
+    Button lostterugmenu, lostnext, lostnext2, lostback, lostback2, search, lostterugfinal, lostnext3, lostback3, unrFound;
     TextField username;
     PasswordField password;
     StackPane lostpane, lost2pane, lost3pane, lost4pane, lostfinalpane;
@@ -259,6 +261,45 @@ public class pyfs extends Application {
         }
         );
 
+        Button unrLost = new Button();
+        unrLost.setText("Found!");                                               // Unr button & style
+        unrLost.setPrefSize(150, 50);
+        unrLost.setTranslateY(250);
+        unrLost.setStyle("fx-base:darkcyan;-fx-border-color:black");
+        unrLost.setOnAction(new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent event) {
+                String unr = lost1.getTextUnr();
+
+                results.setManaged(unr);
+
+                thestage.setScene(menu);
+
+                lostfinalpane.getChildren().remove(lostterugfinal);
+                lostfinalpane.getChildren().remove(lost1.unr());                            // add the textfield unr
+                lostfinalpane.getChildren().remove(unrLost);
+            }
+        });
+
+        unrFound = new Button();
+        unrFound.setText("Found!");                                              // Unr button & style
+        unrFound.setPrefSize(150, 50);
+        unrFound.setTranslateY(250);
+        unrFound.setStyle("fx-base:darkcyan;-fx-border-color:black");
+        unrFound.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+
+                String unr = found1.getTextUnr();
+                resultfound.setManaged(unr);
+                thestage.setScene(menu);
+
+                foundfinalpane.getChildren().remove(foundfinalButton);
+                foundfinalpane.getChildren().remove(found1.unr());
+                foundfinalpane.getChildren().remove(unrFound);
+
+            }
+        });
+
         //lost
         lostterugmenu = new Button();
         lostterugmenu.setText("Back");                                           // back button & style
@@ -407,15 +448,21 @@ public class pyfs extends Application {
                 lostd.getDate(unr);                                              //
 
                 results.setInfo(lostbagage);                                     // fills in the info
-                results.Label(label);                                            // fills in the label
-                lostfinalpane.getChildren().add(results.ResultGrid());           // show the results
+                results.Label(label);
+                // fills in the label
+                results.ShowTableLuggage();
 
-                lostfinalpane.getChildren().add(lostterugfinal);                 // 
+                lostfinalpane.getChildren().add(results.ResultGrid());                   // set the backgroundcolour
+                lostfinalpane.getChildren().add(lost1.unr());                            // add the textfield unr
+                lostfinalpane.getChildren().add(unrLost);
+                lostfinalpane.getChildren().add(lostterugfinal);// show the results
+
+                // 
                 lost1.Clear();                                                   // clears the fields
 
                 //lostd.zoeken(labelnr);
                 thestage.setScene(lostfinal);                                    // go to the next scene
-                
+
             }
 
         }
@@ -449,7 +496,11 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event
             ) {
-                thestage.setScene(menu);                                         // go to the next scene
+                thestage.setScene(menu);
+
+                lostfinalpane.getChildren().remove(lostterugfinal);
+                lostfinalpane.getChildren().remove(lost1.unr());                            // add the textfield unr
+                lostfinalpane.getChildren().remove(unrLost);           // go to the next scene
             }
         }
         );
@@ -574,11 +625,19 @@ public class pyfs extends Application {
                 foundd.getDate(unr);                                             //
 
                 resultfound.setInfo(foundbagage);                                // show results
-                resultfound.Label(vlucht);                                       //
-                foundfinalpane.getChildren().add(resultfound.ResultGrid());      //
+                resultfound.Label(vlucht);
+                resultfound.ShowTableLuggage();
+                resultfound.ShowTablePerson();
+
+                foundfinalpane.getChildren().add(resultfound.ResultGrid());
+                foundfinalpane.getChildren().add(foundfinalButton);
+                foundfinalpane.getChildren().add(found1.unr());
+                foundfinalpane.getChildren().add(unrFound);
+
                 found1.Clear();                                                  // clear the fields
-               foundfinalpane.getChildren().add(foundfinalButton);  
+
                 thestage.setScene(foundfinal);                                   // go to the next scene
+
             }
         }
         );
@@ -595,7 +654,10 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event
             ) {
-                thestage.setScene(menu);                                         // go to the next scene
+                thestage.setScene(menu);
+                foundfinalpane.getChildren().remove(foundfinalButton);
+                foundfinalpane.getChildren().remove(found1.unr());
+                foundfinalpane.getChildren().remove(unrFound);
             }
         }
         );
@@ -750,9 +812,9 @@ public class pyfs extends Application {
                 Add[1] = admin1.getTextAddpassword();                            //
                 Add[2] = admin1.getTextAddtoegang();                             //
 
-                  admin1.Check(Add[0]);
-                admind.Add(Add);                                                 // 
-              
+                admind.Add(Add);
+                admin1.Check(Add[0]);
+
                 userCreateStage.close();                                         // close the stage
                 admin1.Check(Add[0]);                                            // check if the username exists in the database
                 admin1.ClearUser();                                              // clear the fields
@@ -931,31 +993,6 @@ public class pyfs extends Application {
             }
         }
         );
-        
-        Button unrLost = new Button();
-        update2Luggage.setText("Search Unr");                                    // Unr button & style
-        update2Luggage.setPrefSize(150, 50);
-        update2Luggage.setTranslateX(700);
-        update2Luggage.setStyle("fx-base:darkcyan;-fx-border-color:black");
-        update2Luggage.setOnAction(new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent event) {
-                String unr = lost1.getTextUnr();
-                
-            }
-        });
-        
-        Button unrFound = new Button();
-        update2Luggage.setText("Search Unr");                                    // Unr button & style
-        update2Luggage.setPrefSize(150, 50);
-        update2Luggage.setTranslateX(700);
-        update2Luggage.setStyle("fx-base:darkcyan;-fx-border-color:black");
-        update2Luggage.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                String unr = found1.getTextUnr();
-                
-            }
-        });
 
         //EINDE CONTROLS
         //PANES
@@ -999,8 +1036,8 @@ public class pyfs extends Application {
         lost3pane.getChildren().add(lost1.Lugtype());                            // add the textfield lugtype
         lost3pane.getChildren().add(lost1.Lugbrand());                           // add the textfield lugbrand
         lost3pane.getChildren().add(lost1.Lugcolor());                           // add the textfield lugcolor
-        lost3pane.getChildren().add(lost1.lugspef());                            // add the textfield lugspef
         lost3pane.getChildren().add(lost1.Lugweight());                          // add the textfield lugweight
+        lost3pane.getChildren().add(lost1.lugspef());                            // add the textfield lugspef
         lost3pane.getChildren().add(lostback2);                                  // add the back button
         lost3pane.getChildren().add(lostnext3);                                  // add the next button
 
@@ -1013,9 +1050,8 @@ public class pyfs extends Application {
         lost4pane.getChildren().add(lostback3);                                  // add the back button
 
         lostfinalpane = new StackPane();                                         // create a new stackpane
-        lostfinalpane.setStyle("-fx-background-color:#FFFFFF");                  // set the backgroundcolour
-        lostfinalpane.getChildren().add(lost1.unr());
-        lostfinalpane.getChildren().add(unrLost);
+        lostfinalpane.setStyle("-fx-background-color:#FFFFFF");
+        // add the button unrLost
 
         foundpane = new StackPane();                                             // create a new stackpane
         foundpane.setStyle("-fx-background-color:#FFFFFF");                      // set the backgroundcolour
@@ -1039,15 +1075,13 @@ public class pyfs extends Application {
         found3pane.getChildren().add(found1.Lugtype());                          // add the textfield lugtype
         found3pane.getChildren().add(found1.Lugbrand());                         // add the textfield lugbrand
         found3pane.getChildren().add(found1.Lugcolor());                         // add the textfield lugcolor
-        found3pane.getChildren().add(found1.Lugspef());                          // add the textfield lugspef
-        found3pane.getChildren().add(found1.Lugweight());                        // add the textfield lugweight
+        found3pane.getChildren().add(found1.Lugweight());   // add the textfield lugspef
+        found3pane.getChildren().add(found1.Lugspef());
+
         found3pane.getChildren().add(foundback2);                                // add the back button
         found3pane.getChildren().add(foundnext3);                                // add the next button
 
         foundfinalpane = new StackPane();                                        // create a new stackpane
-                         // add the menu button
-        foundfinalpane.getChildren().add(found1.unr());
-        foundfinalpane.getChildren().add(unrFound);
         foundfinalpane.setStyle("-fx-background-color:#FFFFFF");                 // set the backgroundcolour
 
         statpane = new StackPane();                                              // create a new stackpane
@@ -1143,8 +1177,9 @@ public class pyfs extends Application {
         luggageUpdate = new Scene(luggageUpdatePane, 1600, 200);                 // set the height and width of the scene
 
         primaryStage.setTitle("Applicatie naam");                                // the title of our application
-        primaryStage.setScene(admin);                                            // set the scene to admin
+        primaryStage.setScene(loginscherm);                                            // set the scene to admin
         primaryStage.setResizable(false);                                        // make it so it isn't resizeable
+        primaryStage.getIcons().add(new Image("download.png"));
         primaryStage.show();                                                     // show the stage
 
     }

@@ -3,6 +3,7 @@ package pyfs;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -24,6 +25,7 @@ public class ResultsFound {
 
     private String[] info;
     private String[] Label;
+    private int Pnr;
 
     public void setInfo(String[] info) {
         this.info = info;
@@ -62,20 +64,36 @@ public class ResultsFound {
         try {
             c = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
 
-           
+           ResultSet rs;
+            if (Label[0].isEmpty()) {
+                String SQL = "SELECT * FROM luggage where Luggagetype LIKE" + "'%" + info[0] + "%'" + " and Luggagebrand LIKE " + "'%" + info[1] + "%'" + " and Luggagecol LIKE " + "'%"
+                        + info[2] + "%'" + " and Luggageweight LIKE " + "'%" + info[3] + "%'" + " and Luggagespef LIKE " + "'%" + info[4] + "%'" + "and LFDM = 'Lost'";
+                rs = c.createStatement().executeQuery(SQL);
+                
+                while(rs.next()) {
+                    
+                    this.Pnr = rs.getInt("Pnr");
+                    
+                }
+            } else {
 
-            //SQL FOR SELECTING ALL OF CUSTOMER
-            String SQL = "SELECT * FROM luggage where Luggagetype LIKE" + "'%" + info[0] + "%'" + " and Luggagebrand LIKE " + "'%" + info[1] + "%'" + " and Luggagecol LIKE " + "'%"
-                    + info[2] + "%'" + " and Luggageweight LIKE " + "'%" + info[3] + "%'" + " and Luggagespef LIKE " + "'%" + info[4] + "%'" + "and LFDM = 'Lost'";;
+                String SQL = "SELECT * FROM luggage l, flight f WHERE f.Unr = l.Unr AND f.labelnr =" + "'" + Label[0] + "'" + " AND l.LFDM = 'Lost'";
+                 rs = c.createStatement().executeQuery(SQL);
+                while (rs.next()) {
+                    Unr = rs.getInt("Unr");
+                    Pnr = rs.getInt("Pnr");
+                }
 
-            //ResultSet
-            ResultSet rs = c.createStatement().executeQuery(SQL);
-            ResultSet rs2 = c.createStatement().executeQuery(SQL);
+                if (Unr != 0) {
 
-            while (rs2.next()) {
-                Unr = rs2.getInt("Unr");
+                    String SQL3 = " SELECT * FROM luggage WHERE Unr =" + "'" + Unr + "'";
+                    rs = c.createStatement().executeQuery(SQL3);
+                    
+                    
+
+                }
+
             }
-
             /**
              * ********************************
              * TABLE COLUMN ADDED DYNAMICALLY * ********************************
@@ -130,36 +148,17 @@ public class ResultsFound {
 
     public void showPerson() {
         Connection c;
-        int Unr = 0;
+  
 
-        int Pnr = 0;
+    
 
         person = FXCollections.observableArrayList();
         try {
             c = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
 
-            String SQL3 = "SELECT * FROM flight JOIN luggage WHERE flight.labelnr = " + "'" + Label[0] + "' or " + "flight.flightnr = " + "'" + Label[1] + "'" + " and luggage.LFDM = 'Lost'";
-
-            //ResultSet
-            ResultSet rs3 = c.createStatement().executeQuery(SQL3);
-
-            while (rs3.next()) {
-                Unr = rs3.getInt("Unr");
-            }
-
-              String SQL2 ="SELECT * FROM luggage where Luggagetype LIKE" + "'%" + info[0] + "%'" + " and Luggagebrand LIKE " + "'%" + info[1] + "%'" + " and Luggagecol LIKE " + "'%"
-                    + info[2] + "%'" + " and Luggageweight LIKE " + "'%" + info[3] + "%'" + " and Luggagespef LIKE " + "'%" + info[4] + "%'" + "and LFDM = 'Lost'";
-
-            //ResultSet
-            ResultSet rs2 = c.createStatement().executeQuery(SQL2);
-            while (rs2.next()) {
-
-                Pnr = rs2.getInt("Pnr");
-
-            }
-
+         
             //SQL FOR SELECTING ALL OF CUSTOMER
-            String SQL = "SELECT * FROM persoon WHERE Pnr = " + "'" + Pnr + "'";
+            String SQL = "SELECT * FROM persoon WHERE Pnr = " + "'" + this.Pnr + "'";
             //ResultSet
             ResultSet rs = c.createStatement().executeQuery(SQL);
 
@@ -212,6 +211,27 @@ public class ResultsFound {
         showPerson();
 
         return this.personTable;
+    }
+
+    public void setManaged(String fUnr) {
+
+        Connection c;
+
+        try {
+            c = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+            //SQL FOR SELECTING ALL OF CUSTOMER
+
+            String SQL = "UPDATE luggage SET LFDM = 'Managed' WHERE Unr = " + "'" + fUnr + "'";
+
+            //ResultSet
+            Statement st = c.createStatement();
+            st.executeUpdate(SQL);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error on Building Data");
+        }
+
     }
 
 }
