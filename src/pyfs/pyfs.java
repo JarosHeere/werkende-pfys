@@ -413,6 +413,7 @@ public class pyfs extends Application {
                 lost1.Clear();                                                   // clears the fields
                 //lostd.zoeken(labelnr);
                 thestage.setScene(lostfinal);                                    // go to the next scene
+                
             }
 
         }
@@ -874,8 +875,7 @@ public class pyfs extends Application {
 
                 admind.Update(updateInfo);                                       // 
                 userUpdateStage.close();                                         // close the stage
-                luggageUpdateStage.close();                                      // close the stage
-                admin1.Check(updateInfo[0]);                                     // check if the username already exists in the database
+                admin1.Check(updateInfo[0]);                                     // check if the username alreadyx exists in the database
                 admin1.ClearUpdateUser();                                        // clear the fields
             }
         }
@@ -926,6 +926,31 @@ public class pyfs extends Application {
             }
         }
         );
+        
+        Button unrLost = new Button();
+        update2Luggage.setText("Search Unr");                                    // Unr button & style
+        update2Luggage.setPrefSize(150, 50);
+        update2Luggage.setTranslateX(700);
+        update2Luggage.setStyle("fx-base:darkcyan;-fx-border-color:black");
+        update2Luggage.setOnAction(new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent event) {
+                String unr = lost1.getTextUnr();
+                
+            }
+        });
+        
+        Button unrFound = new Button();
+        update2Luggage.setText("Search Unr");                                    // Unr button & style
+        update2Luggage.setPrefSize(150, 50);
+        update2Luggage.setTranslateX(700);
+        update2Luggage.setStyle("fx-base:darkcyan;-fx-border-color:black");
+        update2Luggage.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                String unr = found1.getTextUnr();
+                
+            }
+        });
 
         //EINDE CONTROLS
         //PANES
@@ -984,6 +1009,8 @@ public class pyfs extends Application {
 
         lostfinalpane = new StackPane();                                         // create a new stackpane
         lostfinalpane.setStyle("-fx-background-color:#FFFFFF");                  // set the backgroundcolour
+        lostfinalpane.getChildren().add(lost1.unr());
+        lostfinalpane.getChildren().add(unrLost);
 
         foundpane = new StackPane();                                             // create a new stackpane
         foundpane.setStyle("-fx-background-color:#FFFFFF");                      // set the backgroundcolour
@@ -1014,6 +1041,8 @@ public class pyfs extends Application {
 
         foundfinalpane = new StackPane();                                        // create a new stackpane
         foundfinalpane.getChildren().add(foundfinalButton);                      // add the menu button
+        foundfinalpane.getChildren().add(found1.unr());
+        foundfinalpane.getChildren().add(unrFound);
         foundfinalpane.setStyle("-fx-background-color:#FFFFFF");                 // set the backgroundcolour
 
         statpane = new StackPane();                                              // create a new stackpane

@@ -12,10 +12,15 @@ public class Found {
 
     private TextField time, labelnr, flightnr, destin, nametrav, lugtype, lugbrand, lugcolor, lugweight, date;
     private TextField airport;
+    private TextField unr;
     private TextArea lugspef;
 
     Found() {
 
+    }
+    
+    public String getTextUnr() {
+        return unr.getText().toLowerCase();
     }
 
     public TextField getDate() {                                                 // the getter of date
@@ -64,6 +69,16 @@ public class Found {
 
     public String getLugspef() {                                                 // the getter of lugspef
         return lugspef.getText().toLowerCase();
+    }
+    
+    TextField unr() {
+        unr = new TextField();
+        unr.setPromptText("Unr");
+        unr.setFont(Font.font("Verdana", 20));
+        unr.setMaxWidth(220);
+        unr.setTranslateY(300);
+
+        return unr;
     }
 
     TextField date() {                                                           // create the textfield date                                                                      

@@ -15,7 +15,12 @@ public class Lost {
     private TextField airport;
     private TextField naam;
     private TextField adres, zip, country, phone, mail, lugtype, lugbrand, lugcolor, lugweight, labelnr, flightnr, destin, date;
+    private TextField unr;
     private TextArea lugspef;
+
+    public String getTextUnr() {
+        return unr.getText().toLowerCase();
+    }
 
     public String getTextLugspef() {// return text of lugspef
         return lugspef.getText().toLowerCase();
@@ -67,7 +72,6 @@ public class Lost {
 
     public String getTextPhone() {//return text of phone
         return phone.getText().toLowerCase();
-
     }
 
     public String getTextMail() {//return text of mail
@@ -88,6 +92,16 @@ public class Lost {
 
     public String getDate() {//return text of date
         return date.getText();
+    }
+
+    TextField unr() {
+        unr = new TextField();
+        unr.setPromptText("Unr");
+        unr.setFont(Font.font("Verdana", 20));
+        unr.setMaxWidth(220);
+        unr.setTranslateY(300);
+
+        return unr;
     }
 
     TextField date() {//creating textfield for date
@@ -297,6 +311,9 @@ public class Lost {
         date.setText("");
         lugspef.setText("");
         airport.setText("");
+    }
 
+    public void ClearUnr() {
+        unr.setText("");
     }
 }
