@@ -58,6 +58,8 @@ public class ResultsFound {
     private TableView tableview, personTable, locTable;
 
     public void showLuggageL() {
+        
+        Pnr = 0;
         Connection c;
         int Unr = 0;
         data = FXCollections.observableArrayList();
@@ -116,6 +118,7 @@ public class ResultsFound {
              * ******************************
              * Data added to ObservableList * ******************************
              */
+            rs.beforeFirst();
             while (rs.next()) {
                 //Iterate Row
                 ObservableList<String> row = FXCollections.observableArrayList();
@@ -158,6 +161,9 @@ public class ResultsFound {
 
          
             //SQL FOR SELECTING ALL OF CUSTOMER
+            if(this.Pnr != 0) {
+                
+            }
             String SQL = "SELECT * FROM persoon WHERE Pnr = " + "'" + this.Pnr + "'";
             //ResultSet
             ResultSet rs = c.createStatement().executeQuery(SQL);

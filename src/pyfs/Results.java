@@ -111,6 +111,8 @@ public class Results {
              * ******************************
              * Data added to ObservableList * ******************************
              */
+            
+            rs.beforeFirst();
             while (rs.next()) {
                 //Iterate Row
                 ObservableList<String> row = FXCollections.observableArrayList();

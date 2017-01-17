@@ -1176,7 +1176,7 @@ public class pyfs extends Application {
         luggageRemove = new Scene(luggageRemovePane, 500, 100);                  // set the height and width of the scene
         luggageUpdate = new Scene(luggageUpdatePane, 1600, 200);                 // set the height and width of the scene
 
-        primaryStage.setTitle("Applicatie naam");                                // the title of our application
+        primaryStage.setTitle("Corendon Lugage");                                // the title of our application
         primaryStage.setScene(loginscherm);                                            // set the scene to admin
         primaryStage.setResizable(false);                                        // make it so it isn't resizeable
         primaryStage.getIcons().add(new Image("download.png"));
