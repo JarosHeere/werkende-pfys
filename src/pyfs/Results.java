@@ -60,7 +60,7 @@ public class Results {
         try {
             c = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
 
-            String SQL2 = "SELECT * FROM flight JOIN luggage WHERE flight.labelnr = " + "'" + Label[0] + "' and " + "flight.flightnr = " + "'" + Label[1] + "'" + " and luggage.LFDM = 'Found'";
+            String SQL2 = "SELECT * FROM flight JOIN luggage WHERE flight.labelnr = " + "'" + Label[0] + "' or " + "flight.flightnr = " + "'" + Label[1] + "'" + " and luggage.LFDM = 'Found'";
 
             //ResultSet
             ResultSet rs2 = c.createStatement().executeQuery(SQL2);
@@ -78,8 +78,8 @@ public class Results {
             try {
                 c = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
                 //SQL FOR SELECTING ALL OF CUSTOMER
-                String SQL = "SELECT * FROM luggage where Luggagetype LIKE" + "'%" + info[0] + "%'" + " and Luggagebrand LIKE " + "'%" + info[1] + "%'" + " and Luggagecol LIKE " + "'%"
-                    + info[2] + "%'" + " and Luggageweight LIKE " + "'%" + info[3] + "%'" + " and Luggagespef LIKE " + "'%" + info[4] + "%'" + "and LFDM = 'Found'";
+                String SQL = "SELECT * FROM luggage where Luggagetype LIKE" + "'%" + info[0] + "%'" + " or Luggagebrand LIKE " + "'%" + info[1] + "%'" + " or Luggagecol LIKE " + "'%"
+                    + info[2] + "%'" + " or Luggageweight LIKE " + "'%" + info[3] + "%'" + " or Luggagespef LIKE " + "'%" + info[4] + "%'" + "and LFDM = 'Found'";
 
                 //ResultSet
                 ResultSet rs = c.createStatement().executeQuery(SQL);
