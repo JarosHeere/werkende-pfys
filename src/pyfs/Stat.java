@@ -22,7 +22,11 @@ public class Stat {
 
     }
 
-    public PieChart OverYear() {
+    /**
+     *
+     * @return
+     */
+    public PieChart OverYear() {                                //created piechart with database info
         final String USERNAME = Mysql.username();
         final String PASSWORD = Mysql.password();
         final String CONN_STRING = Mysql.urlmysql();
@@ -66,6 +70,10 @@ public class Stat {
         return chart;
     }
 
+    /**
+     *
+     * @return
+     */
     public PieChart CurrentLuggage() {
 
         final String USERNAME = Mysql.username();
