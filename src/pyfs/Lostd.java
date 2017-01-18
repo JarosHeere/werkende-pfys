@@ -22,23 +22,43 @@ public class Lostd {
     private String[] persoon;
     private String labelC;
 
+    /**
+     *
+     * @param lostbagage
+     */
     public void setLostbagage(String[] lostbagage) {
         this.lostbagage = lostbagage;
     }
 
+    /**
+     *
+     * @param date
+     */
     public void setLostdate(String[] date) {
         this.date = date;
     }
 
+    /**
+     *
+     * @param persoon
+     */
     public void setP(String[] persoon) {
         this.persoon = persoon;
     }
 
+    /**
+     *
+     * @param label
+     */
     public void setLabel(String[] label) {
         this.label = label;
         this.labelC = label[0];
     }
 
+    /**
+     *
+     * @return
+     */
     public int invullenP() {
 
         final String USERNAME = Mysql.username();
