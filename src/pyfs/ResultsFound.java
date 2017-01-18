@@ -23,18 +23,30 @@ public class ResultsFound {
     public ResultsFound() {
     }
 
-    private String[] info;
+    private String[] info;      
     private String[] Label;
     private int Pnr;
 
-    public void setInfo(String[] info) {
+    /**
+     *
+     * @param info
+     */
+    public void setInfo(String[] info) { //initializing info and label 
         this.info = info;
     }
 
+    /**
+     *
+     * @param Label
+     */
     public void Label(String[] Label) {
         this.Label = Label;
     }
 
+    /**
+     *
+     * @return
+     */
     public GridPane ResultGrid() {
 
         GridPane grid = new GridPane();
@@ -60,14 +72,14 @@ public class ResultsFound {
     public void showLuggageL() {
         
         Pnr = 0;
-        Connection c;
+        Connection c;                                                              //creating a table and getting input from database
         int Unr = 0;
         data = FXCollections.observableArrayList();
         try {
             c = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
 
            ResultSet rs;
-            if (Label[0].isEmpty()) {
+            if (Label[0].isEmpty()) {                                                  //checking if label is empty, if so, compares luggases otherwise compares label 
                 String SQL = "SELECT * FROM luggage where Luggagetype LIKE" + "'%" + info[0] + "%'" + " and Luggagebrand LIKE " + "'%" + info[1] + "%'" + " and Luggagecol LIKE " + "'%"
                         + info[2] + "%'" + " and Luggageweight LIKE " + "'%" + info[3] + "%'" + " and Luggagespef LIKE " + "'%" + info[4] + "%'" + "and LFDM = 'Lost'";
                 rs = c.createStatement().executeQuery(SQL);
@@ -141,7 +153,7 @@ public class ResultsFound {
 
     }
 
-    TableView ShowTableLuggage() {
+    TableView ShowTableLuggage() {           //adding data to tableview
 
         tableview = new TableView();
         showLuggageL();
@@ -149,6 +161,9 @@ public class ResultsFound {
         return this.tableview;
     }
 
+    /**
+     *
+     */
     public void showPerson() {
         Connection c;
   
@@ -164,7 +179,7 @@ public class ResultsFound {
             if(this.Pnr != 0) {
                 
             }
-            String SQL = "SELECT * FROM persoon WHERE Pnr = " + "'" + this.Pnr + "'";
+            String SQL = "SELECT * FROM persoon WHERE Pnr = " + "'" + this.Pnr + "'";                 //building tableview data
             //ResultSet
             ResultSet rs = c.createStatement().executeQuery(SQL);
 
@@ -211,7 +226,7 @@ public class ResultsFound {
 
     }
 
-    TableView ShowTablePerson() {
+    TableView ShowTablePerson() {                                                //adding data too tableview
 
         personTable = new TableView();
         showPerson();
@@ -219,7 +234,7 @@ public class ResultsFound {
         return this.personTable;
     }
 
-    public void setManaged(String fUnr) {
+    public void setManaged(String fUnr) {                                          //method to set luggage too managed
 
         Connection c;
 
