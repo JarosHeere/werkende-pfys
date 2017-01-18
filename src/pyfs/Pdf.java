@@ -3,6 +3,7 @@ package pyfs;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -37,13 +38,27 @@ public class Pdf {
             PdfWriter.getInstance(doc, new FileOutputStream("Results.pdf"));
             doc.open();
             //Paragraph paragraph = new Paragraph();
-            doc.add((Element) query_set);
-            //PdfPTable my_report_table = new PdfPTable(8);
-            //PdfPCell table_cell;
-            //while(query_set.next()){
+            
+            PdfPTable my_report_table = new PdfPTable(8);
+            PdfPCell table_cell;
+            while (query_set.next()) {                
+                                    String dept_id = query_set.getString("name");
+                                    table_cell=new PdfPCell(new Phrase(dept_id));
+                                    my_report_table.addCell(table_cell);
+                                    String dept_name=query_set.getString("adress");
+                                    table_cell=new PdfPCell(new Phrase(dept_name));
+                                    my_report_table.addCell(table_cell);
+                                    String manager_id=query_set.getString("city");
+                                    table_cell=new PdfPCell(new Phrase(manager_id));
+                                    my_report_table.addCell(table_cell);
+                                    String location_id=query_set.getString("zip");
+                                    table_cell=new PdfPCell(new Phrase(location_id));
+                                    my_report_table.addCell(table_cell);
+                                    }
                
             //}
             //doc.add(paragraph);
+            doc.add(my_report_table);
             doc.close();
             
             query_set.close();
