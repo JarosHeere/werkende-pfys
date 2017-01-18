@@ -83,6 +83,7 @@ public class pyfs extends Application {
         Foundd foundd = new Foundd();                                            //
         Results results = new Results();                                         //
         ResultsFound resultfound = new ResultsFound();//
+        Pdf pdf = new Pdf();
 
         //BEGIN CONTROLS
         //Loginscherm
@@ -994,6 +995,16 @@ public class pyfs extends Application {
         }
         );
 
+        Button ExportPdf = new Button();
+        ExportPdf.setText("Export to PDF");
+        ExportPdf.setPrefSize(150, 50);
+        ExportPdf.setTranslateZ(700);
+        ExportPdf.setStyle("fx-base:darkcyan;-fx-border-color:black");
+        ExportPdf.setOnAction(new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent event) {
+                Pdf.ExportPdf1();
+            }
+        });
         //EINDE CONTROLS
         //PANES
         StackPane inlogschermpane = new StackPane();                             // create a new stackpane (lays out the children in a back-to-front stack

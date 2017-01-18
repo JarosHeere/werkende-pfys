@@ -23,7 +23,7 @@ import javafx.util.Callback;
  */
 public class Admin {
 
-    mysql Mysql = new mysql();
+    public mysql Mysql = new mysql();
     TextField username, usernameRemove, usernameUpdate, usernameCurrentUpdate, password, passwordRemove, passwordUpdate, toegang, toegangUpdate;
     TextField luggagenr, luggageType, luggageBrand, luggageCol, luggageWeight, luggageSpef, luggageUnr, luggageLFDM;
 
@@ -37,7 +37,7 @@ public class Admin {
     public Admin() {
     }
 
-    public void buildDataLogin() {
+    public  void buildDataLogin() {
         Connection c;
 
         data = FXCollections.observableArrayList();
